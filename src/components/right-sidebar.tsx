@@ -2,7 +2,7 @@ import { Card } from "./ui/card";
 
 const RightSidebar = () => {
   return (
-    <Card className="w-full h-full flex flex-col gap-4 p-4 shadow-none rounded-sm">
+    <Card>
       <div className="flex flex-col gap-4">
         <h2 className="text-lg font-semibold">Left Sidebar</h2>
         <p>This is the left sidebar content.</p>

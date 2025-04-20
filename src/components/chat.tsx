@@ -22,8 +22,18 @@ const ChatBar = () => {
     <Card
       className={cn(
         'w-75 flex flex-col gap-4 p-4 rounded-sm fixed right-5 shadow-md transition-all duration-200',
-        isOpen ? 'h-max bottom-0' : 'h-15 bottom-[-5px]',
       )}
+      style={
+        isOpen
+          ? {
+              height: 'max-content',
+              bottom: 0,
+            }
+          : {
+              height: '60px',
+              bottom: '-5px',
+            }
+      }
     >
       <CardHeader className="p-0 pb-2">
         <CardTitle className="flex items-center justify-between">
