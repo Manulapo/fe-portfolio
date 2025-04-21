@@ -1,25 +1,25 @@
-import Layout from '@/components/layout';
+import MainLayout from '@/components/layout';
 import { Suspense, lazy } from 'react';
 import { Route, Routes } from 'react-router-dom';
-import NotFound from './routes/notFound';
+import AppLayout from '@/components/appShell';
 
 // Lazy-loaded components
-const Home = lazy(() => import('@/app/routes/Homepage'));
-const ExperiencePage = lazy(() => import('@/app/routes/Experience'));
-// const NotFound = lazy(() => import('@/app/routes/NotFound'));
+const HomePage = lazy(() => import('@/app/routes/Homepage'));
+const JobPage = lazy(() => import('@/app/routes/Job'));
+const NotFound = lazy(() => import('@/app/routes/notFound'));
 
 const AppRouter = () => {
   return (
     <Suspense fallback={<div>Loading...</div>}>
       <Routes>
-        {/* Layout Route */}
-        <Route path="/" element={<Layout />}>
-          {/* Default Route */}
-          <Route index element={<Home />} />
-
-          {/* Other Child Routes */}
-          <Route path="job" element={<ExperiencePage />} />
-          <Route path="*" element={<NotFound />} />
+        {/* Always show Navbar via AppShell */}
+        <Route element={<AppLayout />}>
+          <Route path="/" element={<MainLayout />}>
+            <Route index element={<HomePage />} />
+            <Route path="job" element={<JobPage />} />
+            <Route path="*" element={<NotFound />} />
+          </Route>
+          <Route path="profile" element={<NotFound />} />
         </Route>
       </Routes>
     </Suspense>

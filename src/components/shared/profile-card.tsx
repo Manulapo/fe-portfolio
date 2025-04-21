@@ -1,5 +1,6 @@
 import { Avatar, AvatarFallback, AvatarImage } from '../ui/avatar';
 import { Card, CardContent, CardHeader, CardTitle } from '../ui/card';
+import { Separator } from '../ui/separator';
 
 const skills = [
   {
@@ -61,6 +62,7 @@ const ProfileCard = () => {
             Copenaghen, Regione Capitale della Danimarca
           </p>
         </CardTitle>
+        <Separator className="my-4" />
         <div className="flex flex-col gap-2 mt-4">
           <h2 className="text-lg font-semibold">About</h2>
           <p className="text-sm text-muted-foreground">
@@ -69,6 +71,7 @@ const ProfileCard = () => {
           </p>
         </div>
 
+        <Separator className="my-4" />
         <div className="flex flex-col gap-2 mt-4">
           <h2 className="text-lg font-semibold">Skills</h2>
           <ul className="text-sm text-muted-foreground list-none flex flex-col gap-1">
