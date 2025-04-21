@@ -3,10 +3,12 @@ import { Avatar, AvatarFallback, AvatarImage } from '@radix-ui/react-avatar';
 
 const AvatarIcon = ({
   size,
+  image,
   className,
   ...props
 }: {
   size?: number;
+  image?: string;
   className?: string;
   [key: string]: any;
 }) => {
@@ -19,7 +21,7 @@ const AvatarIcon = ({
           className,
         )}
         {...props}
-        src="https://github.com/shadcn.png"
+        src={image ?? 'https://github.com/shadcn.png'}
       />
       <AvatarFallback
         className={cn(

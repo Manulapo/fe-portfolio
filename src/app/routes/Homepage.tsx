@@ -1,13 +1,18 @@
 import AddPost from '@/components/shared/add-post';
 import Post from '@/components/shared/post';
+import { posts } from '../constants';
 
 const Homepage = () => {
   return (
     <>
       <AddPost />
-      <Post />
-      <Post hasSuggested={true} />
-      <Post />
+      {posts.map((post, index) => (
+        <Post
+          postData={post}
+          key={post.createdAt}
+          hasSuggested={Math.floor(Math.random() * 100) % 2 === 0}
+        />
+      ))}
     </>
   );
 };

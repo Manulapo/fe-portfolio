@@ -175,7 +175,7 @@ export default function Navbar() {
 
   const navIcons = isMobile
     ? navbarIcons.filter((item) => item.name !== 'Chat')
-    : navbarIcons.filter((item) => item.name !== 'Publish');
+    : navbarIcons.filter((item) => item.name !== 'Post');
 
   return (
     <>

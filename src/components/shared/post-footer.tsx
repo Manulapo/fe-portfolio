@@ -3,15 +3,31 @@ import { Button } from '../ui/button';
 import { Separator } from '../ui/separator';
 import { postFooterLinks } from '@/app/constants';
 
-const PostFooter = () => {
+const PostFooter = ({
+  likes,
+  comments,
+  shares,
+}: {
+  likes?: number;
+  comments?: number;
+  shares?: number;
+}) => {
+  const getRandomTwoDigitNumber = () => {
+    // from 1 to 99
+    return Math.floor(Math.random() * 99) + 1;
+  };
+
   return (
     <>
       <div className="px-4 h-5 flex items-center justify-between text-muted-foreground text-xs">
-        <div>Manuel la Porta e altre 2 persone</div>
+        <div>{likes ? likes.toString() : getRandomTwoDigitNumber()} likes</div>
         <div className="flex items-center gap-2">
-          <p>13 comments</p>
+          <p>
+            {comments ? comments.toString() : getRandomTwoDigitNumber()}{' '}
+            comments
+          </p>
           {'-'}
-          <p>1 Shared</p>
+          <p>{shares ? shares.toString() : getRandomTwoDigitNumber()} share</p>
         </div>
       </div>
       <Separator className="w-[95%] mx-auto my-0 py-0 h-min" />

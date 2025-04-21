@@ -3,13 +3,17 @@ import { Card, CardContent, CardDescription, CardHeader } from '../ui/card';
 import AvatarIcon from './Avatar';
 import PostFooter from './post-footer';
 import Suggested from './suggested';
+import { PostData } from '@/types';
+import { formatDate } from '@/lib/utils';
 
 const Post = ({
   className,
+  postData,
   hasSuggested = false,
   ...props
 }: {
   className?: string;
+  postData?: PostData;
   hasSuggested?: boolean;
   [key: string]: any;
 }) => {
@@ -22,14 +26,16 @@ const Post = ({
       </div>
       <CardHeader>
         <div className="flex items-start gap-3">
-          <AvatarIcon size={14} />
+          <AvatarIcon image={postData?.author.avatarUrl} size={14} />
           <div className="flex flex-col justify-center">
-            <h2 className="text-lg font-semibold py-0 h-6">Post Title</h2>
+            <h2 className="text-lg font-semibold py-0 h-6">
+              {postData?.author.name}
+            </h2>
             <p className="text-muted-foreground text-xs">
-              Post description goes here.
+              {postData?.author?.title}
             </p>
             <p className="text-xs text-gray-600 font-semibold flex items-center gap-1">
-              <p>2 hours ago </p>
+              <p>{formatDate(postData!.createdAt.toString())}</p>
               <Globe2 size={15} />
             </p>
           </div>
@@ -37,16 +43,15 @@ const Post = ({
       </CardHeader>
       <CardContent className="px-0">
         <CardDescription className="text-gray-900 px-4 mb-5">
-          This is a sample post content. It can be a long text that describes
-          the post in detail. You can add more information here to make it more
-          informative and engaging for the readers.
+          {postData?.description}
         </CardDescription>
-        <img
-          src="https://images.pexels.com/photos/25954946/pexels-photo-25954946/free-photo-of-balconies-of-modern-building-with-apartments.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-          alt=""
-        />
+        {postData?.imageUrl && <img src={postData?.imageUrl} alt={postData?.imageAlt}  className='w-full'/>}
       </CardContent>
-      <PostFooter />
+      <PostFooter
+        likes={postData?.likes}
+        comments={postData?.comments}
+        shares={postData?.shares}
+      />
     </Card>
   );
 };
