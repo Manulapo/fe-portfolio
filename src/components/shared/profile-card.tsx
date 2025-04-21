@@ -1,6 +1,6 @@
-import { Avatar, AvatarFallback, AvatarImage } from '../ui/avatar';
 import { Card, CardContent, CardHeader, CardTitle } from '../ui/card';
 import { Separator } from '../ui/separator';
+import AvatarIcon from './Avatar';
 
 const skills = [
   {
@@ -46,10 +46,7 @@ const ProfileCard = () => {
     <Card className="p-0 h-auto">
       <CardHeader className="p-0 pb-2 rounded-tl-sm rounded-tr-sm bg-amber-500 h-25 relative">
         <div className="absolute left-3 bottom-[-35px] border-2 border-white rounded-full bg-white ">
-          <Avatar className="w-20 h-20">
-            <AvatarImage src="https://github.com/shadcn.png" />
-            <AvatarFallback>U</AvatarFallback>
-          </Avatar>
+        <AvatarIcon size={20}/>
         </div>
       </CardHeader>
       <CardContent className="h-auto pb-5">

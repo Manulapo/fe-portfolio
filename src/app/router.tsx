@@ -5,7 +5,8 @@ import AppLayout from '@/components/appShell';
 
 // Lazy-loaded components
 const HomePage = lazy(() => import('@/app/routes/Homepage'));
-const JobPage = lazy(() => import('@/app/routes/Job'));
+const ExperiencePage = lazy(() => import('@/app/routes/Experiencepage'));
+const ChatPage = lazy(() => import('@/app/routes/chatpage'));
 const NotFound = lazy(() => import('@/app/routes/notFound'));
 
 const AppRouter = () => {
@@ -16,7 +17,8 @@ const AppRouter = () => {
         <Route element={<AppLayout />}>
           <Route path="/" element={<MainLayout />}>
             <Route index element={<HomePage />} />
-            <Route path="job" element={<JobPage />} />
+            <Route path="experience" element={<ExperiencePage />} />
+            <Route path="chat" element={<ChatPage />} />
             <Route path="*" element={<NotFound />} />
           </Route>
           <Route path="profile" element={<NotFound />} />

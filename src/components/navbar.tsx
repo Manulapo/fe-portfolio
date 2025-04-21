@@ -1,10 +1,6 @@
+import { navbarIcons } from '@/app/constants';
 import chat from '@/assets/icons/chat.svg';
-import home from '@/assets/icons/home.svg';
-import job from '@/assets/icons/job.svg';
 import linkedinIcon from '@/assets/icons/LinkedIn_icon.svg';
-import notification from '@/assets/icons/notification.svg';
-import people from '@/assets/icons/people.svg';
-import publish from '@/assets/icons/publish.svg';
 import sort from '@/assets/icons/sort.svg';
 import {
   NavigationMenu,
@@ -17,20 +13,11 @@ import { NavigationMenuItem } from '@radix-ui/react-navigation-menu';
 import { ChevronDown, ChevronUp, Search } from 'lucide-react';
 import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Avatar, AvatarFallback, AvatarImage } from './ui/avatar';
+import AvatarIcon from './shared/Avatar';
 import { Button } from './ui/button';
 import { Card, CardContent, CardTitle } from './ui/card';
 import { Input } from './ui/input';
 import { Popover, PopoverContent, PopoverTrigger } from './ui/popover';
-
-const icons = [
-  { icon: home, path: '/', name: 'Home' },
-  { icon: people, path: '/people', name: 'People' },
-  { icon: chat, path: '/chat', name: 'Chat' },
-  { icon: publish, path: '/publish', name: 'Publish' },
-  { icon: job, path: '/job', name: 'Jobs' },
-  { icon: notification, path: '/notification', name: 'Notification' },
-];
 
 const ProfileIcon = () => {
   const [isClicked, setIsClicked] = useState(false);
@@ -53,11 +40,8 @@ const ProfileIcon = () => {
               'h-full flex flex-col items-center justify-center w-15 md:w-20 bg-white',
             )}
           >
-            <div className="rounded-full bg-white ">
-              <Avatar className="w-7 h-7">
-                <AvatarImage src="https://github.com/shadcn.png" />
-                <AvatarFallback>U</AvatarFallback>
-              </Avatar>
+            <div className="bg-white">
+              <AvatarIcon size={7} />
             </div>
 
             <span className="text-muted-foreground text-xs flex items-center justify-around opacity-70 hover:opacity-100">
@@ -75,10 +59,7 @@ const ProfileIcon = () => {
         <Card className="w-full h-max p-0 border-0">
           <CardContent className="h-auto py-4 flex flex-col items-center justify-center gap-4">
             <div className="border-white rounded-full bg-white flex items-center justify-center gap-3">
-              <Avatar className="w-10 h-10">
-                <AvatarImage src="https://github.com/shadcn.png" />
-                <AvatarFallback>U</AvatarFallback>
-              </Avatar>
+              <AvatarIcon size={10} />
               <CardTitle className="font-semibold flex flex-col gap-1">
                 <h2 className="">Manuel La Porta</h2>
                 <p className="text-muted-foreground text-sm">
@@ -119,11 +100,8 @@ const ForTheCompaniesIcon = () => (
           'h-full flex flex-col items-center justify-center w-15 md:w-20 bg-white',
         )}
       >
-        <div className="]rounded-full bg-white ">
-          <Avatar className="w-7 h-7">
-            <AvatarImage src="https://github.com/shadcn.png" />
-            <AvatarFallback>U</AvatarFallback>
-          </Avatar>
+        <div className="bg-white ">
+          <AvatarIcon size={7} />
         </div>
 
         <span className="text-muted-foreground text-xs flex items-center justify-around opacity-70 hover:opacity-100">
@@ -139,10 +117,7 @@ const MobileTopBar = () => (
   <NavigationMenu className="flex justify-between mx-auto md:h-14 md:border-b md:border-gray-200 max-w-full bg-white fixed top-0 md:top-0 z-50">
     <div className="w-full h-full md:m-auto flex justify-between items-center">
       <div className="w-full flex justify-around items-center p-2 list-none border-b-1 border-gray-200">
-        <Avatar>
-          <AvatarImage src="https://github.com/shadcn.png" />
-          <AvatarFallback>U</AvatarFallback>
-        </Avatar>
+        <AvatarIcon size={8} />
         <NavigationMenuItem className="">
           <div className="relative w-[250px] h-9 flex items-center justify-center">
             <Input
@@ -199,8 +174,8 @@ export default function Navbar() {
   const isMobile = useIsMobile();
 
   const navIcons = isMobile
-    ? icons.filter((item) => item.name !== 'Chat')
-    : icons.filter((item) => item.name !== 'Publish');
+    ? navbarIcons.filter((item) => item.name !== 'Chat')
+    : navbarIcons.filter((item) => item.name !== 'Publish');
 
   return (
     <>
@@ -256,7 +231,7 @@ export default function Navbar() {
                 </NavigationMenuItem>
               );
             })}
-            <ProfileIcon />
+            {!isMobile && <ProfileIcon />}
           </div>
         </div>
       </NavigationMenu>

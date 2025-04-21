@@ -1,16 +1,8 @@
-import newPost from '@/assets/icons/new_post.svg';
-import options from '@/assets/icons/dots.svg';
-import chevron from '@/assets/icons/chevronUp.svg';
-import { Avatar, AvatarFallback, AvatarImage } from './ui/avatar';
-import { Card, CardContent, CardHeader, CardTitle } from './ui/card';
-import { useState } from 'react';
 import { cn } from '@/lib/utils';
-
-const chatIcons = [
-  { icon: options, alt: 'options' },
-  { icon: newPost, alt: 'newPost' },
-  { icon: chevron, alt: 'chevron' },
-];
+import { useState } from 'react';
+import AvatarIcon from './shared/Avatar';
+import { Card, CardContent, CardHeader, CardTitle } from './ui/card';
+import { chatIcons } from '@/app/constants';
 
 const ChatBar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -38,10 +30,7 @@ const ChatBar = () => {
       <CardHeader className="p-0 pb-2">
         <CardTitle className="flex items-center justify-between">
           <div className="flex gap-2 items-center">
-            <Avatar>
-              <AvatarImage src="https://github.com/shadcn.png" />
-              <AvatarFallback>U</AvatarFallback>
-            </Avatar>
+            <AvatarIcon size={8}/>
             <h3>Messaging</h3>
           </div>
           <div className="flex gap-1" onClick={handleChatClick}>
