@@ -2,6 +2,7 @@ import MainLayout from '@/components/layout';
 import { Suspense, lazy } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import AppLayout from '@/components/appShell';
+import ProfilePage from './routes/Profilepage';
 
 // Lazy-loaded components
 const HomePage = lazy(() => import('@/app/routes/Homepage'));
@@ -21,7 +22,7 @@ const AppRouter = () => {
             <Route path="chat" element={<ChatPage />} />
             <Route path="*" element={<NotFound />} />
           </Route>
-          <Route path="profile" element={<NotFound />} />
+          <Route path="profile" element={<ProfilePage />} />
         </Route>
       </Routes>
     </Suspense>

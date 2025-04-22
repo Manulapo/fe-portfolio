@@ -1,13 +1,10 @@
-import { useIsMobile } from '@/hooks/use-mobile';
 import { useRef } from 'react';
 import { Outlet } from 'react-router-dom';
-import ChatBar from './chat';
 import Footer from './footer';
 import LeftSidebar from './left-sidebar';
 import RightSidebar from './right-sidebar';
 
 const MainLayout = () => {
-  const isMobile = useIsMobile();
   const sidebarRef = useRef<HTMLDivElement>(null);
   const leftSidebarHeight = sidebarRef?.current?.getBoundingClientRect().height;
 
@@ -39,7 +36,6 @@ const MainLayout = () => {
         <div className="sticky top-20">
           <Footer />
         </div>
-        {!isMobile && <ChatBar />}
       </div>
     </main>
   );

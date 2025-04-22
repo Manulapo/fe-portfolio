@@ -71,7 +71,7 @@ const experiencea = [
 const InfoCard = () => {
   return (
     <Card className="p-0 h-auto">
-      <CardHeader className="">
+      <CardHeader  >
         <Heading title="About me" />
       </CardHeader>
       <Separator className="my-2" />

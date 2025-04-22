@@ -6,7 +6,7 @@ const Suggested = () => {
     <>
       <div className="pl-4 h-5 flex items-center justify-between">
         <div className="flex items-center gap-2">
-          <AvatarIcon size={7} />
+          <AvatarIcon size={20} />
           <p className="text-xs text-muted-foreground">
             Suggested by <span className="font-semibold">Manuel La Porta</span>
           </p>

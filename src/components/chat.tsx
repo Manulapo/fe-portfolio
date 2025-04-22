@@ -1,8 +1,12 @@
+import chevron from '@/assets/icons/chevronUp.svg';
+import options from '@/assets/icons/dots.svg';
+import newPost from '@/assets/icons/new_post.svg';
 import { cn } from '@/lib/utils';
 import { useState } from 'react';
 import AvatarIcon from './shared/Avatar';
 import { Card, CardContent, CardHeader, CardTitle } from './ui/card';
-import { chatIcons } from '@/app/constants';
+import { Button } from './ui/button';
+import { ChevronDown, ChevronUp } from 'lucide-react';
 
 const ChatBar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -22,7 +26,7 @@ const ChatBar = () => {
               bottom: 0,
             }
           : {
-              height: '60px',
+              height: '65px',
               bottom: '-5px',
             }
       }
@@ -30,24 +34,22 @@ const ChatBar = () => {
       <CardHeader className="p-0 pb-2">
         <CardTitle className="flex items-center justify-between">
           <div className="flex gap-2 items-center">
-            <AvatarIcon size={8}/>
+            <AvatarIcon size={30} />
             <h3>Messaging</h3>
           </div>
           <div className="flex gap-1" onClick={handleChatClick}>
-            {chatIcons.map((item, index) => (
-              <button
-                key={index}
-                className="w-8 h-8 text-gray-500 hover:text-gray-800 hover:bg-gray-200 rounded-full flex items-center justify-center"
-              >
-                <img
-                  src={item.icon}
-                  className="w-5 h-5"
-                  alt={item.alt}
-                  width={24}
-                  height={24}
-                />
-              </button>
-            ))}
+            <Button className="bg-transparent text-gray-500 hover:text-gray-800 hover:bg-gray-200 rounded-full flex items-center justify-center p-2">
+              <img src={options} alt="options" className="w-4 h-4" />
+            </Button>
+            <Button className="bg-transparent text-gray-500 hover:text-gray-800 hover:bg-gray-200 rounded-full flex items-center justify-center p-2">
+              <img src={newPost} alt="newPost" className="w-4 h-4" />
+            </Button>
+            <Button
+              onClick={() => setIsOpen(!isOpen)}
+              className="bg-transparent text-black hover:text-gray-800 hover:bg-gray-200 rounded-full flex items-center justify-center p-2"
+            >
+              {isOpen ? <ChevronDown /> : <ChevronUp />}
+            </Button>
           </div>
         </CardTitle>
       </CardHeader>

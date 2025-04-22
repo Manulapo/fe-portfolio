@@ -41,27 +41,27 @@ const ProfileIcon = () => {
             )}
           >
             <div className="bg-white">
-              <AvatarIcon size={7} />
+              <AvatarIcon size={28} />
             </div>
 
-            <span className="text-muted-foreground text-xs flex items-center justify-around opacity-70 hover:opacity-100">
+            <span className="text-muted-foreground text-xs flex items-center justify-between opacity-70 hover:opacity-100">
+              Profile
               {isClicked ? (
                 <ChevronUp className="w-4 h-4" />
               ) : (
                 <ChevronDown className="w-4 h-4" />
               )}
-              Profile
             </span>
           </div>
         </Button>
       </PopoverTrigger>
       <PopoverContent className="w-90 p-0">
-        <Card className="w-full h-max p-0 border-0">
+        <Card className="w-max h-max p-0 border-0">
           <CardContent className="h-auto py-4 flex flex-col items-center justify-center gap-4">
             <div className="border-white rounded-full bg-white flex items-center justify-center gap-3">
-              <AvatarIcon size={10} />
+              <AvatarIcon size={45} />
               <CardTitle className="font-semibold flex flex-col gap-1">
-                <h2 className="">Manuel La Porta</h2>
+                <h2>Manuel La Porta</h2>
                 <p className="text-muted-foreground text-sm">
                   Frontend Developer & UX Designer
                 </p>
@@ -81,7 +81,6 @@ const ProfileIcon = () => {
           </CardContent>
         </Card>
       </PopoverContent>
-      <NavigationMenuItem className="h-full flex items-center justify-center group"></NavigationMenuItem>
     </Popover>
   );
 };
@@ -101,7 +100,7 @@ const ForTheCompaniesIcon = () => (
         )}
       >
         <div className="bg-white ">
-          <AvatarIcon size={7} />
+          <AvatarIcon size={25} />
         </div>
 
         <span className="text-muted-foreground text-xs flex items-center justify-around opacity-70 hover:opacity-100">
@@ -117,8 +116,8 @@ const MobileTopBar = () => (
   <NavigationMenu className="flex justify-between mx-auto md:h-14 md:border-b md:border-gray-200 max-w-full bg-white fixed top-0 md:top-0 z-50">
     <div className="w-full h-full md:m-auto flex justify-between items-center">
       <div className="w-full flex justify-around items-center p-2 list-none border-b-1 border-gray-200">
-        <AvatarIcon size={8} />
-        <NavigationMenuItem className="">
+        <AvatarIcon link='/profile' size={30} />
+        <NavigationMenuItem  >
           <div className="relative w-[250px] h-9 flex items-center justify-center">
             <Input
               type="text"

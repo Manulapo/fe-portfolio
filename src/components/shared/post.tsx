@@ -18,15 +18,15 @@ const Post = ({
   [key: string]: any;
 }) => {
   return (
-    <Card className="px-0 pb-1 relative">
+    <Card className="px-0 mb-2 pb-1 md:pb-0 relative">
       {hasSuggested && <Suggested />}
       <div className="flex items-center justify-end px-4 py-2 gap-2 absolute top-2 right-1">
         <Ellipsis className="rounded-full w-5 h-5" />
         <X className="rounded-full w-5 h-5" />
       </div>
-      <CardHeader>
+      <CardHeader className='w-full pl-4'>
         <div className="flex items-start gap-3">
-          <AvatarIcon image={postData?.author.avatarUrl} size={14} />
+          <AvatarIcon image={postData?.author.avatarUrl} size={50} />
           <div className="flex flex-col justify-center">
             <h2 className="text-lg font-semibold py-0 h-6">
               {postData?.author.name}

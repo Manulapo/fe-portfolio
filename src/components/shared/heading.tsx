@@ -3,8 +3,8 @@ import { CardTitle } from '../ui/card';
 
 const Heading = ({ title, icons }: { title: string; icons?: string[] }) => {
   return (
-    <CardTitle className="font-semibold pt-8 flex flex-col gap-1">
-      <h1 className="text-xl">{title}</h1>
+    <CardTitle className="font-semibold flex pt-6 flex-col gap-1">
+      <p className="text-xl">{title}</p>
       {icons && (
         <div className="flex gap-2">
           {icons.map((icon, index) =>

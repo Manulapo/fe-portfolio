@@ -9,7 +9,7 @@ import { addPostLinks } from '../../app/constants/index';
 const AddPost = () => {
   const isMobile = useIsMobile();
   return (
-    <Card className="py-4 px-0 md:px-2 h-max">
+    <Card className="py-4 px-0 md:px-2 h-max mb-0">
       <CardContent className="flex flex-col justify-center md:items-center gap-2 px-0 md:px-2 overflow-x-hidden md:overflow-auto">
         {!isMobile && (
           <div className="flex items-center justify-between gap-4 px-2 w-full h-full">
@@ -20,7 +20,7 @@ const AddPost = () => {
             />
           </div>
         )}
-        <div className="flex items-center justify-start w-full md:gap-2 flex-nowrap overflow-auto">
+        <div className="flex items-center justify-start w-full md:gap-2 flex-nowrap overflow-auto md:relative md:h-max md:top-0 fixed h-13 top-13 bg-white z-10">
           {addPostLinks.map((link) => (
             <Button
               className="flex items-center justify-start gap-2 py-5 px-2 flex-1 group"
