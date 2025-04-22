@@ -1,41 +1,39 @@
 import { forwardRef } from 'react';
 import { Card } from './ui/card';
+import { contactInfo } from '@/app/constants';
+import { Link } from 'react-router-dom';
+import Heading from './shared/heading';
+import { Separator } from './ui/separator';
 
 const RightSidebar = forwardRef<HTMLDivElement, {}>((props, ref) => {
   return (
     <div ref={ref}>
       <Card>
-        <div className="flex flex-col gap-4">
-          <h2 className="text-lg font-semibold">Left Sidebar</h2>
-          <p>This is the left sidebar content.</p>
-        </div>
-        <div className="flex flex-col gap-4">
-          <h2 className="text-lg font-semibold">Links</h2>
-          <ul className="list-disc pl-5">
-            <li>
-              <a href="#link1">Link 1</a>
-            </li>
-            <li>
-              <a href="#link2">Link 2</a>
-            </li>
-            <li>
-              <a href="#link3">Link 3</a>
-            </li>
-          </ul>
-        </div>
-        <div className="flex flex-col gap-4">
-          <h2 className="text-lg font-semibold">Categories</h2>
-          <ul className="list-disc pl-5">
-            <li>
-              <a href="#category1">Category 1</a>
-            </li>
-            <li>
-              <a href="#category2">Category 2</a>
-            </li>
-            <li>
-              <a href="#category3">Category 3</a>
-            </li>
-          </ul>
+        <Heading title="Contact Info" className="pt-0" />
+        <Separator />
+        <div className='pl-2'>
+          {contactInfo.map((item, index) => (
+            <div key={index} className="flex items-center gap-4 mb-4">
+              <item.icon className="w-4 h-4" />
+              <div className="flex flex-col">
+                {item.value &&
+                  (item.link.length > 0 ? (
+                    <Link
+                      className="text-sm text-muted-foreground"
+                      to={item.link}
+                      rel="noreferrer"
+                      target="_blank"
+                    >
+                      {item.value}
+                    </Link>
+                  ) : (
+                    <p className="text-sm text-muted-foreground">
+                      {item.value}
+                    </p>
+                  ))}
+              </div>
+            </div>
+          ))}
         </div>
       </Card>
     </div>

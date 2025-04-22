@@ -33,7 +33,7 @@ const MainLayout = () => {
         }
       >
         <RightSidebar ref={sidebarRef} />
-        <div className="sticky top-20">
+        <div className="sticky top-21">
           <Footer />
         </div>
       </div>

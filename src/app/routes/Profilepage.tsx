@@ -1,4 +1,3 @@
-import RightSidebar from '@/components/right-sidebar';
 import AboutCard from '@/components/shared/about-card';
 import ExperienceCard from '@/components/shared/experience-card';
 import ProfileCard from '@/components/shared/profile-card';
@@ -18,7 +17,7 @@ const ProfilePage = () => {
       </div>
 
       <div className="col-span-4 space-y-4 h-max m-0 hidden md:block sticky top-20">
-        <RightSidebar />
+        <SkillsCard />
       </div>
     </div>
   );

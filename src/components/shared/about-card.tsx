@@ -1,22 +1,37 @@
+import { Link } from 'react-router-dom';
 import { Card, CardContent, CardHeader } from '../ui/card';
 import { Separator } from '../ui/separator';
 import Heading from './heading';
 
-const AboutCard = () => {
+const text =
+  'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatibus.Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatibuLorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatibus.Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatibus.Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatibus.Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatibus.Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatibus.s.Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatibus.Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatibus';
+
+const AboutCard = ({
+  isTruncated,
+  maxWord = 15,
+}: {
+  isTruncated?: boolean;
+  maxWord?: number;
+}) => {
   return (
     <Card className="p-0 h-auto pb-8">
       <CardHeader>
         <Heading title="About me" />
-        <Separator className='mt-4' />   
+        <Separator className="mt-1" />
       </CardHeader>
       <CardContent className="m-0">
         <p className="text-sm text-muted-foreground">
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Amet,
-          maiores nulla. Dicta necessitatibus ipsam earum saepe porro veritatis
-          accusantium dolores voluptates, excepturi eos laudantium modi quasi,
-          possimus ullam animi dignissimos voluptatibus eligendi placeat quaerat
-          molestias officiis? Perferendis asperiores iste doloribus culpa
-          reiciendis dolorum repellat ad, quasi odit quod? Quae, optio?
+          {isTruncated ? (
+            <>
+              {text.split(' ').slice(0, maxWord).join(' ')}
+              {'...'}
+              <Link className="text-blue-600" to={'/profile'}>
+                Read more
+              </Link>
+            </>
+          ) : (
+            text
+          )}
         </p>
       </CardContent>
     </Card>

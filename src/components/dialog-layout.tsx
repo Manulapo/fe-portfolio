@@ -26,14 +26,14 @@ const DialogLayout = ({
   return (
     <Dialog>
       <DialogTrigger asChild>{triggerContent}</DialogTrigger>
-      <DialogContent className="max-w-[80%] md:w-max md:min-w-[40%] min-w-[90%] w-max">
+      <DialogContent className="max-w-[80%] md:w-max md:min-w-[40%] min-w-[90%] w-max bg-white">
         <DialogHeader>
           {dialogTitle && <DialogTitle className='text-left'>{dialogTitle}</DialogTitle>}
           {dialogdescription && (
             <DialogDescription>{dialogdescription}</DialogDescription>
           )}
         </DialogHeader>
-        <Separator className="my-2" />
+        <Separator className="mt-1" />
         <div className="grid gap-4 py-4">{dialogContent}</div>
         {dialogFooter && <DialogFooter>{dialogFooter}</DialogFooter>}
       </DialogContent>

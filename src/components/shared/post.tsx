@@ -25,18 +25,18 @@ const Post = ({
         <X className="rounded-full w-5 h-5" />
       </div>
       <CardHeader className='w-full pl-4'>
-        <div className="flex items-start gap-3">
+        <div className="flex items-center gap-3">
           <AvatarIcon image={postData?.author.avatarUrl} size={50} />
           <div className="flex flex-col justify-center">
-            <h2 className="text-lg font-semibold py-0 h-6">
+            <h2 className="md:text-lg text-sm font-semibold py-0 md:h-6">
               {postData?.author.name}
             </h2>
-            <p className="text-muted-foreground text-xs">
+            <p className="text-muted-foreground text-sm">
               {postData?.author?.title}
             </p>
-            <p className="text-xs text-gray-600 font-semibold flex items-center gap-1">
+            <p className="text-xs text-gray-600 pt-1 font-semibold flex items-center gap-1">
               <p>{formatDate(postData!.createdAt.toString())}</p>
-              <Globe2 size={15} />
+              <Globe2 size={13} />
             </p>
           </div>
         </div>

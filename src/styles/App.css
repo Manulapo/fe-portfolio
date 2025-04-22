@@ -116,6 +116,6 @@
   }
 
   body {
-    @apply bg-background text-sm font-sans leading-relaxed;
+    @apply bg-background md:text-sm text-xs font-sans leading-relaxed;
   }
 }

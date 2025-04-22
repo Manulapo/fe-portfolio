@@ -12,7 +12,7 @@ const ExperienceCard = () => {
       <CardContent className="h-auto pb-5">
         {experiences.map((item, index) => (
           <div key={index} className="flex flex-col gap-2 mb-4">
-            <Separator className="my-2" />
+            <Separator className="mt-1" />
 
             <div className="flex items-center gap-2">
               <img src={item.icon} alt={item.title} className="w-6 h-6 " />

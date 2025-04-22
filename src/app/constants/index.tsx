@@ -41,14 +41,14 @@ export const contactInfo = [
   {
     title: 'LinkedIn',
     description: '(the real one)',
-    value: 'https://www.linkedin.com/in/manulaporta',
+    value: 'linkedin.com/in/manulaporta',
     icon: Linkedin,
     link: 'https://www.linkedin.com/in/manulaporta',
   },
   {
     title: 'GitHub',
     description: '',
-    value: 'https://github.com/Manulapo',
+    value: 'github.com/Manulapo',
     icon: GithubIcon,
     link: 'https://github.com/Manulapo',
   },
