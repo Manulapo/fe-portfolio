@@ -1,36 +1,26 @@
+import { chatData } from '@/app/constants';
 import options from '@/assets/icons/dots.svg';
 import newPost from '@/assets/icons/new_post.svg';
-import { cn, reduceText } from '@/lib/utils';
+import { reduceText } from '@/lib/utils';
+import { ChatData } from '@/types';
 import { ChevronDown, ChevronUp } from 'lucide-react';
 import { useState } from 'react';
 import AvatarIcon from './shared/Avatar';
 import { Button } from './ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from './ui/card';
 import { Separator } from './ui/separator';
-import { chatData } from '@/app/constants';
-import { ChatData } from '@/types';
 
 const ChatBar = ({
   className,
-  onChatSelect,
+  onChatRowSelect,
 }: {
   className?: string;
-  onChatSelect: (chat: ChatData[]) => void;
+  onChatRowSelect: (chat: ChatData) => void;
 }) => {
   const [isOpen, setIsOpen] = useState(false);
-  const [chatOpened, setChatOpened] = useState<ChatData[]>([]);
 
   const handleChatRowClick = (chat: ChatData) => {
-    setChatOpened((prev) => {
-      if (prev.find((c) => c.user === chat.user)) {
-        // already there, do nothing
-        return prev;
-      } else {
-        const updatedChats = [...prev, chat];
-        onChatSelect(updatedChats);
-        return updatedChats;
-      }
-    });
+    onChatRowSelect(chat);
   };
 
   const ChatRowContent = ({ chatData }: { chatData: ChatData }) => {

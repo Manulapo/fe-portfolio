@@ -1,4 +1,4 @@
-import { useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Outlet } from 'react-router-dom';
 import Footer from './footer';
 import LeftSidebar from './left-sidebar';
@@ -6,7 +6,13 @@ import RightSidebar from './right-sidebar';
 
 const MainLayout = () => {
   const sidebarRef = useRef<HTMLDivElement>(null);
-  const leftSidebarHeight = sidebarRef?.current?.getBoundingClientRect().height;
+  const [leftSidebarHeight, setLeftSidebarHeight] = useState<number>(0);
+
+  useEffect(() => {
+    if (sidebarRef.current) {
+      setLeftSidebarHeight(sidebarRef.current.getBoundingClientRect().height);
+    }
+  }, []);
 
   return (
     <main className="grid grid-cols-12">
@@ -26,14 +32,12 @@ const MainLayout = () => {
         className="col-span-3 space-y-4 h-max m-0 hidden md:block sticky"
         style={
           leftSidebarHeight
-            ? {
-                top: `-${leftSidebarHeight - 50}px`,
-              }
+            ? { top: `-${leftSidebarHeight - 50}px` }
             : {}
         }
       >
         <RightSidebar ref={sidebarRef} />
-        <div className="sticky top-21">
+        <div style={{ position: 'sticky', top: '21em' }}>
           <Footer />
         </div>
       </div>
