@@ -35,7 +35,7 @@ const Post = ({
               {postData?.author?.title}
             </p>
             <p className="text-xs text-gray-600 pt-1 font-semibold flex items-center gap-1">
-              <p>{formatDate(postData!.createdAt.toString())}</p>
+              <p>{formatDate(postData!.createdAt.toString()).fullDate}</p>
               <Globe2 size={13} />
             </p>
           </div>

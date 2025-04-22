@@ -1,24 +1,65 @@
-import chevron from '@/assets/icons/chevronUp.svg';
 import options from '@/assets/icons/dots.svg';
 import newPost from '@/assets/icons/new_post.svg';
-import { cn } from '@/lib/utils';
+import { cn, reduceText } from '@/lib/utils';
+import { ChevronDown, ChevronUp } from 'lucide-react';
 import { useState } from 'react';
 import AvatarIcon from './shared/Avatar';
-import { Card, CardContent, CardHeader, CardTitle } from './ui/card';
 import { Button } from './ui/button';
-import { ChevronDown, ChevronUp } from 'lucide-react';
+import { Card, CardContent, CardHeader, CardTitle } from './ui/card';
+import { Separator } from './ui/separator';
+import { chatData } from '@/app/constants';
+import { ChatData } from '@/types';
 
-const ChatBar = () => {
+const ChatBar = ({
+  className,
+  onChatSelect,
+}: {
+  className?: string;
+  onChatSelect: (chat: ChatData[]) => void;
+}) => {
   const [isOpen, setIsOpen] = useState(false);
-  const handleChatClick = () => {
-    setIsOpen(!isOpen);
+  const [chatOpened, setChatOpened] = useState<ChatData[]>([]);
+
+  const handleChatRowClick = (chat: ChatData) => {
+    setChatOpened((prev) => {
+      if (prev.find((c) => c.user === chat.user)) {
+        // already there, do nothing
+        return prev;
+      } else {
+        const updatedChats = [...prev, chat];
+        onChatSelect(updatedChats);
+        return updatedChats;
+      }
+    });
+  };
+
+  const ChatRowContent = ({ chatData }: { chatData: ChatData }) => {
+    const { userAvatar, preview, user } = chatData;
+
+    return (
+      <>
+        <Button
+          variant={'ghost'}
+          className=" block w-full h-max px-1 m-0 rounded-sm hover:bg-gray-100 cursor-pointer"
+        >
+          <div className="flex gap-4 justify-start items-center w-full pl-2">
+            <AvatarIcon image={userAvatar} size={37} />
+            <div className="flex flex-col items-start justify-start">
+              <h3 className="text-sm font-semibold">{user}</h3>
+              <p className="text-xs font-normal text-gray-500">
+                {reduceText(preview)}
+              </p>
+            </div>
+          </div>
+        </Button>
+        <Separator className="m-0 p-0" />
+      </>
+    );
   };
 
   return (
     <Card
-      className={cn(
-        'w-75 flex flex-col gap-4 p-4 rounded-sm fixed right-5 shadow-md transition-all duration-200',
-      )}
+      className={className}
       style={
         isOpen
           ? {
@@ -33,11 +74,11 @@ const ChatBar = () => {
     >
       <CardHeader className="p-0 pb-2">
         <CardTitle className="flex items-center justify-between">
-          <div className="flex gap-2 items-center">
+          <div className="flex gap-2 items-center justify-center">
             <AvatarIcon size={30} />
             <h3>Messaging</h3>
           </div>
-          <div className="flex gap-1" onClick={handleChatClick}>
+          <div className="flex gap-1">
             <Button className="bg-transparent text-gray-500 hover:text-gray-800 hover:bg-gray-200 rounded-full flex items-center justify-center p-2">
               <img src={options} alt="options" className="w-4 h-4" />
             </Button>
@@ -52,9 +93,14 @@ const ChatBar = () => {
             </Button>
           </div>
         </CardTitle>
+        <Separator className="p-0 w-full" />
       </CardHeader>
-      <CardContent className="h-150">
-        <p>Card Content</p>
+      <CardContent className="h-max max-h-100 w-full px-1 m-0 flex flex-col gap-2">
+        {chatData.map((chat, index) => (
+          <div onClick={() => handleChatRowClick(chat)} key={index}>
+            <ChatRowContent chatData={chat} />
+          </div>
+        ))}
       </CardContent>
     </Card>
   );

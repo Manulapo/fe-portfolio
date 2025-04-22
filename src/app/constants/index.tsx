@@ -20,8 +20,56 @@ import notification from '@/assets/icons/notification.svg';
 import people from '@/assets/icons/people.svg';
 import publish from '@/assets/icons/publish.svg';
 import chat from '@/assets/icons/chat.svg';
-import { PostData } from '@/types';
+import { ChatData, PostData } from '@/types';
 import { getRandomNumber } from '@/lib/utils';
+
+export const chatData: ChatData[] = [
+  {
+    user: 'Alice Johnson',
+    userClaim: 'UI/UX Designer',
+    date: '2025-04-21T09:15:00Z',
+    userAvatar: 'https://randomuser.me/api/portraits/women/47.jpg',
+    preview: 'Hey, are you available for a quick chat?',
+    messages: [
+      { text: 'Hey, are you available for a quick chat?', time: '09:15' },
+      { text: "Let me know when you're free.", time: '09:16' },
+    ],
+  },
+  {
+    user: 'Carol Lee',
+    userClaim: 'Performance Engineer',
+    date: '2025-04-20T15:45:00Z',
+    userAvatar: 'https://randomuser.me/api/portraits/women/68.jpg',
+    preview: "Don't forget our meeting at 3 PM.",
+    messages: [
+      { text: "Don't forget our meeting at 3 PM.", time: '15:45' },
+      { text: "I'll be there on time.", time: '15:46' },
+    ],
+  },
+  {
+    user: 'David Kim',
+    userClaim: 'Full Stack Developer',
+    date: '2025-04-20T17:30:00Z',
+    userAvatar: 'https://randomuser.me/api/portraits/men/52.jpg',
+    preview: 'Could you review my pull request?',
+    messages: [
+      { text: 'Could you review my pull request?', time: '17:30' },
+      { text: "I'll take a look shortly.", time: '17:32' },
+    ],
+  },
+  {
+    user: 'Eva Martinez',
+    userClaim: 'Web Designer',
+    date: '2025-04-21T08:05:00Z',
+    userAvatar: 'https://randomuser.me/api/portraits/women/22.jpg',
+    preview: "I'm out of the office today.",
+    messages: [
+      { text: "I'm out of the office today.", time: '08:05' },
+      { text: "Let's connect tomorrow.", time: '08:07' },
+    ],
+  },
+  
+];
 
 export const contactInfo = [
   {

@@ -19,7 +19,6 @@ const AvatarIcon = ({
   const dimension = size ? size : 40; // default to 40px (i.e., 10 * 4)
   const AvatarContent = () => (
     <>
-      {' '}
       <AvatarImage
         key={size}
         className={cn('rounded-full', className)}

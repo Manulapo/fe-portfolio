@@ -13,4 +13,19 @@ export interface PostData {
   shares: number;
   createdAt: string;
   author: Author;
+  tags?: string[]; // used to filter posts
+}
+
+export interface ChatData {
+  user: string;
+  userClaim: string;
+  date: string;
+  userAvatar: string;
+  preview: string;
+  messages: ChatMessagesStream[];
+}
+
+export interface ChatMessagesStream {
+  text: string;
+  time: string;
 }
