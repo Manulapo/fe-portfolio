@@ -1,6 +1,6 @@
 import { Ellipsis, Globe2, X } from 'lucide-react';
 import { Card, CardContent, CardDescription, CardHeader } from '../ui/card';
-import AvatarIcon from './Avatar';
+import AvatarIcon from './Avatar-icon';
 import PostFooter from './post-footer';
 import Suggested from './suggested';
 import { PostData } from '@/types';
@@ -24,7 +24,11 @@ const Post = ({
       </div>
       <CardHeader className="w-full pl-4">
         <div className="flex items-center gap-3">
-          <AvatarIcon image={postData?.author.avatarUrl} size={50} />
+          <AvatarIcon
+            name={postData?.author.name}
+            image={postData?.author.avatarUrl}
+            size={50}
+          />
           <div className="flex flex-col justify-center">
             <h2 className="md:text-lg text-sm font-semibold py-0 md:h-6">
               {postData?.author.name}

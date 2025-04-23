@@ -1,23 +1,26 @@
 import { ChatMessagesStream } from '@/types';
-import AvatarIcon from './Avatar';
+import AvatarIcon from './Avatar-icon';
+import { cn } from '@/lib/utils';
 
 const ChatMessage = ({
   chatmessage,
+  className,
   user,
   avatar,
   hasHeader = true,
 }: {
   chatmessage: ChatMessagesStream;
+  className?: string;
   user: string;
   avatar: string;
   hasHeader?: boolean;
 }) => {
   const { text, time } = chatmessage;
   return (
-    <div className="flex flex-col">
+    <div className={cn("flex flex-col", className)}>
       {hasHeader && (
-        <p className="text-sm font-semibold flex gap-2 items-center mt-3">
-          <AvatarIcon image={avatar} size={20} />
+        <p className="text-sm font-semibold flex gap-2 items-center mt-5">
+          <AvatarIcon name={user} image={avatar} size={20} />
           {user}{' '}
           <span className="text-gray-400 font-light text-xs">{time}</span>
         </p>

@@ -1,6 +1,6 @@
 import { useIsMobile } from '@/hooks/use-mobile';
 import { Card, CardContent, CardHeader, CardTitle } from '../ui/card';
-import AvatarIcon from './Avatar';
+import AvatarIcon from './Avatar-icon';
 import { cn } from '@/lib/utils';
 import unipisa from '@/assets/images/unipisa_logo.jpg';
 import { Button } from '../ui/button';
@@ -9,6 +9,7 @@ import { Popover, PopoverContent, PopoverTrigger } from '../ui/popover';
 import { useState } from 'react';
 import DialogLayout from '../dialog-layout';
 import ContactinfoDialogContent from './contact-info-dialog';
+import { userInfo } from '@/app/constants';
 
 const ProfileCard = ({
   isProfilePage = false,
@@ -28,7 +29,7 @@ const ProfileCard = ({
           )}
         >
           <div className="absolute left-3 bottom-[-35px] border-2 border-white rounded-full bg-white ">
-            <AvatarIcon link="/profile" size={avatarSize} />
+            <AvatarIcon name={userInfo.name} link="/profile" size={avatarSize} />
           </div>
         </CardHeader>
         <CardContent className="h-auto pb-5">

@@ -1,9 +1,9 @@
 import { useIsMobile } from '@/hooks/use-mobile';
-import { addPostLinks } from '../../app/constants/index';
+import { addPostLinks, userInfo } from '../../app/constants/index';
 import { Button } from '../ui/button';
 import { Card, CardContent } from '../ui/card';
 import { Input } from '../ui/input';
-import AvatarIcon from './Avatar';
+import AvatarIcon from './Avatar-icon';
 import { PostTagsTypes } from '@/types';
 
 const AddPost = ({
@@ -17,7 +17,7 @@ const AddPost = ({
       <CardContent className="flex flex-col justify-center md:items-center gap-2 px-0 md:px-2 overflow-x-hidden md:overflow-auto">
         {!isMobile && (
           <div className="flex items-center justify-between gap-4 px-2 w-full h-full">
-            <AvatarIcon className="md:w-12 md:h-12 w-8 h-8" />
+            <AvatarIcon name={userInfo.name} className="md:w-12 md:h-12 w-8 h-8" />
             <Input
               className="w-[90%] rounded-full h-max p-4 shadow-none border-2 border-gray-300"
               placeholder="Let's stay in touch!"

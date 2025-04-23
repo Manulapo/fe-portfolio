@@ -12,12 +12,13 @@ import {
   X,
 } from 'lucide-react';
 import { useCallback, useMemo, useState } from 'react';
-import AvatarIcon from './shared/Avatar';
+import AvatarIcon from './shared/Avatar-icon';
 import ChatMessage from './shared/chatMessage';
 import { Button } from './ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from './ui/card';
 import { Input } from './ui/input';
 import { Separator } from './ui/separator';
+import { userInfo } from '@/app/constants';
 
 const ChatFull = ({
   chatData,
@@ -89,7 +90,7 @@ const ChatFull = ({
           <div className="flex flex-col gap-1 items-start justify-center">
             {!isMobile && (
               <div>
-                <h3 className="m-0">{user}</h3>
+                <h3 className="m-0 mb-1">{user}</h3>
                 <div className="text-muted-foreground text-xs flex items-center gap-1">
                   <Circle
                     className={cn(isOnline ? 'text-green-700' : 'text-red-500')}
@@ -119,7 +120,7 @@ const ChatFull = ({
       </CardHeader>
       <CardContent className="h-max w-full px-1 m-0 flex flex-col gap-2">
         <div className="flex items-center gap-2">
-          <AvatarIcon image={userAvatar} size={50} />
+          <AvatarIcon name={user} image={userAvatar} size={50} />
           <div>
             <p className="font-semibold text-black">
               {user}{' '}
@@ -147,17 +148,10 @@ const ChatFull = ({
           {messagesStream.map((m, i) => (
             <ChatMessage
               key={i}
-              user={
-                messagesStream[i - 1]?.isMine !== m.isMine
-                  ? 'Manuel La Porta'
-                  : user
-              }
+              className="p-0 m-0"
+              user={m.isMine ? userInfo.name : user}
               chatmessage={m}
-              avatar={
-                messagesStream[i - 1]?.isMine !== m.isMine
-                  ? 'https://github.com/shadcn.png'
-                  : userAvatar
-              }
+              avatar={m.isMine ? userInfo.avatarImg : userAvatar}
               hasHeader={i === 0 || messagesStream[i - 1]?.isMine !== m.isMine}
             />
           ))}

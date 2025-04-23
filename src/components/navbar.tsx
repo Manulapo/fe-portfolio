@@ -1,4 +1,4 @@
-import { navbarIcons } from '@/app/constants';
+import { navbarIcons, userInfo } from '@/app/constants';
 import chat from '@/assets/icons/chat.svg';
 import linkedinIcon from '@/assets/icons/LinkedIn_icon.svg';
 import sort from '@/assets/icons/sort.svg';
@@ -13,7 +13,7 @@ import { NavigationMenuItem } from '@radix-ui/react-navigation-menu';
 import { ChevronDown, ChevronUp, Search } from 'lucide-react';
 import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import AvatarIcon from './shared/Avatar';
+import AvatarIcon from './shared/Avatar-icon';
 import { Button } from './ui/button';
 import { Card, CardContent, CardTitle } from './ui/card';
 import { Input } from './ui/input';
@@ -41,7 +41,7 @@ const ProfileIcon = () => {
             )}
           >
             <div className="bg-white">
-              <AvatarIcon size={28} />
+              <AvatarIcon name={userInfo.name} size={28} />
             </div>
 
             <span className="text-muted-foreground text-xs flex items-center justify-between opacity-70 hover:opacity-100">
@@ -59,7 +59,7 @@ const ProfileIcon = () => {
         <Card className="w-max h-max p-0 border-0">
           <CardContent className="h-auto py-4 flex flex-col items-center justify-center gap-4">
             <div className="border-white rounded-full bg-white flex items-center justify-center gap-3">
-              <AvatarIcon size={45} />
+              <AvatarIcon name={userInfo.name} size={45} />
               <CardTitle className="font-semibold flex flex-col gap-1">
                 <h2>Manuel La Porta</h2>
                 <p className="text-muted-foreground text-sm">
@@ -90,7 +90,7 @@ const MobileTopBar = () => (
   <NavigationMenu className="flex justify-between mx-auto md:h-14 md:border-b md:border-gray-200 max-w-full bg-white fixed top-0 md:top-0 z-50">
     <div className="w-full h-full md:m-auto flex justify-between items-center">
       <div className="w-full flex justify-around items-center p-2 list-none border-b-1 border-gray-200">
-        <AvatarIcon link="/profile" size={30} />
+        <AvatarIcon name={userInfo.name} link="/profile" size={30} />
         <NavigationMenuItem>
           <div className="relative w-[250px] h-9 flex items-center justify-center">
             <Input

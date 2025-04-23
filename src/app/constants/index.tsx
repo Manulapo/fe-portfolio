@@ -23,58 +23,110 @@ import chat from '@/assets/icons/chat.svg';
 import { ChatData, PostData } from '@/types';
 import { getRandomNumber } from '@/lib/utils';
 
+export const userInfo = {
+  name: 'Manuel La Porta',
+  title: 'Frontend Develope & UX Designer',
+  avatarImg: 'https://github.com/shadcn.png',
+};
+
 export const chatData: ChatData[] = [
   {
-    user: 'Alice Johnson',
-    userClaim: 'UI/UX Designer',
-    date: '2025-04-21T09:15:00Z',
-    userAvatar: 'https://randomuser.me/api/portraits/women/47.jpg',
-    preview: 'Hey, are you available for a quick chat?',
+    user: 'Client X',
+    userClaim: 'Visionary Entrepreneur',
+    date: '2025-04-22',
+    userAvatar:
+      'https://i.pinimg.com/564x/36/ae/5a/36ae5aadd62b9ba1767b5dedd50c099c.jpg',
+    preview: 'Can you make the logo bigger?',
     messages: [
-      { text: 'Hey, are you available for a quick chat?', time: '09:15' },
-      { text: "Let me know when you're free.", time: '09:16' },
-      { text: 'Available now!', time: '09:18', isMine: true },
-    ],
-  },
-  {
-    user: 'Carol Lee',
-    userClaim: 'Performance Engineer',
-    date: '2025-04-20T15:45:00Z',
-    userAvatar: 'https://randomuser.me/api/portraits/women/68.jpg',
-    preview: "Don't forget our meeting at 3 PM.",
-    messages: [
-      { text: "Don't forget our meeting at 3 PM.", time: '15:45' },
-      { text: "I'll be there on time.", time: '15:46' },
-    ],
-  },
-  {
-    user: 'David Kim',
-    userClaim: 'Full Stack Developer',
-    date: '2025-04-20T17:30:00Z',
-    userAvatar: 'https://randomuser.me/api/portraits/men/52.jpg',
-    preview: 'Could you review my pull request?',
-    messages: [
-      { text: 'Could you review my pull request?', time: '17:30' },
-      { text: "I'll take a look shortly.", time: '17:32' },
-    ],
-  },
-  {
-    user: 'Eva Martinez',
-    userClaim: 'Web Designer',
-    date: '2025-04-21T08:05:00Z',
-    userAvatar: 'https://randomuser.me/api/portraits/women/22.jpg',
-    preview: "I'm out of the office today.",
-    messages: [
-      { text: "I'm out of the office today.", time: '08:05' },
-      { text: "Let's connect tomorrow.", time: '08:07' },
+      { text: 'Can you make the logo bigger?', time: '09:00' },
+      { text: 'And let it flash... maybe', time: '09:13' },
+      { text: "...ok boss, let's do the magic!", time: '09:18', isMine: true },
+      { text: 'Let me know what you think', time: '09:19', isMine: true },
       {
-        text: 'Sure, sounds good!',
-        time: '08:08',
+        text: "No ok, before was better, let's go with the first one!",
+        time: '09:29',
+      },
+    ],
+  },
+  {
+    user: 'CSS Engine',
+    userClaim: 'Layout Whisperer',
+    date: '2025-04-20',
+    userAvatar:
+      'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg',
+    preview: 'How do i center a div?',
+    messages: [
+      {
+        text: 'How do i center a div?',
+        time: '14:09',
+        isMine: true,
       },
       {
-        text: 'I will be available at 10 AM.',
-        time: '08:09',
+        text: "You said 'center'… Do you mean horizontally, vertically, or spiritually?",
+        time: '14:22',
       },
+      { text: 'Just horizontally, please.', time: '14:23', isMine: true },
+      { text: 'Done. But it only works in Safari.', time: '14:24' },
+    ],
+  },
+  {
+    user: 'JavaScript',
+    userClaim: 'The Dynamic One',
+    date: '2025-04-18',
+    userAvatar:
+      'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg',
+    preview: 'null == undefined?',
+    messages: [
+      {
+        text: 'You wrote `null == undefined`. Want them to be equal today?',
+        time: '10:40',
+      },
+      { text: 'Yes, please.', time: '10:41', isMine: true },
+      { text: 'Okay. But tomorrow I might change my mind.', time: '10:42' },
+    ],
+  },
+  {
+    user: 'Dev Colleague',
+    userClaim: 'Early Adopter',
+    date: '2025-04-17',
+    userAvatar: 'https://clasebcn.com/wp-content/uploads/2020/04/harold-03.jpg',
+    preview: 'Have you seen the new framework?',
+    messages: [
+      {
+        text: 'Have you seen the new frontend framework released yesterday?',
+        time: '16:00',
+      },
+      {
+        text: "Yes, I've already integrated it in production.",
+        time: '16:01',
+        isMine: true,
+      },
+      { text: "But it's still in alpha!", time: '16:02' },
+      {
+        text: 'Exactly, Perfect for production!',
+        time: '16:03',
+        isMine: true,
+      },
+    ],
+  },
+  {
+    user: 'Job Interviewer',
+    userClaim: 'Tech Recruiter',
+    date: '2025-04-15',
+    userAvatar:
+      'https://www.nbc.com/sites/nbcblog/files/2022/07/the-office-how-to-watch.jpg',
+    preview: 'Explain == vs ===?',
+    messages: [
+      {
+        text: 'Can you explain the difference between `==` and `===` in JavaScript?',
+        time: '11:30',
+      },
+      {
+        text: '`==` is like a blind date: might work. `===` is like marriage: must work.',
+        time: '11:31',
+        isMine: true,
+      },
+      { text: 'Hired.', time: '11:32' },
     ],
   },
 ];

@@ -6,7 +6,7 @@ import { ChatData } from '@/types';
 import { ChevronDown, ChevronUp } from 'lucide-react';
 import { useMemo, useState } from 'react';
 import ChatRow from './chat-row';
-import AvatarIcon from './shared/Avatar';
+import AvatarIcon from './shared/Avatar-icon';
 import { Button } from './ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from './ui/card';
 import { Separator } from './ui/separator';

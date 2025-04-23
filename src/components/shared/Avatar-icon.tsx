@@ -1,4 +1,5 @@
 // filepath: c:\Users\manul\Repo\fe-portfolio\src\components\shared\Avatar.tsx
+import { userInfo } from '@/app/constants';
 import { cn } from '@/lib/utils';
 import { Avatar, AvatarFallback, AvatarImage } from '@radix-ui/react-avatar';
 import { Link } from 'react-router-dom';
@@ -8,11 +9,13 @@ const AvatarIcon = ({
   link,
   image,
   className,
+  name,
   ...props
 }: {
   size?: number;
   image?: string;
   link?: string;
+  name?: string;
   className?: string;
   [key: string]: any;
 }) => {
@@ -23,14 +26,19 @@ const AvatarIcon = ({
         key={size}
         className={cn('rounded-full', className)}
         {...props}
-        src={image ?? 'https://github.com/shadcn.png'}
-        style={{ width: dimension, height: dimension }}
+        src={image ?? userInfo.avatarImg}
+        style={{ width: dimension, height: dimension, objectFit: 'cover', minWidth: dimension }}
       />
       <AvatarFallback
-        className={cn('rounded-full', className)}
+        className={cn('rounded-full bg-blue-100 p-2', className)}
         style={{ width: dimension, height: dimension }}
       >
-        U
+        {name
+          ? name
+              .split(' ')
+              .map((word) => word[0].charAt(0).toUpperCase())
+              .join('')
+          : 'U'}
       </AvatarFallback>
     </>
   );
@@ -38,7 +46,7 @@ const AvatarIcon = ({
   return (
     <Avatar>
       {link ? (
-        <Link to={link}>
+        <Link to={link} className='w-max'>
           <AvatarContent />
         </Link>
       ) : (
