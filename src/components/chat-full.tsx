@@ -46,7 +46,7 @@ const ChatFull = ({
       height: isOpen ? (isMobile ? 'auto' : 'max-content') : '65px',
       bottom: isOpen ? 0 : '-5px',
     }),
-    [isOpen, isMobile]
+    [isOpen, isMobile],
   );
 
   const chatStyle = useMemo(
@@ -55,7 +55,7 @@ const ChatFull = ({
       height: isMobile ? '38vh' : undefined,
       overflowY: 'auto',
     }),
-    [isMobile]
+    [isMobile],
   );
 
   const handleSendButtonClick = useCallback(() => {
@@ -158,9 +158,7 @@ const ChatFull = ({
                   ? 'https://github.com/shadcn.png'
                   : userAvatar
               }
-              hasHeader={
-                i === 0 || messagesStream[i - 1]?.isMine !== m.isMine
-              }
+              hasHeader={i === 0 || messagesStream[i - 1]?.isMine !== m.isMine}
             />
           ))}
         </div>
@@ -176,7 +174,7 @@ const ChatFull = ({
             onChange={(e) => setInputValue(e.target.value)}
             placeholder="Write a message"
             className={cn(
-              'bg-gray-100 shadow-none border-none focus:outline-none w-full h-10'
+              'bg-gray-100 shadow-none border-none focus:outline-none w-full h-10',
             )}
           />
         </CardContent>

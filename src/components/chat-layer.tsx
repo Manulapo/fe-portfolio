@@ -22,7 +22,7 @@ const ChatLayer = ({ className }: { className: string }) => {
 
   const handleChatRowSelected = (chat: ChatData) =>
     setActiveChats((prev) =>
-      prev.some((c) => c.user === chat.user) ? prev : [chat,...prev],
+      prev.some((c) => c.user === chat.user) ? prev : [chat, ...prev],
     );
 
   const toggleChat = (user: string) => {
@@ -34,13 +34,13 @@ const ChatLayer = ({ className }: { className: string }) => {
 
   return (
     <div className={className} style={{ bottom: '-5px', right: '3em' }}>
-      {activeChats.map((chat, index) => (
+      {activeChats.map((chat) => (
         <ChatFull
           className="w-95 flex flex-col gap-4 p-3 rounded-sm shadow-md transition-all duration-200"
           isOpen={!openChatMap[chat.user]}
           onToggle={() => toggleChat(chat.user)}
           chatData={chat}
-          key={index}
+          key={chat.user}
           chatClosedTrigger={(chatClosed: ChatData) =>
             handleClosingClick(chatClosed)
           }
