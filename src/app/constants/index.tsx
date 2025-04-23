@@ -25,8 +25,11 @@ import { getRandomNumber } from '@/lib/utils';
 
 export const userInfo = {
   name: 'Manuel La Porta',
-  title: 'Frontend Develope & UX Designer',
+  title: 'Frontend Developer & UX Designer',
+  location: 'Copenaghen, Capital region, Denmark',
   avatarImg: 'https://github.com/shadcn.png',
+  coverImg:
+    'https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzNjUyOXwwfDF8c2VhcmNofDF8fGZhdGUlMjBjb3ZlcnxlbnwwfHx8fDE2ODQ5NTY1NzE&ixlib=rb-4.0.3&q=80&w=1080',
 };
 
 export const chatData: ChatData[] = [
@@ -39,7 +42,7 @@ export const chatData: ChatData[] = [
     preview: 'Can you make the logo bigger?',
     messages: [
       { text: 'Can you make the logo bigger?', time: '09:00' },
-      { text: 'And let it flash... maybe', time: '09:13' },
+      { text: 'And let it flash', time: '09:13' },
       { text: "...ok boss, let's do the magic!", time: '09:18', isMine: true },
       { text: 'Let me know what you think', time: '09:19', isMine: true },
       {
@@ -67,6 +70,31 @@ export const chatData: ChatData[] = [
       },
       { text: 'Just horizontally, please.', time: '14:23', isMine: true },
       { text: 'Done. But it only works in Safari.', time: '14:24' },
+    ],
+  },
+  {
+    user: 'HR Recruiter',
+    userClaim: 'Talent Acquisition Expert',
+    date: '2025-04-21',
+    userAvatar:
+      'https://media.npr.org/assets/img/2023/01/14/this-is-fine-7e5a97c2aa08a27b7b6c2ed91cd730086afb2b9c.jpg?s=1000',
+    preview: 'We love your background!',
+    messages: [
+      {
+        text: 'We’re really impressed with your background in Java.',
+        time: '08:30',
+      },
+      {
+        text: 'Oh... I actually work with JavaScript.',
+        time: '08:31',
+        isMine: true,
+      },
+      { text: 'Right, right! That is what i wrote 😄', time: '08:32' },
+      {
+        text: 'Yes, and I want also to add that i am proficient in HTML, as you might know also called Python in disguise.',
+        time: '08:33',
+        isMine: true,
+      },
     ],
   },
   {

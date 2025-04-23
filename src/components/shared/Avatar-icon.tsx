@@ -31,7 +31,6 @@ const AvatarIcon = ({
       />
       <AvatarFallback
         className={cn('rounded-full bg-blue-100 p-2', className)}
-        style={{ width: dimension, height: dimension }}
       >
         {name
           ? name

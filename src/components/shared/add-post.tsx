@@ -17,7 +17,7 @@ const AddPost = ({
       <CardContent className="flex flex-col justify-center md:items-center gap-2 px-0 md:px-2 overflow-x-hidden md:overflow-auto">
         {!isMobile && (
           <div className="flex items-center justify-between gap-4 px-2 w-full h-full">
-            <AvatarIcon name={userInfo.name} className="md:w-12 md:h-12 w-8 h-8" />
+            <AvatarIcon size={45} name={userInfo.name} className="md:w-12 md:h-12 w-8 h-8" />
             <Input
               className="w-[90%] rounded-full h-max p-4 shadow-none border-2 border-gray-300"
               placeholder="Let's stay in touch!"
