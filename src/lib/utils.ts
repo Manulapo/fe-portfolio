@@ -14,20 +14,23 @@ export const getRandomNumber = (min: number, max: number): number => {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 };
 
-export const formatDate = (date: string) => {
-  // dd, month, yyyy i.e. 3 sept 2023
-  const options: Intl.DateTimeFormatOptions = {
-    day: '2-digit',
-    month: 'short',
-    year: 'numeric',
-  };
-  const dateObj = new Date(date);
+export const formatDate = (date: string | Date) => {
+  const dateObj = typeof date === 'string' ? new Date(date) : date;
 
   return {
-    fullDate: dateObj.toLocaleDateString('en-US', options),
+    fullDate: dateObj.toLocaleDateString('en-US', {
+      day: '2-digit',
+      month: 'short',
+      year: 'numeric',
+    }),
     onlyDayMonth: dateObj.toLocaleDateString('en-US', {
       day: '2-digit',
       month: 'short',
+    }),
+    onlyTime: dateObj.toLocaleTimeString('en-US', {
+      hour: '2-digit',
+      minute: '2-digit',
+      hour12: false,
     }),
   };
 };

@@ -3,12 +3,18 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { PopoverContent } from '@/components/ui/popover';
 import { Separator } from '@/components/ui/separator';
+import { PostTagsTypes } from '@/types';
 import { Popover, PopoverTrigger } from '@radix-ui/react-popover';
 import { ChevronDown, ChevronUp } from 'lucide-react';
 import { useState } from 'react';
 
-const PostFilter = () => {
-  const [selected, setSelected] = useState<string>('all');
+const PostFilter = ({
+  onFilterToggle,
+  filter,
+}: {
+  onFilterToggle: (filter: PostTagsTypes) => void;
+  filter: PostTagsTypes;
+}) => {
   const [isClicked, setIsClicked] = useState(false);
 
   return (
@@ -32,28 +38,24 @@ const PostFilter = () => {
         <PopoverContent className="p-0">
           <Card className="w-full h-max p-0 border-0">
             <CardContent className="h-auto w-full p-0 py-2 flex flex-col items-start justify-center">
-              {postFilters.map((filter) => (
+              {postFilters.map((postFilter) => (
                 <Button
+                  key={postFilter.filter}
                   onClick={() => {
-                    setSelected(filter.filter);
+                    onFilterToggle(postFilter.filter as PostTagsTypes);
+                    setIsClicked(false);
                   }}
                   className="w-full flex items-center justify-start gap-2 py-3 px-5 flex-1 group rounded-none"
                   style={
-                    filter.filter === selected
-                      ? {
-                          borderLeft: '2px solid green',
-                          opacity: 1,
-                        }
-                      : {
-                          border: 'none',
-                          opacity: 0.7,
-                        }
+                    postFilter.filter === filter
+                      ? { borderLeft: '2px solid green', opacity: 1 }
+                      : { border: 'none', opacity: 0.7 }
                   }
                   variant={'ghost'}
                   asChild
                 >
-                  <span className=" text-xs md:text-sm font-semibold opacity-70 group-hover:opacity-100 w-full">
-                    {filter.name}
+                  <span className="text-xs md:text-sm font-semibold opacity-70 group-hover:opacity-100 w-full">
+                    {postFilter.name}
                   </span>
                 </Button>
               ))}

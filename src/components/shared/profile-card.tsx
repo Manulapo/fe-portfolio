@@ -35,15 +35,18 @@ const ProfileCard = ({
           <CardTitle className="font-semibold pt-8 flex flex-col gap-1">
             <h1 className="text-xl">Manuel La Porta</h1>
           </CardTitle>
-          <p className="text-muted-foreground font-normal">
+          <p className={cn("text-muted-foreground font-normal", isProfilePage ? 'text-lg' : '')}>
             Frontend Developer & UX Designer
+          </p>
+          <p className={cn("text-muted-foreground text-xs font-medium", isProfilePage ? 'text-sm font-semibold' : '')}>
+            Copenaghen, Regione Capitale della Danimarca
           </p>
           {isProfilePage && (
             <DialogLayout
               triggerContent={
                 <Button
                   variant={'link'}
-                  className="text-sm m-0 p-0 text-blue-600 font-semibold cursor-pointer"
+                  className="text-sm m-0 p-0 text-blue-500 font-semibold cursor-pointer"
                 >
                   Contact Info
                 </Button>
@@ -52,11 +55,8 @@ const ProfileCard = ({
               dialogContent={<ContactinfoDialogContent />}
             />
           )}
-          <p className="text-muted-foreground text-xs font-medium">
-            Copenaghen, Regione Capitale della Danimarca
-          </p>
           {isProfilePage && (
-            <div className="mt-4">
+            <div className="mt-1">
               <p className="text-muted-foreground text-sm font-semibold flex items-center gap-2">
                 <img src={unipisa} className="w-8" />
                 University of Pisa, Italy

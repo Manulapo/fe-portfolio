@@ -9,7 +9,7 @@ function App() {
     <div className="relative">
       <AppRouter />
       {!isMobile && (
-        <ChatLayer className="fixed flex w-full h-full gap-3 z-50 justify-end items-end" />
+        <ChatLayer className="fixed flex w-full h-max gap-3 z-50 justify-end items-end p-0" />
       )}
     </div>
   );

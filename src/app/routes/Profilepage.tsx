@@ -12,7 +12,6 @@ const ProfilePage = () => {
           <ProfileCard isProfilePage={true} />
           <AboutCard />
           <ExperienceCard />
-          <SkillsCard />
         </div>
       </div>
 

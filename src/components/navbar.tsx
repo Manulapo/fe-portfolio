@@ -55,7 +55,7 @@ const ProfileIcon = () => {
           </div>
         </Button>
       </PopoverTrigger>
-      <PopoverContent className="w-90 p-0">
+      <PopoverContent className="w-max p-0">
         <Card className="w-max h-max p-0 border-0">
           <CardContent className="h-auto py-4 flex flex-col items-center justify-center gap-4">
             <div className="border-white rounded-full bg-white flex items-center justify-center gap-3">
@@ -68,6 +68,7 @@ const ProfileIcon = () => {
               </CardTitle>
             </div>
             <Button
+              onClick={() => setIsClicked(false)}
               variant={'outline'}
               className="w-full rounded-full py-3 bg-transparent border-1 border-blue-500 hover:bg-transparent group hover:border-blue-800"
               asChild
@@ -85,39 +86,12 @@ const ProfileIcon = () => {
   );
 };
 
-const ForTheCompaniesIcon = () => (
-  <NavigationMenuItem className="h-full flex items-center justify-center group">
-    <Link
-      to="/"
-      className={cn(
-        'h-full flex items-center justify-center group-hover:opacity-100',
-      )}
-    >
-      <NavigationMenuLink
-        className={cn(
-          navigationMenuTriggerStyle(),
-          'h-full flex flex-col items-center justify-center w-15 md:w-20 bg-white',
-        )}
-      >
-        <div className="bg-white ">
-          <AvatarIcon size={25} />
-        </div>
-
-        <span className="text-muted-foreground text-xs flex items-center justify-around opacity-70 hover:opacity-100">
-          <ChevronDown className="w-4 h-4" />
-          Profile
-        </span>
-      </NavigationMenuLink>
-    </Link>
-  </NavigationMenuItem>
-);
-
 const MobileTopBar = () => (
   <NavigationMenu className="flex justify-between mx-auto md:h-14 md:border-b md:border-gray-200 max-w-full bg-white fixed top-0 md:top-0 z-50">
     <div className="w-full h-full md:m-auto flex justify-between items-center">
       <div className="w-full flex justify-around items-center p-2 list-none border-b-1 border-gray-200">
-        <AvatarIcon link='/profile' size={30} />
-        <NavigationMenuItem  >
+        <AvatarIcon link="/profile" size={30} />
+        <NavigationMenuItem>
           <div className="relative w-[250px] h-9 flex items-center justify-center">
             <Input
               type="text"
@@ -174,7 +148,9 @@ export default function Navbar() {
 
   const navIcons = isMobile
     ? navbarIcons.filter((item) => item.name !== 'Chat')
-    : navbarIcons.filter((item) => item.name !== 'Post');
+    : navbarIcons.filter(
+        (item) => item.name !== 'Post' && item.name !== 'Chat',
+      );
 
   return (
     <>

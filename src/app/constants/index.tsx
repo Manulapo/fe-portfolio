@@ -33,6 +33,7 @@ export const chatData: ChatData[] = [
     messages: [
       { text: 'Hey, are you available for a quick chat?', time: '09:15' },
       { text: "Let me know when you're free.", time: '09:16' },
+      { text: 'Available now!', time: '09:18', isMine: true },
     ],
   },
   {
@@ -296,6 +297,7 @@ export const posts: PostData[] = [
       avatarUrl: 'https://randomuser.me/api/portraits/women/44.jpg',
       title: 'UI/UX Designer',
     },
+    tags: ['skills', 'projects'],
   },
   {
     description: 'An in-depth guide to React Hooks without images.',
@@ -308,6 +310,7 @@ export const posts: PostData[] = [
       avatarUrl: 'https://randomuser.me/api/portraits/men/35.jpg',
       title: 'Frontend Developer',
     },
+    tags: ['skills'],
   },
   {
     description: 'An in-depth guide to React Hooks.',
@@ -323,6 +326,7 @@ export const posts: PostData[] = [
       avatarUrl: 'https://randomuser.me/api/portraits/men/35.jpg',
       title: 'Frontend Developer',
     },
+    tags: ['experience'],
   },
   {
     description: 'Tips for optimizing web performance.',
@@ -338,6 +342,7 @@ export const posts: PostData[] = [
       avatarUrl: 'https://randomuser.me/api/portraits/women/68.jpg',
       title: 'Performance Engineer',
     },
+    tags: ['projects', 'certifications'],
   },
   {
     description: 'The future of JavaScript frameworks.',
@@ -352,6 +357,7 @@ export const posts: PostData[] = [
       avatarUrl: 'https://randomuser.me/api/portraits/men/52.jpg',
       title: 'Full Stack Developer',
     },
+    tags: ['experience', 'projects'],
   },
   {
     description: 'Tips for optimizing web performance without visual aids.',
@@ -364,6 +370,7 @@ export const posts: PostData[] = [
       avatarUrl: 'https://randomuser.me/api/portraits/women/68.jpg',
       title: 'Performance Engineer',
     },
+    tags: ['projects'],
   },
   {
     description: 'Mastering responsive design techniques.',
@@ -379,6 +386,7 @@ export const posts: PostData[] = [
       avatarUrl: 'https://randomuser.me/api/portraits/women/22.jpg',
       title: 'Web Designer',
     },
+    tags: ['skills'],
   },
 ];
 
@@ -394,6 +402,10 @@ export const postFilters = [
   {
     name: 'Experience',
     filter: 'experience',
+  },
+  {
+    name: 'Certifications',
+    filter: 'certifications',
   },
   {
     name: 'Skills',

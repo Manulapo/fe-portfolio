@@ -23,18 +23,14 @@ const MainLayout = () => {
 
       {/* Main Feed */}
       <div className="md:px-2 md:col-span-6 col-span-12 h-auto pt-12 md:pt-0 pb-15">
-        <div className="md:space-y-4 space-y-2">
+        <div className="md:space-y-4 space-y-2 ">
           <Outlet />
         </div>
       </div>
 
       <div
         className="col-span-3 space-y-4 h-max m-0 hidden md:block sticky"
-        style={
-          leftSidebarHeight
-            ? { top: `-${leftSidebarHeight - 50}px` }
-            : {}
-        }
+        style={leftSidebarHeight ? { top: `-${leftSidebarHeight - 50}px` } : {}}
       >
         <RightSidebar ref={sidebarRef} />
         <div style={{ position: 'sticky', top: '21em' }}>

@@ -13,7 +13,7 @@ export interface PostData {
   shares: number;
   createdAt: string;
   author: Author;
-  tags?: string[]; // used to filter posts
+  tags?: PostTagsTypes[]; // used to filter posts
 }
 
 export interface ChatData {
@@ -28,4 +28,7 @@ export interface ChatData {
 export interface ChatMessagesStream {
   text: string;
   time: string;
+  isMine?: boolean;
 }
+
+export type PostTagsTypes = 'all' | 'experience' | 'projects' | 'skills' | 'certifications';
