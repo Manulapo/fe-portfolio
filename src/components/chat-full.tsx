@@ -1,7 +1,6 @@
-import { formatDate } from '@/lib/utils';
+import { formatDate, getRandomNumber } from '@/lib/utils';
 import { ChatData } from '@/types';
-import { ChevronDown, ChevronUp, Send, X } from 'lucide-react';
-import { useState } from 'react';
+import { ChevronDown, ChevronUp, Circle, Send, X } from 'lucide-react';
 import AvatarIcon from './shared/Avatar';
 import { Button } from './ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from './ui/card';
@@ -11,14 +10,18 @@ import { Separator } from './ui/separator';
 const ChatFull = ({
   chatData,
   className,
+  isOpen,
+  onToggle,
   chatClosedTrigger,
 }: {
   chatData: ChatData;
   className?: string;
+  isOpen: boolean;
+  onToggle: () => void;
   chatClosedTrigger: (chat: ChatData) => void;
 }) => {
-  const [isOpen, setIsOpen] = useState(false);
   const { user, userAvatar, messages, date, userClaim } = chatData;
+  const isOnline = getRandomNumber(0, 1) === 1;
 
   return (
     <Card
@@ -31,21 +34,30 @@ const ChatFull = ({
     >
       <CardHeader className="p-0 pb-2">
         <CardTitle className="flex items-center justify-between">
-          <div className="flex gap-2 items-center justify-center">
-            <h3>{user}</h3>
+          <div className="flex flex-col gap-0.5 items-start justify-center">
+            <h3 className="m-0">{user}</h3>
+            <p className="text-muted-foreground text-xs w-max p-0 m-0">
+              {isOnline ? (
+                <div className="flex items-center gap-1">
+                  <Circle className="text-green-500" size={10} /> Online
+                </div>
+              ) : (
+                <div className="flex items-center gap-1">
+                  <Circle className="text-red-500" size={10} /> Offline
+                </div>
+              )}
+            </p>
           </div>
           <div className="flex gap-1">
             <Button
-              onClick={() => setIsOpen(!isOpen)}
-              className="bg-transparent text-black hover:text-gray-800 hover:bg-gray-200 rounded-full flex items-center justify-center p-2"
+              onClick={() => onToggle()}
+              className="bg-transparent text-black hover:text-gray-800 hover:bg-gray-200 rounded-full flex items-center justify-center p-2 shadow-none"
             >
               {isOpen ? <ChevronDown /> : <ChevronUp />}
             </Button>
             <Button
-              className="bg-transparent text-gray-500 hover:text-gray-800 hover:bg-gray-200 rounded-full flex items-center justify-center p-2"
-              onClick={() => {
-                chatClosedTrigger(chatData);
-              }}
+              className="bg-transparent text-gray-500 hover:text-gray-800 hover:bg-gray-200 rounded-full flex items-center justify-center p-2 shadow-none"
+              onClick={() => chatClosedTrigger(chatData)}
             >
               <X />
             </Button>

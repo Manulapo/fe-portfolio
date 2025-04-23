@@ -3,21 +3,39 @@ import { useState } from 'react';
 import ChatBar from './chat';
 import ChatFull from './chat-full';
 
-const ChatLayer = () => {
-  const [chatOpened, setChatOpened] = useState<ChatData[]>([]);
+const ChatLayer = ({ className }: { className: string }) => {
+  const [activeChats, setActiveChats] = useState<ChatData[]>([]);
+  const [openChatMap, setOpenChatMap] = useState<{ [user: string]: boolean }>(
+    {},
+  );
+
   const handleClosingClick = (chatData: ChatData) => {
-    setChatOpened((prev) => prev.filter((chat) => chat.user !== chatData.user));
+    setActiveChats((prev) => prev.filter((chat) => chat.user !== chatData.user));
+    setOpenChatMap((prev) => {
+      const newMap = { ...prev };
+      delete newMap[chatData.user];
+      return newMap;
+    });
   };
 
   const handleChatRowSelected = (chat: ChatData) =>
-    setChatOpened((prev) =>
+    setActiveChats((prev) =>
       prev.some((c) => c.user === chat.user) ? prev : [...prev, chat],
     );
 
+  const toggleChat = (user: string) => {
+    setOpenChatMap((prev) => ({
+      ...prev,
+      [user]: !prev[user],
+    }));
+  };
+
   return (
-    <div className="fixed flex w-full gap-3 bottom-[-5px] right-0 z-50 justify-end direction-reverse">
-      {chatOpened.map((chat, index) => (
+    <div className={className} style={{ bottom: '-5px', right: '3em' }}>
+      {activeChats.map((chat, index) => (
         <ChatFull
+          isOpen={!openChatMap[chat.user]}
+          onToggle={() => toggleChat(chat.user)}
           chatData={chat}
           key={index}
           className="w-80 flex flex-col gap-4 p-4 rounded-sm shadow-md transition-all duration-200"

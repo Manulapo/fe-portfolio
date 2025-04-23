@@ -66,9 +66,16 @@ export const chatData: ChatData[] = [
     messages: [
       { text: "I'm out of the office today.", time: '08:05' },
       { text: "Let's connect tomorrow.", time: '08:07' },
+      {
+        text: 'Sure, sounds good!',
+        time: '08:08',
+      },
+      {
+        text: 'I will be available at 10 AM.',
+        time: '08:09',
+      },
     ],
   },
-  
 ];
 
 export const contactInfo = [

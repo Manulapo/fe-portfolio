@@ -8,7 +8,9 @@ function App() {
   return (
     <div className="relative">
       <AppRouter />
-      {!isMobile && <ChatLayer />}
+      {!isMobile && (
+        <ChatLayer className="fixed flex w-full h-full gap-3 z-50 justify-end items-end" />
+      )}
     </div>
   );
 }
