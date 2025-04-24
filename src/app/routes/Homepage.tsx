@@ -1,6 +1,6 @@
 import AddPost from '@/components/shared/add-post';
 import Post from '@/components/shared/post';
-import { posts } from '../constants';
+import { posts } from '../constants/posts';
 import PostFilter from '@/components/shared/post-filter';
 import { useIsMobile } from '@/hooks/use-mobile';
 import { cn } from '@/lib/utils';

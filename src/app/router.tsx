@@ -1,14 +1,16 @@
-import { Suspense } from 'react';
-import { Loader } from 'lucide-react';
-import { Route, Routes, useLocation } from 'react-router-dom';
+import ChatPage from '@/app/routes/chatpage';
+import ExperiencePage from '@/app/routes/experiencepage';
+import HomePage from '@/app/routes/homepage';
+import NotFound from '@/app/routes/notFound';
 import AppLayout from '@/components/appShell';
 import MainLayout from '@/components/layout';
 import LoadingSection from '@/components/shared/loading-section';
+import { Loader } from 'lucide-react';
+import { Suspense } from 'react';
+import { Route, Routes, useLocation } from 'react-router-dom';
+import MobileRouteGuard from './guards/mobile-guard';
+import NotificationPage from './routes/notificationpage';
 import ProfilePage from './routes/Profilepage';
-import HomePage from '@/app/routes/Homepage';
-import ExperiencePage from '@/app/routes/Experiencepage';
-import ChatPage from '@/app/routes/chatpage';
-import NotFound from '@/app/routes/notFound';
 
 const AppRouter = () => {
   const location = useLocation();
@@ -39,8 +41,18 @@ const AppRouter = () => {
             <Route
               path="chat"
               element={
+                <MobileRouteGuard>
+                  <LoadingSection delay={delay} key={location.pathname}>
+                    <ChatPage />
+                  </LoadingSection>
+                </MobileRouteGuard>
+              }
+            />
+            <Route
+              path="notifications"
+              element={
                 <LoadingSection delay={delay} key={location.pathname}>
-                  <ChatPage />
+                  <NotificationPage />
                 </LoadingSection>
               }
             />

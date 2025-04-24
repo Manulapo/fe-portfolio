@@ -1,4 +1,4 @@
-import { experiences } from '@/app/constants';
+import { experiences } from '@/app/constants/cert-skills';
 import { Card, CardContent, CardHeader } from '../ui/card';
 import { Separator } from '../ui/separator';
 import Heading from './heading';

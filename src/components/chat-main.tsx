@@ -1,4 +1,4 @@
-import { chatData } from '@/app/constants';
+import { chatData } from '@/app/constants/chats';
 import options from '@/assets/icons/dots.svg';
 import newPost from '@/assets/icons/new_post.svg';
 import { useIsMobile } from '@/hooks/use-mobile';
