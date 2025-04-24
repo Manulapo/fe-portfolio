@@ -1,3 +1,4 @@
+import React, { memo } from 'react';
 import { useIsMobile } from '@/hooks/use-mobile';
 import { cn, formatDate, getRandomNumber } from '@/lib/utils';
 import { ChatData } from '@/types';
@@ -11,7 +12,7 @@ import {
   Smile,
   X,
 } from 'lucide-react';
-import { useCallback, useMemo, useState } from 'react';
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import AvatarIcon from './shared/Avatar-icon';
 import ChatMessage from './shared/chatMessage';
 import { Button } from './ui/button';
@@ -19,6 +20,45 @@ import { Card, CardContent, CardHeader, CardTitle } from './ui/card';
 import { Input } from './ui/input';
 import { Separator } from './ui/separator';
 import { userInfo } from '@/app/constants';
+
+const ChatAvatar = memo(
+  ({
+    user,
+    userAvatar,
+    userClaim,
+    isOnline,
+    onlineStatus,
+    isMobile,
+  }: {
+    user: string;
+    userClaim: string;
+    userAvatar: string;
+    isOnline: boolean;
+    onlineStatus: string;
+    isMobile: boolean;
+  }) => {
+    return (
+      <div className="flex items-center gap-2">
+        <AvatarIcon name={user} image={userAvatar} size={50} />
+        <div>
+          <p className="font-semibold text-black">
+            {user}{' '}
+            {isMobile && (
+              <span className="flex items-center gap-1">
+                <Circle
+                  className={cn(isOnline ? 'text-green-700' : 'text-red-500')}
+                  size={10}
+                />
+                <span>{onlineStatus}</span>
+              </span>
+            )}
+          </p>
+          <p className="text-muted-foreground">{userClaim}</p>
+        </div>
+      </div>
+    );
+  },
+);
 
 const ChatFull = ({
   chatData,
@@ -37,6 +77,7 @@ const ChatFull = ({
   const isMobile = useIsMobile();
   const [inputValue, setInputValue] = useState('');
   const [messagesStream, setMessagesStream] = useState(messages);
+  const chatContainerRef = useRef<HTMLDivElement>(null);
 
   // Cache online status
   const isOnline = useMemo(() => getRandomNumber(0, 1) === 1, [messagesStream]);
@@ -44,7 +85,14 @@ const ChatFull = ({
 
   const cardStyle = useMemo(
     () => ({
-      height: isOpen ? (isMobile ? 'auto' : 'max-content') : '65px',
+      height: isOpen
+        ? isMobile
+          ? 'calc(100vh - 50px)'
+          : 'max-content'
+        : '65px',
+      position: isMobile ? 'absolute' : 'relative',
+      top: isMobile ? '50px' : undefined,
+      zIndex: isMobile ? 1000 : undefined,
       bottom: isOpen ? 0 : '-5px',
     }),
     [isOpen, isMobile],
@@ -52,8 +100,8 @@ const ChatFull = ({
 
   const chatStyle = useMemo(
     () => ({
-      maxHeight: !isMobile ? '300px' : 'max-content',
-      height: isMobile ? '38vh' : undefined,
+      maxHeight: !isMobile ? '300px' : 'calc(60vh - 50px)',
+      height: isMobile ? 'calc(60vh-50px)' : undefined,
       overflowY: 'auto',
     }),
     [isMobile],
@@ -71,8 +119,14 @@ const ChatFull = ({
     }
   }, [inputValue]);
 
+  useEffect(() => {
+    if (chatContainerRef.current) {
+      chatContainerRef.current.scrollIntoView({ behavior: 'smooth' });
+    }
+  }, [messagesStream]);
+
   return (
-    <Card className={className} style={cardStyle}>
+    <Card className={className} style={cardStyle as React.CSSProperties}>
       <CardHeader
         className="px-3 pb-2"
         style={{
@@ -119,24 +173,14 @@ const ChatFull = ({
         {!isMobile && <Separator className="p-0 w-full" />}
       </CardHeader>
       <CardContent className="h-max w-full px-1 m-0 flex flex-col gap-2">
-        <div className="flex items-center gap-2">
-          <AvatarIcon name={user} image={userAvatar} size={50} />
-          <div>
-            <p className="font-semibold text-black">
-              {user}{' '}
-              {isMobile && (
-                <span className="flex items-center gap-1">
-                  <Circle
-                    className={cn(isOnline ? 'text-green-700' : 'text-red-500')}
-                    size={10}
-                  />
-                  <span>{onlineStatus}</span>
-                </span>
-              )}
-            </p>
-            <p className="text-muted-foreground">{userClaim}</p>
-          </div>
-        </div>
+        <ChatAvatar
+          user={user}
+          userAvatar={userAvatar}
+          userClaim={userClaim}
+          isOnline={isOnline}
+          onlineStatus={onlineStatus}
+          isMobile={isMobile}
+        />
         <div className="flex items-center justify-center gap-3">
           <div className="my-2 border border-gray-100 flex-1" />
           <p className="text-muted-foreground text-xs w-max">
@@ -155,9 +199,10 @@ const ChatFull = ({
               hasHeader={i === 0 || messagesStream[i - 1]?.isMine !== m.isMine}
             />
           ))}
+          <div ref={chatContainerRef} />
         </div>
       </CardContent>
-      <div className="flex flex-col gap-4">
+      <div className="flex flex-col gap-4 w-full mt-auto md:m-auto">
         <Separator className="p-0 w-full" />
         <CardContent className="flex items-center w-full justify-around gap-4 p-0">
           <Input

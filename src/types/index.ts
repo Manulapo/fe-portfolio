@@ -31,4 +31,20 @@ export interface ChatMessagesStream {
   isMine?: boolean;
 }
 
-export type PostTagsTypes = 'all' | 'experience' | 'projects' | 'skills' | 'certifications';
+export type PostTagsTypes =
+  | 'all'
+  | 'experience'
+  | 'projects'
+  | 'skills'
+  | 'certifications';
+
+export interface NotificationData {
+  title: string;
+  icon: string; // can be emoji or icon name
+  description: string;
+  date: string;
+  hasCTA: boolean;
+  cta: string;
+  toRead: boolean;
+  type: 'job' | 'myPost' | 'mention' 
+}

@@ -1,8 +1,7 @@
-import { ChatData } from '@/types';
-import { Button } from './ui/button';
-import AvatarIcon from './shared/Avatar-icon';
 import { reduceText } from '@/lib/utils';
-import { Separator } from './ui/separator';
+import { ChatData } from '@/types';
+import AvatarIcon from './shared/Avatar-icon';
+import { Button } from './ui/button';
 
 const ChatRow = ({ chatData }: { chatData: ChatData }) => {
   const { userAvatar, preview, user } = chatData;
@@ -23,7 +22,6 @@ const ChatRow = ({ chatData }: { chatData: ChatData }) => {
           </div>
         </div>
       </Button>
-      <Separator className="m-0 p-0" />
     </>
   );
 };

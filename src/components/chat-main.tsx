@@ -27,7 +27,7 @@ const ChatBar = ({
       bottom: isOpen ? 0 : '-5px',
       boxShadow: isMobile ? 'none' : '0px 0px 10px rgba(0, 0, 0, 0.1)',
     }),
-    [isOpen, isMobile]
+    [isOpen, isMobile],
   );
 
   const handleChatRowClick = (chat: ChatData) => {
@@ -63,9 +63,10 @@ const ChatBar = ({
         </CardHeader>
       )}
       <CardContent className="h-max max-h-100 w-full px-1 m-0 flex flex-col gap-2">
-        {chatData.map((chat) => (
+        {chatData.map((chat, i) => (
           <div onClick={() => handleChatRowClick(chat)} key={chat.user}>
             <ChatRow chatData={chat} />
+            {i < chatData.length - 1 && <Separator className="my-1 p-0" />}
           </div>
         ))}
       </CardContent>

@@ -98,6 +98,25 @@ export const addPostLinks = [
   },
 ];
 
+export const notificationFilter = [
+  {
+    name: 'All',
+    value: 'all',
+  },
+  {
+    name: 'Jobs',
+    value: 'job',
+  },
+  {
+    name: 'My Posts',
+    value: 'myPost',
+  },
+  {
+    name: 'Mentions',
+    value: 'mention',
+  },
+];
+
 export const postFooterLinks = [
   {
     name: 'Like',
@@ -150,5 +169,48 @@ export const postFilters = [
   {
     name: 'Skills',
     filter: 'skills',
+  },
+];
+
+export const dateTypes = [
+  {
+    name: 'Today',
+    rank: 0,
+  },
+  {
+    name: '3 days ago',
+    rank: 1,
+  },
+  {
+    name: '4 days ago',
+    rank: 2,
+  },
+  {
+    name: '8 days ago',
+    rank: 3,
+  },
+  {
+    name: '1 week ago',
+    rank: 4,
+  },
+  {
+    name: '2 weeks ago',
+    rank: 5,
+  },
+  {
+    name: '1 month ago',
+    rank: 6,
+  },
+  {
+    name: '3 months ago',
+    rank: 7,
+  },
+  {
+    name: '6 months ago',
+    rank: 8,
+  },
+  {
+    name: '1 year ago',
+    rank: 9,
   },
 ];

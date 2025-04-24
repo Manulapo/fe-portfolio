@@ -49,7 +49,7 @@ const AppRouter = () => {
               }
             />
             <Route
-              path="notifications"
+              path="notification"
               element={
                 <LoadingSection delay={delay} key={location.pathname}>
                   <NotificationPage />

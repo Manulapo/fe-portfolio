@@ -45,7 +45,7 @@ const ProfileIcon = () => {
             </div>
 
             <span className="text-muted-foreground text-xs flex items-center justify-between opacity-70 hover:opacity-100">
-              Profile
+              You
               {isClicked ? (
                 <ChevronUp className="w-4 h-4" />
               ) : (
