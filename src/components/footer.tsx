@@ -1,13 +1,15 @@
 import { Link } from 'react-router-dom';
 import linkedinIcon from '@/assets/icons/LinkedIn_icon.svg';
 import { cn } from '@/lib/utils';
+import { useIsMobile } from '@/hooks/use-mobile';
 
-const links = [
-  ['Informazioni', 'Accessibilità'],
-  ['Centro assistenza', 'Privacy e condizioni'],
-  ['Opzioni per gli annunci pubblicitari', 'Pubblicità'],
-  ['Servizi alle aziende', 'Scarica l’app LinkedIn'],
-  ['Altro'],
+const navLinks = [
+  { label: 'Home', to: '/' },
+  { label: 'Experience', to: '/experience' },
+  { label: 'Chat', to: '/chat' },
+  { label: 'Notifications', to: '/notification' },
+  { label: 'Network', to: '/network' },
+  { label: 'Profile', to: '/profile' },
 ];
 
 const Footer = ({ className }: { className?: string }) => {
@@ -18,18 +20,19 @@ const Footer = ({ className }: { className?: string }) => {
         className,
       )}
     >
-      {links.map((group, i) => (
-        <div key={i} className="flex flex-wrap gap-x-2 gap-y-1">
-          {group.map((label) => (
-            <Link key={label} to="#" className="hover:underline">
-              {label}
+      <div className="flex flex-wrap gap-x-4 gap-y-2">
+        {navLinks.map((link) => {
+          if (link.label === 'Chat' && !useIsMobile()) return null; // Skip the Profile link
+          return (
+            <Link key={link.to} to={link.to} className="hover:underline">
+              {link.label}
             </Link>
-          ))}
-        </div>
-      ))}
+          );
+        })}
+      </div>
       <div className="pt-2 flex items-center gap-1">
         <img src={linkedinIcon} alt="LinkedIn" className="w-4 h-4" />
-        <span>LinkedIn Corporation © {new Date().getFullYear()}</span>
+        <span>Manuel La Porta© Portfolio {new Date().getFullYear()}</span>
       </div>
     </div>
   );

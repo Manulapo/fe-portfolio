@@ -153,11 +153,11 @@ export const postFooterLinks = [
 
 export const navbarIcons = [
   { icon: home, path: '/', name: 'Home' },
-  { icon: people, path: '/network', name: 'Network' },
   { icon: chat, path: '/chat', name: 'Chat' },
   { icon: publish, path: '/publish', name: 'Post' },
   { icon: job, path: '/experience', name: 'Experience' },
   { icon: notification, path: '/notification', name: 'Notification' },
+  { icon: people, path: '/network', name: 'Network' },
 ];
 
 export const postFilters = [

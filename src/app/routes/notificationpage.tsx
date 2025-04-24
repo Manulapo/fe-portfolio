@@ -7,6 +7,7 @@ import { Separator } from '@/components/ui/separator';
 import { getRandomNumber, shuffleArray } from '@/lib/utils';
 import { dateTypes } from '../constants';
 import { useState } from 'react';
+import LoadingSection from '@/components/shared/loading-section';
 
 const addToreadStatus = (notifications: NotificationData[]) => {
   notifications = shuffleArray(notifications);
@@ -71,13 +72,17 @@ const NotificationPage = () => {
           );
         }}
       />
-      <Card className="p-0 m-0 gap-0">
-        {array.map((notification: NotificationData, i: number) => (
-          <>
-            <NotificationRow key={notification.title} data={notification} />
-            {i < array.length - 1 && <Separator className="my-0 bg-gray-300" />}
-          </>
-        ))}
+      <Card className="p-0 m-0 gap-0 min-h-15">
+        <LoadingSection className='mt-4' delay={500} key={array.length}>
+          {array.map((notification: NotificationData, i: number) => (
+            <>
+              <NotificationRow key={notification.title} data={notification} />
+              {i < array.length - 1 && (
+                <Separator className="my-0 bg-gray-300" />
+              )}
+            </>
+          ))}
+        </LoadingSection>
       </Card>
     </>
   );

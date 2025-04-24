@@ -1,11 +1,13 @@
 import { useDelay } from '@/hooks/use-delay';
-import { getRandomNumber } from '@/lib/utils';
+import { cn, getRandomNumber } from '@/lib/utils';
 import { Loader } from 'lucide-react';
 
 const LoadingSection = ({
+  className,
   delay,
   children,
 }: {
+  className?: string;
   delay: number;
   children: React.ReactNode;
 }) => {
@@ -15,7 +17,7 @@ const LoadingSection = ({
   return showContent ? (
     <>{children}</>
   ) : (
-    <Loader className="w-full mx-auto animate-spin" />
+    <Loader className={cn("w-full mx-auto animate-spin", className)} />
   );
 };
 
