@@ -7,7 +7,7 @@ import { skillsType } from '@/types';
 const SkillsCard = () => {
 
   return (
-    <Card className="p-0 h-auto pb-6">
+    <Card className="p-0 h-auto pb-4">
       <CardHeader>
         <Heading title="Skills" />
         <Separator className="mt-0" />

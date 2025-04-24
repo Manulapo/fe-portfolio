@@ -21,6 +21,17 @@ import {
   User,
 } from 'lucide-react';
 
+export const sitePages = [
+  '/',
+  '/projects',
+  '/experience',
+  '/certifications',
+  '/network',
+  '/chat',
+  '/notification',
+  '/profile',
+];
+
 export const userInfo = {
   name: 'Manuel La Porta',
   title: 'Frontend Developer & UX Designer',
@@ -142,7 +153,7 @@ export const postFooterLinks = [
 
 export const navbarIcons = [
   { icon: home, path: '/', name: 'Home' },
-  { icon: people, path: '/people', name: 'Network' },
+  { icon: people, path: '/network', name: 'Network' },
   { icon: chat, path: '/chat', name: 'Chat' },
   { icon: publish, path: '/publish', name: 'Post' },
   { icon: job, path: '/experience', name: 'Experience' },

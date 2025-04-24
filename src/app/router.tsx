@@ -11,6 +11,7 @@ import { Route, Routes, useLocation } from 'react-router-dom';
 import MobileRouteGuard from './guards/mobile-guard';
 import NotificationPage from './routes/notificationpage';
 import ProfilePage from './routes/Profilepage';
+import NetworkPage from './routes/networkpage';
 
 const AppRouter = () => {
   const location = useLocation();
@@ -53,6 +54,14 @@ const AppRouter = () => {
               element={
                 <LoadingSection delay={delay} key={location.pathname}>
                   <NotificationPage />
+                </LoadingSection>
+              }
+            />
+            <Route
+              path="network"
+              element={
+                <LoadingSection delay={delay} key={location.pathname}>
+                  <NetworkPage />
                 </LoadingSection>
               }
             />
