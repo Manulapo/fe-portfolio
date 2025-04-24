@@ -48,3 +48,6 @@ export interface NotificationData {
   toRead: boolean;
   type: 'job' | 'myPost' | 'mention' 
 }
+
+
+export type skillsType = 'framework' | 'language' | 'design' | 'database';

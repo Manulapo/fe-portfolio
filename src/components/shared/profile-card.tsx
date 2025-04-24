@@ -10,48 +10,81 @@ import { Popover, PopoverContent, PopoverTrigger } from '../ui/popover';
 import DialogLayout from '../dialog-layout';
 import ContactinfoDialogContent from './contact-info-dialog';
 import { userInfo } from '@/app/constants';
+import { Link } from 'react-router-dom';
 
-const ProfileCard = ({ isProfilePage = false }: { isProfilePage?: boolean }) => {
+const ProfileCard = ({
+  isProfilePage = false,
+}: {
+  isProfilePage?: boolean;
+}) => {
   const [isClicked, setIsClicked] = useState(false);
   const isMobile = useIsMobile();
-  const avatarSize = useMemo(() => (isProfilePage ? (isMobile ? 70 : 150) : 70), [isProfilePage, isMobile]);
+  const avatarSize = useMemo(
+    () => (isProfilePage ? (isMobile ? 70 : 150) : 70),
+    [isProfilePage, isMobile],
+  );
 
   return (
     <Card className="p-0 h-auto">
       <CardHeader
         className={cn(
           'p-0 pb-2 rounded-tl-sm rounded-tr-sm relative',
-          isProfilePage && !isMobile ? 'h-45' : 'h-25'
+          isProfilePage && !isMobile ? 'h-45' : 'h-25',
         )}
       >
         <div
           className={cn(
             'p-0 pb-2 rounded-tl-sm rounded-tr-sm relative overflow-hidden',
-            isProfilePage && !isMobile ? 'h-45' : 'h-25'
+            isProfilePage && !isMobile ? 'h-45' : 'h-25',
           )}
         >
-          <img src={userInfo.coverImg} alt={userInfo.name} className="w-full object-cover h-full" />
+          <img
+            src={userInfo.coverImg}
+            alt={userInfo.name}
+            className="w-full object-cover h-full"
+          />
         </div>
-        <div className={cn("absolute left-3 border-2 border-white rounded-full bg-white", isProfilePage ? 'bottom-[-35px]':'bottom-[-20px]')}>
+        <div
+          className={cn(
+            'absolute left-3 border-2 border-white rounded-full bg-white',
+            isProfilePage ? 'bottom-[-35px]' : 'bottom-[-20px]',
+          )}
+        >
           <AvatarIcon name={userInfo.name} link="/profile" size={avatarSize} />
         </div>
       </CardHeader>
       <CardContent className="h-auto pb-5">
-        <CardTitle className={cn("font-semibold flex flex-col gap-1",
-          isProfilePage ? 'pt-8' : 'pt-2',
-        )}>
+        <CardTitle
+          className={cn(
+            'font-semibold flex flex-col gap-1',
+            isProfilePage ? 'pt-8' : 'pt-2',
+          )}
+        >
           <h1 className="text-xl">{userInfo.name}</h1>
         </CardTitle>
-        <p className={cn('text-muted-foreground font-normal', isProfilePage && 'text-lg')}>
+        <p
+          className={cn(
+            'text-muted-foreground font-normal',
+            isProfilePage && 'text-lg',
+          )}
+        >
           {userInfo.title}
         </p>
-        <p className={cn('text-muted-foreground text-xs font-medium', isProfilePage && 'text-sm font-semibold')}>
+        <p
+          className={cn(
+            'text-muted-foreground text-xs font-medium',
+            isProfilePage && 'text-sm font-semibold',
+          )}
+        >
           {userInfo.location}
         </p>
         {isProfilePage && (
           <DialogLayout
             triggerContent={
-              <Button variant="link" className="text-sm m-0 p-0 text-blue-500 font-semibold cursor-pointer">
+              <Button
+                variant="link"
+                className="text-sm m-0 p-0 text-blue-500 font-semibold cursor-pointer"
+              >
                 Contact Info
               </Button>
             }
@@ -66,12 +99,21 @@ const ProfileCard = ({ isProfilePage = false }: { isProfilePage?: boolean }) => 
               University of Pisa, Italy
             </p>
             <div className="flex md:items-center md:justify-start justify-end gap-2 mt-6 w-full">
-              <Button className="rounded-full bg-blue-600 hover:bg-blue-900">
-                <Send /> Message
+              <Button
+                className="rounded-full bg-blue-600 hover:bg-blue-900"
+                asChild
+              >
+                <Link
+                  target="_blank"
+                  to="https://www.linkedin.com/in/manulaporta/"
+                  className="text-white flex items-center gap-2 px-4 py-2"
+                >
+                  <Send /> Message
+                </Link>
               </Button>
               <Popover open={isClicked} onOpenChange={setIsClicked}>
                 <PopoverTrigger
-                  onClick={() => setIsClicked(prev => !prev)}
+                  onClick={() => setIsClicked((prev) => !prev)}
                   asChild
                   className="p-0 bg-transparent hover:bg-transparent w-max h-full cursor-pointer"
                 >
@@ -99,7 +141,8 @@ const ProfileCard = ({ isProfilePage = false }: { isProfilePage?: boolean }) => 
                         asChild
                       >
                         <span className="text-xs md:text-sm font-semibold opacity-70 group-hover:opacity-100 w-full">
-                          <Forward className="w-4 h-4" /> Share this profile as a link
+                          <Forward className="w-4 h-4" /> Share this profile as
+                          a link
                         </span>
                       </Button>
                       <Button

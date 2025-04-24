@@ -8,7 +8,7 @@ const text =
 
 const AboutCard = ({
   isTruncated,
-  maxWord = 15,
+  maxWord = 10,
 }: {
   isTruncated?: boolean;
   maxWord?: number;
