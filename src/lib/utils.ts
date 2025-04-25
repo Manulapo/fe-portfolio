@@ -49,3 +49,7 @@ export const shuffleArray = <T>(array: T[]): T[] => {
   }
   return array;
 }
+
+export const cleanStringify = (text:string) => {
+  return text.replace(/[{}":,]/g, '');
+};

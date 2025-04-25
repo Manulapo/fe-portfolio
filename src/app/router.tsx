@@ -9,9 +9,9 @@ import { Loader } from 'lucide-react';
 import { Suspense } from 'react';
 import { Route, Routes, useLocation } from 'react-router-dom';
 import MobileRouteGuard from './guards/mobile-guard';
-import NotificationPage from './routes/notificationpage';
-import ProfilePage from './routes/Profilepage';
 import NetworkPage from './routes/networkpage';
+import NotificationPage from './routes/notificationpage';
+import ProfilePage from './routes/profilepage';
 
 const AppRouter = () => {
   const location = useLocation();

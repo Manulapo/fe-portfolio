@@ -2,6 +2,8 @@ import { experiences } from '@/app/constants/cert-skills';
 import { Card, CardContent, CardHeader } from '../ui/card';
 import { Separator } from '../ui/separator';
 import Heading from './heading';
+import { Suspense } from 'react';
+import { Loader } from 'lucide-react';
 
 const ExperienceCard = () => {
   return (
@@ -15,7 +17,13 @@ const ExperienceCard = () => {
             <Separator className="mt-1" />
 
             <div className="flex items-center gap-2 my-2">
-              <img src={item.icon} alt={item.title} className="w-15 h-15 " />
+              <Suspense
+                fallback={
+                  <Loader className="w-5 h-5 animate-spin text-gray-500" />
+                }
+              >
+                <img src={item.icon} alt={item.title} className="w-15 h-15 " />
+              </Suspense>
               <h2 className="text-lg font-semibold">{item.title}</h2>
             </div>
             <div className="flex justify-between">

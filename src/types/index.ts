@@ -17,7 +17,8 @@ export interface PostData {
   hasPdf?: boolean; // used to show CTA button
   ctaUrl?: string; // used to redirect to another page
   downloadUrl?: string; // used to download the file
-  tags?: PostTagsTypes[]; // used to filter posts
+  type?: PostTagsTypes[]; // used to filter posts
+  tags?: string[]; // used to filter posts
 }
 
 export interface ChatData {

@@ -1,11 +1,11 @@
-import { useState, memo, useMemo } from 'react';
+import { useState, memo, useMemo, Suspense } from 'react';
 import { useIsMobile } from '@/hooks/use-mobile';
 import { Card, CardContent, CardHeader, CardTitle } from '../ui/card';
 import AvatarIcon from './Avatar-icon';
 import { cn } from '@/lib/utils';
 import unipisa from '@/assets/images/unipisa_logo.jpg';
 import { Button } from '../ui/button';
-import { FileUser, Forward, PlusIcon, Send } from 'lucide-react';
+import { FileUser, Forward, Loader, PlusIcon, Send } from 'lucide-react';
 import { Popover, PopoverContent, PopoverTrigger } from '../ui/popover';
 import DialogLayout from '../dialog-layout';
 import ContactinfoDialogContent from './contact-info-dialog';
@@ -95,7 +95,13 @@ const ProfileCard = ({
         {isProfilePage && (
           <div className="mt-1">
             <p className="text-muted-foreground text-sm font-semibold flex items-center gap-2">
-              <img src={unipisa} alt="University logo" className="w-8" />
+              <Suspense
+                fallback={
+                  <Loader className="w-5 h-5 animate-spin text-gray-500" />
+                }
+              >
+                <img src={unipisa} alt="University logo" className="w-8" />
+              </Suspense>
               University of Pisa, Italy
             </p>
             <div className="flex md:items-center md:justify-start justify-end gap-2 mt-6 w-full">

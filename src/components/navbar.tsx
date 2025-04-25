@@ -21,20 +21,23 @@ import { Popover, PopoverContent, PopoverTrigger } from './ui/popover';
 import { useSearch } from '@/hooks/use-search';
 
 // Extracted SearchBar component
-const SearchBar = () => (
-  <div className="relative w-[250px] h-9">
-    <Input
-    value={searchTerm}
-    o
-      type="text"
-      placeholder="Search"
-      className={cn(
-        'bg-gray-100 shadow-none border-none active:outline-none focus:outline-none w-full h-full pl-10',
-      )}
-    />
-    <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
-  </div>
-);
+const SearchBar = () => {
+  const { searchTerm, setSearchTerm } = useSearch();
+  return (
+    <div className="relative w-[250px] h-9">
+      <Input
+        value={searchTerm}
+        onChange={(e) => setSearchTerm(e.target.value)}
+        type="text"
+        placeholder="Search post..."
+        className={cn(
+          'bg-gray-100 shadow-none border-none active:outline-none focus:outline-none w-full h-full pl-10',
+        )}
+      />
+      <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
+    </div>
+  );
+};
 
 // Mobile top navigation bar
 const MobileTopBar = () => (
@@ -150,7 +153,6 @@ const ProfileIcon = () => {
 export default function Navbar() {
   const { pathname } = useLocation();
   const isMobile = useIsMobile();
-  const { searchTerm, setSearchTerm } = useSearch();
 
   const filteredNavIcons = isMobile
     ? navbarIcons.filter((item) => item.name !== 'Chat')
