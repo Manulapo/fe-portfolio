@@ -13,6 +13,10 @@ export interface PostData {
   shares: number;
   createdAt: string;
   author: Author;
+  hasCta?: boolean; // used to show CTA button
+  hasPdf?: boolean; // used to show CTA button
+  ctaUrl?: string; // used to redirect to another page
+  downloadUrl?: string; // used to download the file
   tags?: PostTagsTypes[]; // used to filter posts
 }
 

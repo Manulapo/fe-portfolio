@@ -1,10 +1,18 @@
-import { Ellipsis, Globe2, X } from 'lucide-react';
+import { cn, formatDate } from '@/lib/utils';
+import { PostData } from '@/types';
+import {
+  Download,
+  Ellipsis,
+  Globe2,
+  LinkIcon,
+  Presentation,
+  X
+} from 'lucide-react';
+import { Link } from 'react-router-dom';
 import { Card, CardContent, CardDescription, CardHeader } from '../ui/card';
 import AvatarIcon from './Avatar-icon';
 import PostFooter from './post-footer';
 import Suggested from './suggested';
-import { PostData } from '@/types';
-import { cn, formatDate } from '@/lib/utils';
 
 const Post = ({
   className,
@@ -47,13 +55,59 @@ const Post = ({
         <CardDescription className="text-gray-900 px-4 mb-5">
           {postData?.description}
         </CardDescription>
-        {postData?.imageUrl && (
-          <img
-            src={postData?.imageUrl}
-            alt={postData?.imageAlt}
-            className="w-full"
-          />
-        )}
+        {postData?.imageUrl &&
+          (postData?.hasPdf ? (
+            <div className="w-full relative h-max">
+              <div className="absolute bottom-0 right-5 z-1 flex items-center gap-2 ml-2 mb-4">
+                <Link
+                  to={postData?.ctaUrl ?? '/'}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="opacity-70 hover:opacity-100 ease-in-out transition-all rounded-full font-semibold bg-black text-white text-nowrap px-4 py-2 flex items-center w-max gap-2"
+                >
+                  <Presentation size={18} /> View Deck
+                </Link>
+                <a
+                  href={postData?.downloadUrl ?? postData?.ctaUrl ?? '/'}
+                  download
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="opacity-70 hover:opacity-100 ease-in-out transition-all rounded-full font-semibold bg-blue-800 text-white text-nowrap px-4 py-2 flex items-center gap-2"
+                >
+                  <Download size={18} /> Download
+                </a>
+              </div>
+              <img
+                src={postData?.imageUrl}
+                alt={postData?.imageAlt}
+                className="w-full"
+              />
+            </div>
+          ) : postData?.hasCta ? (
+            <div className="w-full relative h-max">
+              <div className="absolute bottom-0 right-5 z-1 flex items-center gap-2 ml-2 mb-4">
+                <Link
+                  to={postData?.ctaUrl ?? '/'}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="opacity-70 hover:opacity-100 ease-in-out transition-all rounded-full font-semibold bg-blue-800 text-white text-nowrap px-4 py-2 flex items-center gap-2"
+                >
+                  <LinkIcon size={18} /> Visit Website
+                </Link>
+              </div>
+              <img
+                src={postData?.imageUrl}
+                alt={postData?.imageAlt}
+                className="w-full"
+              />
+            </div>
+          ) : (
+            <img
+              src={postData?.imageUrl}
+              alt={postData?.imageAlt}
+              className="w-full"
+            />
+          ))}
       </CardContent>
       <PostFooter
         likes={postData?.likes}

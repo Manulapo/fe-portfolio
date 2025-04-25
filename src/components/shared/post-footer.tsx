@@ -75,6 +75,7 @@ const PostFooter = ({
       <div className="flex items-center justify-start w-full md:gap-2 flex-nowrap overflow-auto px-2 pb-2">
         {postFooterLinks.map((link) => (
           <Button
+            key={link.name}
             className="flex items-center justify-center gap-2 py-5 px-2 flex-1 group"
             variant={'ghost'}
             asChild

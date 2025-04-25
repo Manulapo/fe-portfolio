@@ -1,4 +1,4 @@
-import { ChatData } from "@/types";
+import { ChatData } from '@/types';
 
 export const chatData: ChatData[] = [
   {
@@ -16,6 +16,11 @@ export const chatData: ChatData[] = [
       {
         text: "Before was better, let's go with the first one!",
         time: '09:29',
+      },
+      {
+        text: 'I Hate my life',
+        time: '10:59',
+        isMine: true,
       },
     ],
   },

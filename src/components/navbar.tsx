@@ -18,7 +18,69 @@ import { Button } from './ui/button';
 import { Card, CardContent, CardTitle } from './ui/card';
 import { Input } from './ui/input';
 import { Popover, PopoverContent, PopoverTrigger } from './ui/popover';
+import { useSearch } from '@/hooks/use-search';
 
+// Extracted SearchBar component
+const SearchBar = () => (
+  <div className="relative w-[250px] h-9">
+    <Input
+    value={searchTerm}
+    o
+      type="text"
+      placeholder="Search"
+      className={cn(
+        'bg-gray-100 shadow-none border-none active:outline-none focus:outline-none w-full h-full pl-10',
+      )}
+    />
+    <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
+  </div>
+);
+
+// Mobile top navigation bar
+const MobileTopBar = () => (
+  <NavigationMenu className="flex justify-between mx-auto md:h-14 md:border-b md:border-gray-200 max-w-full bg-white fixed top-0 z-50">
+    <div className="w-full h-full flex justify-between items-center">
+      <div className="w-full flex justify-around items-center p-2 border-b border-gray-200">
+        <AvatarIcon name={userInfo.name} link="/profile" size={30} />
+        <NavigationMenuItem>
+          <SearchBar />
+        </NavigationMenuItem>
+        <NavigationMenuItem>
+          <Link
+            to="/chat"
+            className="h-full flex items-center justify-center opacity-70"
+          >
+            <NavigationMenuLink
+              className={cn(
+                navigationMenuTriggerStyle(),
+                'h-full w-max p-0 bg-white',
+              )}
+            >
+              <img src={sort} alt="Sort Icon" width={24} height={24} />
+            </NavigationMenuLink>
+          </Link>
+        </NavigationMenuItem>
+        <NavigationMenuItem>
+          <Link
+            to="/chat"
+            className="h-full flex items-center justify-center opacity-70"
+          >
+            <NavigationMenuLink
+              className={cn(
+                navigationMenuTriggerStyle(),
+                'h-full w-max p-0 bg-white',
+              )}
+            >
+              <img src={chat} alt="Chat Icon" width={24} height={24} />
+            </NavigationMenuLink>
+          </Link>
+        </NavigationMenuItem>
+      </div>
+    </div>
+  </NavigationMenu>
+);
+
+// Profile Popover component
 const ProfileIcon = () => {
   const [isClicked, setIsClicked] = useState(false);
 
@@ -43,9 +105,8 @@ const ProfileIcon = () => {
             <div className="bg-white">
               <AvatarIcon name={userInfo.name} size={28} />
             </div>
-
             <span className="text-muted-foreground text-xs flex items-center justify-between opacity-70 hover:opacity-100">
-              You
+              You{' '}
               {isClicked ? (
                 <ChevronUp className="w-4 h-4" />
               ) : (
@@ -58,23 +119,23 @@ const ProfileIcon = () => {
       <PopoverContent className="w-max p-0">
         <Card className="w-max h-max p-0 border-0">
           <CardContent className="h-auto py-4 flex flex-col items-center justify-center gap-4">
-            <div className="border-white rounded-full bg-white flex items-center justify-center gap-3">
+            <div className="rounded-full bg-white flex items-center justify-center gap-3">
               <AvatarIcon name={userInfo.name} size={45} />
               <CardTitle className="font-semibold flex flex-col gap-1">
-                <h2>Manuel La Porta</h2>
+                <h2>{userInfo.name}</h2>
                 <p className="text-muted-foreground text-sm">
-                  Frontend Developer & UX Designer
+                  {userInfo.title}
                 </p>
               </CardTitle>
             </div>
             <Button
               onClick={() => setIsClicked(false)}
-              variant={'outline'}
-              className="w-full rounded-full py-3 bg-transparent border-1 border-blue-500 hover:bg-transparent group hover:border-blue-800"
+              variant="outline"
+              className="w-full rounded-full py-3 border border-blue-500 hover:border-blue-800 bg-transparent"
               asChild
             >
               <Link to="/profile">
-                <span className="font-semibold text-blue-500 group-hover:text-blue-800">
+                <span className="font-semibold text-blue-500 hover:text-blue-800">
                   View Profile
                 </span>
               </Link>
@@ -86,67 +147,12 @@ const ProfileIcon = () => {
   );
 };
 
-const MobileTopBar = () => (
-  <NavigationMenu className="flex justify-between mx-auto md:h-14 md:border-b md:border-gray-200 max-w-full bg-white fixed top-0 md:top-0 z-50">
-    <div className="w-full h-full md:m-auto flex justify-between items-center">
-      <div className="w-full flex justify-around items-center p-2 list-none border-b-1 border-gray-200">
-        <AvatarIcon name={userInfo.name} link="/profile" size={30} />
-        <NavigationMenuItem>
-          <div className="relative w-[250px] h-9 flex items-center justify-center">
-            <Input
-              type="text"
-              placeholder="Search"
-              className={cn(
-                'bg-gray-100 shadow-none border-none active:outline-none focus:outline-none w-full h-full pl-10', // Add padding for the icon
-              )}
-            />
-            <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
-          </div>
-        </NavigationMenuItem>
-        <NavigationMenuItem>
-          <Link
-            to="/chat"
-            className={cn(
-              'h-full p-0 flex items-center justify-center opacity-70',
-            )}
-          >
-            <NavigationMenuLink
-              className={cn(
-                navigationMenuTriggerStyle(),
-                'h-full w-max p-0 bg-white',
-              )}
-            >
-              <img src={sort} alt="Icon" width={24} height={24} />
-            </NavigationMenuLink>
-          </Link>
-        </NavigationMenuItem>
-        <NavigationMenuItem>
-          <Link
-            to="/chat"
-            className={cn(
-              'h-full p-0 flex items-center justify-center opacity-70',
-            )}
-          >
-            <NavigationMenuLink
-              className={cn(
-                navigationMenuTriggerStyle(),
-                'h-full w-max p-0 bg-white',
-              )}
-            >
-              <img src={chat} alt="Icon" width={24} height={24} />
-            </NavigationMenuLink>
-          </Link>
-        </NavigationMenuItem>
-      </div>
-    </div>
-  </NavigationMenu>
-);
-
 export default function Navbar() {
   const { pathname } = useLocation();
   const isMobile = useIsMobile();
+  const { searchTerm, setSearchTerm } = useSearch();
 
-  const navIcons = isMobile
+  const filteredNavIcons = isMobile
     ? navbarIcons.filter((item) => item.name !== 'Chat')
     : navbarIcons.filter(
         (item) => item.name !== 'Post' && item.name !== 'Chat',
@@ -155,57 +161,45 @@ export default function Navbar() {
   return (
     <>
       {isMobile && <MobileTopBar />}
-      <NavigationMenu className="flex justify-between mx-auto h-14 border-t md:border-b border-b-0 md:border-gray-200 max-w-full bg-white fixed bottom-0 md:top-0 z-50">
-        <div className="lg:w-[67%] md:w-[90%] w-full h-full md:m-auto flex justify-between items-center">
+      <NavigationMenu className="flex justify-center mx-auto h-14 border-t md:border-b border-b-0 md:border-gray-200 max-w-full bg-white fixed bottom-0 md:top-0 z-50">
+        <div className="lg:w-[67%] md:w-[90%] w-full h-full flex justify-between items-center">
           <div className="items-center h-full hidden md:flex">
             <NavigationMenuItem className="flex items-center gap-3">
               <Link to="/">
                 <img src={linkedinIcon} alt="Logo" className="h-8 w-8" />
               </Link>
-              <div className="relative w-[250px] h-9">
-                <Input
-                  type="text"
-                  placeholder="Search"
-                  className={cn(
-                    'bg-gray-100 shadow-none border-none active:outline-none focus:outline-none w-full h-full pl-10', // Add padding for the icon
-                  )}
-                />
-                <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
-              </div>
+              <SearchBar />
             </NavigationMenuItem>
           </div>
-          <div className="flex items-center md:justify-center justify-evenly md:w-auto w-full h-full">
-            {navIcons.map((item, index) => {
-              return (
-                <NavigationMenuItem
-                  key={index}
-                  className="h-full flex items-center justify-center group"
+          <div className="flex items-center justify-evenly md:w-auto w-full h-full">
+            {filteredNavIcons.map((item, index) => (
+              <NavigationMenuItem
+                key={index}
+                className="h-full flex items-center justify-center group"
+              >
+                <Link
+                  to={item.path}
+                  className={cn(
+                    'h-full flex items-center justify-center opacity-70 group-hover:opacity-100',
+                    pathname === item.path
+                      ? 'border-gray-900 opacity-100 md:border-b-2 md:border-t-0 border-t-2'
+                      : '',
+                  )}
                 >
-                  <Link
-                    to={item.path}
+                  <NavigationMenuLink
                     className={cn(
-                      'h-full flex items-center justify-center opacity-70 group-hover:opacity-100',
-                      pathname === item.path
-                        ? 'border-gray-900 opacity-100 md:border-b-2 md:border-t-0 border-t-2'
-                        : '',
+                      navigationMenuTriggerStyle(),
+                      'h-full flex flex-col items-center justify-center w-15 md:w-20 bg-white',
                     )}
                   >
-                    <NavigationMenuLink
-                      className={cn(
-                        navigationMenuTriggerStyle(),
-                        'h-full flex flex-col items-center justify-center w-15 md:w-20 bg-white',
-                      )}
-                    >
-                      <img src={item.icon} alt="Icon" width={24} height={24} />
-
-                      <span className="text-muted-foreground text-xs">
-                        {item.name}
-                      </span>
-                    </NavigationMenuLink>
-                  </Link>
-                </NavigationMenuItem>
-              );
-            })}
+                    <img src={item.icon} alt="Icon" width={24} height={24} />
+                    <span className="text-muted-foreground text-xs">
+                      {item.name}
+                    </span>
+                  </NavigationMenuLink>
+                </Link>
+              </NavigationMenuItem>
+            ))}
             {!isMobile && <ProfileIcon />}
           </div>
         </div>

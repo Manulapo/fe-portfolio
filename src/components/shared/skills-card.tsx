@@ -16,8 +16,8 @@ const SkillsCard = () => {
         <div className="flex">
           <ul className="text-sm text-muted-foreground list-none">
             {Object.keys(skills).map((key, i) => (
-              <div className="mb-2 flex gap-1 flex-wrap" key={i}>
-                <h3 className="text-sm font-semibold text-gray-900 capitalize w-full">
+              <div className="mb-4 flex gap-1 flex-wrap" key={i}>
+                <h3 className="text-sm font-semibold text-gray-900 capitalize w-full mb-1">
                   {key}
                 </h3>
                 {skills[key as skillsType].map((skill) => (
