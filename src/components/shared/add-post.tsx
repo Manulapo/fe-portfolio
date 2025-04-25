@@ -1,12 +1,11 @@
 import { useIsMobile } from '@/hooks/use-mobile';
+import { PostTagsTypes } from '@/types';
 import { addPostLinks, userInfo } from '../../app/constants/index';
+import DialogLayout from '../dialog-layout';
 import { Button } from '../ui/button';
 import { Card, CardContent } from '../ui/card';
-import { Input } from '../ui/input';
 import AvatarIcon from './Avatar-icon';
-import { PostTagsTypes } from '@/types';
 import ContactinfoDialogContent from './contact-info-dialog';
-import DialogLayout from '../dialog-layout';
 
 const AddPost = ({
   onAddPostFilterToggle,
@@ -44,7 +43,7 @@ const AddPost = ({
                 );
               }}
               key={link.name}
-              className="flex items-center justify-start gap-2 py-5 px-2 flex-1 group  cursor-pointer"
+              className="flex items-center justify-center gap-2 py-5 px-2 flex-1 group  cursor-pointer"
               variant={'ghost'}
               asChild
             >

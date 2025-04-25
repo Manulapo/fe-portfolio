@@ -15,6 +15,18 @@ import PostFooter from './post-footer';
 import Suggested from './suggested';
 import { memo } from 'react';
 
+export const EmptyPost = () => {
+  return (
+    <Card className={cn('px-0 mb-2 pb-1 md:pb-0 relative')}>
+      <CardContent className="px-0">
+        <CardDescription className="text-gray-900 px-4 mb-5">
+          No Posts Found
+        </CardDescription>
+      </CardContent>
+    </Card>
+  );
+};
+
 const Post = memo(
   ({
     className,

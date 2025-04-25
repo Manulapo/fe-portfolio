@@ -1,13 +1,13 @@
 import AddPost from '@/components/shared/add-post';
 import LoadingSection from '@/components/shared/loading-section';
-import Post from '@/components/shared/post';
+import Post, { EmptyPost } from '@/components/shared/post';
 import PostFilter from '@/components/shared/post-filter';
 import { useIsMobile } from '@/hooks/use-mobile';
+import { useSearch } from '@/hooks/use-search';
 import { cleanStringify, cn } from '@/lib/utils';
 import { PostTagsTypes } from '@/types';
-import { useCallback, useMemo, useState } from 'react';
+import { use, useMemo, useState } from 'react';
 import { posts } from '../constants/posts';
-import { useSearch } from '@/hooks/use-search';
 
 const Homepage = () => {
   const isMobile = useIsMobile();
@@ -31,7 +31,7 @@ const Homepage = () => {
     }));
   }, [sortedPosts]);
 
-  const navbarSearch = () => {
+  const navbarSearch = useMemo(() => {
     const searchWords = searchTerm.toLowerCase().split(' ');
     return allPosts
       .filter(({ stringifiedPost }) =>
@@ -40,11 +40,11 @@ const Homepage = () => {
         ),
       )
       .map(({ post }) => post);
-  };
+  }, [searchTerm, allPosts]);
 
   const filteredPosts = useMemo(() => {
     if (searchTerm) {
-      return navbarSearch();
+      return navbarSearch;
     } else if (filter === 'all') {
       return sortedPosts;
     }
@@ -76,13 +76,17 @@ const Homepage = () => {
       )}
       <div className={cn(isMobile ? 'mt-7' : '')}>
         <LoadingSection delay={300} key={filteredPosts.length}>
-          {filteredPosts.map((post, idx) => (
-            <Post
-              postData={post}
-              key={idx}
-              hasSuggested={suggestedFlags[idx]}
-            />
-          ))}
+          {filteredPosts.length > 0 ? (
+            filteredPosts.map((post, idx) => (
+              <Post
+                postData={post}
+                key={idx}
+                hasSuggested={suggestedFlags[idx]}
+              />
+            ))
+          ) : (
+            <EmptyPost />
+          )}
         </LoadingSection>
       </div>
     </>

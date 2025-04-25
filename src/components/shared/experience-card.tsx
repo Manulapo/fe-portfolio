@@ -18,9 +18,7 @@ const ExperienceCard = () => {
 
             <div className="flex items-center gap-2 my-2">
               <Suspense
-                fallback={
-                  <Loader className="w-5 h-5 animate-spin text-gray-500" />
-                }
+                fallback={<Loader className="animate-spin text-gray-500" />}
               >
                 <img src={item.icon} alt={item.title} className="w-15 h-15 " />
               </Suspense>

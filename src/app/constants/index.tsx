@@ -104,11 +104,6 @@ export const addPostLinks = [
     icon: <AwardIcon className="size-5 text-blue-500" />,
     link: '/certifications',
   },
-  {
-    name: 'skills',
-    icon: <TargetIcon className="size-5 text-red-500" />,
-    link: '/skills',
-  },
 ];
 
 export const notificationFilter = [

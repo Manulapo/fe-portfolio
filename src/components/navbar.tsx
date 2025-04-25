@@ -8,26 +8,40 @@ import {
   navigationMenuTriggerStyle,
 } from '@/components/ui/navigation-menu';
 import { useIsMobile } from '@/hooks/use-mobile';
+import { useSearch } from '@/hooks/use-search';
 import { cn } from '@/lib/utils';
 import { NavigationMenuItem } from '@radix-ui/react-navigation-menu';
 import { ChevronDown, ChevronUp, Search } from 'lucide-react';
 import { useState } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import AvatarIcon from './shared/Avatar-icon';
 import { Button } from './ui/button';
 import { Card, CardContent, CardTitle } from './ui/card';
 import { Input } from './ui/input';
 import { Popover, PopoverContent, PopoverTrigger } from './ui/popover';
-import { useSearch } from '@/hooks/use-search';
 
 // Extracted SearchBar component
 const SearchBar = () => {
   const { searchTerm, setSearchTerm } = useSearch();
+  const { pathname } = useLocation();
+  const navigate = useNavigate();
+
   return (
     <div className="relative w-[250px] h-9">
       <Input
         value={searchTerm}
-        onChange={(e) => setSearchTerm(e.target.value)}
+        onChange={(e) => {
+          setSearchTerm((e.target as HTMLInputElement).value);
+        }}
+        onKeyDown={(e) => {
+          if (e.key === 'Enter') {
+            if (pathname !== '/') {
+              navigate('/');
+            } else {
+              setSearchTerm((e.target as HTMLInputElement).value);
+            }
+          }
+        }}
         type="text"
         placeholder="Search post..."
         className={cn(
