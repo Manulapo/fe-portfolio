@@ -39,6 +39,8 @@ export const userInfo = {
   avatarImg: 'https://github.com/shadcn.png',
   coverImg:
     'https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzNjUyOXwwfDF8c2VhcmNofDF8fGZhdGUlMjBjb3ZlcnxlbnwwfHx8fDE2ODQ5NTY1NzE&ixlib=rb-4.0.3&q=80&w=1080',
+  aboutPreview:
+    'Frontend Engineer and UX Designer who recently relocated to Denmark.',
 };
 
 export const contactInfo = [
