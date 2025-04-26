@@ -53,3 +53,14 @@ export const shuffleArray = <T>(array: T[]): T[] => {
 export const cleanStringify = (text:string) => {
   return text.replace(/[{}":,]/g, '');
 };
+
+// utils.ts
+// A simple HTML‐escaper for plain text:
+export function escapeHtml(input: string): string {
+  return input
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#39;');
+}

@@ -8,7 +8,7 @@ const ContactinfoDialogContent = () => {
         <div key={index} className="flex items-center gap-4 mb-4">
           <item.icon className="w-6 h-6" />
           <div className="flex flex-col">
-            <p className="text-md font-semibold flex items-center gap-2">
+            <div className="text-md font-semibold flex items-center gap-2">
               {item.title}
               <span>
                 {item.description && (
@@ -17,10 +17,11 @@ const ContactinfoDialogContent = () => {
                   </p>
                 )}
               </span>
-            </p>
+            </div>
             {item.value &&
               (item.link.length > 0 ? (
                 <Link
+                download={item.download}
                   className="text-blue-500"
                   to={item.link}
                   rel="noreferrer"

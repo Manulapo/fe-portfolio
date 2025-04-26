@@ -1,6 +1,6 @@
 import React, { memo } from 'react';
 import { useIsMobile } from '@/hooks/use-mobile';
-import { cn, formatDate, getRandomNumber } from '@/lib/utils';
+import { cn, escapeHtml, formatDate, getRandomNumber } from '@/lib/utils';
 import { ChatData } from '@/types';
 import {
   ChevronDown,
@@ -110,7 +110,7 @@ const ChatFull = ({
   const handleSendButtonClick = useCallback(() => {
     if (inputValue.trim().length > 0) {
       const newMessage = {
-        text: inputValue,
+        text: escapeHtml(inputValue),
         time: formatDate(new Date()).onlyTime,
         isMine: true,
       };

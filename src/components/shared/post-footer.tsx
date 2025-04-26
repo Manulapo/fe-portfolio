@@ -1,8 +1,5 @@
 import { postFooterLinks } from '@/app/constants';
-import celebrate from '@/assets/images/celebrate.png';
-import funny from '@/assets/images/funny.png';
-import like from '@/assets/images/like.png';
-import love from '@/assets/images/love.png';
+import { randomUsers } from '@/app/constants/randomUser';
 import { getRandomNumber } from '@/lib/utils';
 import { useCallback } from 'react';
 import { Button } from '../ui/button';
@@ -23,25 +20,24 @@ const PostFooter = ({
   };
 
   const LikesIcons = () => {
-    const icons = [like, love, celebrate, funny];
     const getRandomIcons = useCallback(() => {
       const randomIcons = new Set<string>();
-      while (randomIcons.size < getRandomNumber(1, 4)) {
-        const randomIndex = Math.floor(Math.random() * icons.length);
-        randomIcons.add(icons[randomIndex]);
+      while (randomIcons.size < getRandomNumber(3, 4)) {
+        const randomIndex = Math.floor(Math.random() * randomUsers.length);
+        randomIcons.add(randomUsers[randomIndex].avatarUrl);
       }
       return Array.from(randomIcons);
     }, []);
 
     return (
       getRandomIcons().length > 0 && (
-        <div className="flex items-center">
+        <div className="flex items-center mr-2">
           {getRandomIcons().map((icon, index) => (
             <img
               key={index}
               src={icon}
               alt="like-icon"
-              className="w-6 h-6 object-fill p-0.5 rounded-full bg-white border-1 border-white"
+              className="w-7 h-7 object-fill rounded-full bg-white border-1 border-white"
               style={{
                 transform: `translateX(${index * 5}px)`,
                 transition: 'transform 0.3s ease-in-out',
@@ -57,7 +53,7 @@ const PostFooter = ({
   return (
     <>
       <div className="px-4 h-5 flex items-center justify-between text-muted-foreground text-xs">
-        <div className="flex gap-3 items-center">
+        <div className="flex gap-4 items-center">
           <LikesIcons />
           {likes ? likes.toString() : getRandomTwoDigitNumber()} likes
         </div>

@@ -39,7 +39,7 @@ const AddPost = ({
             <Button
               onClick={() => {
                 onAddPostFilterToggle(
-                  link.name.toLocaleLowerCase() as PostTagsTypes,
+                  link.value.toLocaleLowerCase() as PostTagsTypes,
                 );
               }}
               key={link.name}

@@ -13,12 +13,46 @@ import cambridgeLogo from '@/assets/images/cambridgeinternational_logo.jpg';
 import freecodecampLogo from '@/assets/images/free_code_camp_logo.jpg';
 import johnHopkinsLogo from '@/assets/images/john_hopkins_university_logo.jpg';
 import NextJSEcommerceLogo from '@/assets/images/NextJSEcommerce_logo.png';
+import portfolioPreview from '@/assets/images/portfolio_preview.jpg';
+
 
 import armoganPdf from '@/assets/PDF/Gamestop_armogan.pdf';
 import gsDealsPdf from '@/assets/PDF/Gamestop_gsDeals.pdf';
 import jobDeskPdf from '@/assets/PDF/JobDesk.pdf';
 
 export const posts: PostData[] = [
+  {
+    description:
+    "Just launched my new portfolio — designed not just to show what I can build, but how I think about building it. 🎯\n\n" +
+    "I picked a clean, LinkedIn-inspired template for a very strategic reason: I want even the busiest HR team (or hiring manager scanning at 3 PM after back-to-back calls) to find exactly what they need — fast. 🚀\n\n" +
+    "The truth is: good design isn't about standing out at any cost. It's about standing out *where it matters*.\n\n" +
+    "This portfolio is a reflection of that — clear, structured, and ready to grow with me. It's not perfect, and that’s the point: it’s real, it's live, and it's getting better every day.",
+    imageUrl: portfolioPreview, 
+    imageAlt: 'New portfolio website preview',
+    likes: getRandomNumber(80, 300),
+    comments: getRandomNumber(10, 95),
+    shares: getRandomNumber(1, 20),
+    createdAt: '2025-04-25T00:00:00Z', // Today!
+    author: {
+      name: userInfo.name,
+      avatarUrl: userInfo.avatarImg,
+      title: userInfo.title,
+    },
+    ctaUrl: 'https://your-portfolio-domain.com', // Your real portfolio URL
+    type: ['projects'],
+    tags: [
+      'PortfolioLaunch',
+      'WebDevelopment',
+      'Next.js',
+      'React',
+      'Tailwind',
+      'TypeScript',
+      'PersonalBranding',
+      'UIUX',
+      'SelfTaught',
+      'ShippingMindset',
+    ],
+  },
   {
     description:
       'Officially wrapped up the Next.js Ecommerce 2025 certification. 📜\n\n' +

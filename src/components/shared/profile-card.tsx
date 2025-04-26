@@ -11,6 +11,7 @@ import DialogLayout from '../dialog-layout';
 import ContactinfoDialogContent from './contact-info-dialog';
 import { userInfo } from '@/app/constants';
 import { Link } from 'react-router-dom';
+import cv from '@/assets/PDF/Manuel_la_Porta_CV.pdf';
 
 const ProfileCard = ({
   isProfilePage = false,
@@ -62,22 +63,39 @@ const ProfileCard = ({
         >
           <h1 className="text-xl">{userInfo.name}</h1>
         </CardTitle>
-        <p
-          className={cn(
-            'text-muted-foreground font-normal',
-            isProfilePage && 'text-lg',
-          )}
-        >
-          {userInfo.title}
-        </p>
-        <p
-          className={cn(
-            'text-muted-foreground text-xs font-medium',
-            isProfilePage && 'text-sm font-semibold',
-          )}
-        >
-          {userInfo.location}
-        </p>
+
+        <div className="flex items-center justify-between gap-2">
+          <div>
+            <p
+              className={cn(
+                'text-muted-foreground font-normal',
+                isProfilePage && 'text-lg',
+              )}
+            >
+              {userInfo.title}
+            </p>
+            <p
+              className={cn(
+                'text-muted-foreground text-xs font-medium',
+                isProfilePage && 'text-sm font-semibold',
+              )}
+            >
+              {userInfo.location}
+            </p>
+          </div>
+          <div>
+            {!isMobile && isProfilePage && (
+              <p className="text-muted-foreground text-sm font-semibold flex items-center gap-2 mr-3">
+                <Suspense
+                  fallback={<Loader className="animate-spin text-gray-500" />}
+                >
+                  <img src={unipisa} alt="University logo" className="w-8" />
+                </Suspense>
+                {userInfo.university}
+              </p>
+            )}
+          </div>
+        </div>
         {isProfilePage && (
           <DialogLayout
             triggerContent={
@@ -94,14 +112,16 @@ const ProfileCard = ({
         )}
         {isProfilePage && (
           <div className="mt-1">
-            <p className="text-muted-foreground text-sm font-semibold flex items-center gap-2">
-              <Suspense
-                fallback={<Loader className="animate-spin text-gray-500" />}
-              >
-                <img src={unipisa} alt="University logo" className="w-8" />
-              </Suspense>
-              University of Pisa, Italy
-            </p>
+            {isMobile && (
+              <p className="text-muted-foreground text-sm font-semibold flex items-center gap-2">
+                <Suspense
+                  fallback={<Loader className="animate-spin text-gray-500" />}
+                >
+                  <img src={unipisa} alt="University logo" className="w-8" />
+                </Suspense>
+                {userInfo.university}
+              </p>
+            )}
             <div className="flex md:items-center md:justify-start justify-end gap-2 mt-6 w-full">
               <Button
                 className="rounded-full bg-blue-600 hover:bg-blue-900"
@@ -128,16 +148,14 @@ const ProfileCard = ({
                 <PopoverContent className="p-0">
                   <Card className="w-full h-max p-0 border-0">
                     <CardContent className="h-auto w-full p-0 py-2 flex flex-col items-start justify-center">
-                      <Button
-                        onClick={() => {}}
-                        className="w-full flex items-center justify-start gap-2 py-3 px-5 group rounded-none"
-                        variant="ghost"
-                        asChild
+                      <Link
+                        to="https://www.linkedin.com/in/manulaporta/"
+                        className="w-full flex items-center justify-start gap-2 py-3 px-5 pl-3 group rounded-none"
                       >
-                        <span className="text-xs md:text-sm font-semibold opacity-70 group-hover:opacity-100 w-full">
+                        <span className="text-xs md:text-sm font-semibold opacity-70 group-hover:opacity-100 w-full flex items-center gap-2">
                           <PlusIcon className="w-4 h-4" /> Add to contacts
                         </span>
-                      </Button>
+                      </Link>
                       <Button
                         onClick={() => {}}
                         className="w-full flex items-center justify-start gap-2 py-3 px-5 group rounded-none"
@@ -149,16 +167,15 @@ const ProfileCard = ({
                           a link
                         </span>
                       </Button>
-                      <Button
-                        onClick={() => {}}
-                        className="w-full flex items-center justify-start gap-2 py-3 px-5 group rounded-none"
-                        variant="ghost"
-                        asChild
+                      <a
+                        download
+                        href={cv}
+                        className="w-full flex items-center justify-start gap-2 py-3 px-5 pl-3 group rounded-none"
                       >
-                        <span className="text-xs md:text-sm font-semibold opacity-70 group-hover:opacity-100 w-full">
+                        <span className="text-xs md:text-sm font-semibold opacity-70 group-hover:opacity-100 w-full flex items-center gap-2">
                           <FileUser className="w-4 h-4" /> Download CV
                         </span>
-                      </Button>
+                      </a>
                     </CardContent>
                   </Card>
                 </PopoverContent>

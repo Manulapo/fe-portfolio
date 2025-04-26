@@ -19,6 +19,9 @@ import { Button } from './ui/button';
 import { Card, CardContent, CardTitle } from './ui/card';
 import { Input } from './ui/input';
 import { Popover, PopoverContent, PopoverTrigger } from './ui/popover';
+import NavbarIcon from './shared/navbar-icon';
+import DialogLayout from './dialog-layout';
+import ContactinfoDialogContent from './shared/contact-info-dialog';
 
 // Extracted SearchBar component
 const SearchBar = () => {
@@ -82,14 +85,14 @@ const MobileTopBar = () => (
             to="/chat"
             className="h-full flex items-center justify-center opacity-70"
           >
-            <NavigationMenuLink
+            <div
               className={cn(
                 navigationMenuTriggerStyle(),
                 'h-full w-max p-0 bg-white',
               )}
             >
               <img src={chat} alt="Chat Icon" width={24} height={24} />
-            </NavigationMenuLink>
+            </div>
           </Link>
         </NavigationMenuItem>
       </div>
@@ -171,7 +174,7 @@ export default function Navbar() {
   const filteredNavIcons = isMobile
     ? navbarIcons.filter((item) => item.name !== 'Chat')
     : navbarIcons.filter(
-        (item) => item.name !== 'Post' && item.name !== 'Chat',
+        (item) => item.name !== 'Connect' && item.name !== 'Chat',
       );
 
   return (
@@ -188,34 +191,45 @@ export default function Navbar() {
             </NavigationMenuItem>
           </div>
           <div className="flex items-center justify-evenly md:w-auto w-full h-full">
-            {filteredNavIcons.map((item, index) => (
-              <NavigationMenuItem
-                key={index}
-                className="h-full flex items-center justify-center group"
-              >
-                <Link
-                  to={item.path}
-                  className={cn(
-                    'h-full flex items-center justify-center opacity-70 group-hover:opacity-100',
-                    pathname === item.path
-                      ? 'border-gray-900 opacity-100 md:border-b-2 md:border-t-0 border-t-2'
-                      : '',
-                  )}
-                >
-                  <NavigationMenuLink
-                    className={cn(
-                      navigationMenuTriggerStyle(),
-                      'h-full flex flex-col items-center justify-center w-15 md:w-20 bg-white',
-                    )}
-                  >
-                    <img src={item.icon} alt="Icon" width={24} height={24} />
-                    <span className="text-muted-foreground text-xs">
-                      {item.name}
-                    </span>
-                  </NavigationMenuLink>
-                </Link>
-              </NavigationMenuItem>
-            ))}
+            {filteredNavIcons.map((navIcon, index) =>
+              isMobile && navIcon.name === 'Connect' ? (
+                <DialogLayout
+                  key={index}
+                  triggerContent={
+                    <NavigationMenuLink
+                      className={cn(
+                        navigationMenuTriggerStyle(),
+                        'h-full flex flex-col items-center justify-center w-15 md:w-20 bg-white opacity-70',
+                      )}
+                    >
+                      <div className="relative">
+                        {navIcon.hasDot && (
+                          <div className="absolute top-0 right-0 w-2 h-2 bg-red-700 rounded-full z-10" />
+                        )}
+                        <img
+                          src={navIcon.icon}
+                          alt="Icon"
+                          width={24}
+                          height={24}
+                          className={cn(
+                            pathname === navIcon.path && navIcon.hasDot
+                              ? 'rotate-345'
+                              : '',
+                          )}
+                        />
+                      </div>
+                      <span className="text-muted-foreground text-xs">
+                        {navIcon.name}
+                      </span>
+                    </NavigationMenuLink>
+                  }
+                  dialogTitle="Contact Info"
+                  dialogContent={<ContactinfoDialogContent />}
+                />
+              ) : (
+                <NavbarIcon key={index} navIcon={navIcon} pathname={pathname} />
+              ),
+            )}
             {!isMobile && <ProfileIcon />}
           </div>
         </div>

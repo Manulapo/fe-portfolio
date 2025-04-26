@@ -12,7 +12,7 @@ const CertificationBadge = ({ data }: { data: string }) => {
     <>
       {match ? (
         <Card className=" rounded-md p-2 border-1 w-full mx-auto border-blue-100 bg-blue-50 relative overflow-hidden">
-          <Link to={match.credentialUrl ?? '/'}>
+          <Link target='_blank' to={match.credentialUrl ?? '/'}>
             <div className="flex gap-4 items-start justify-between py-2 px-4 relative z-2">
               <div className="flex items-center gap-4">
                 <img

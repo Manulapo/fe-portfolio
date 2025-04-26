@@ -17,7 +17,7 @@ const LoadingSection = ({
   return showContent ? (
     <>{children}</>
   ) : (
-    <Loader className={cn("w-full mx-auto animate-spin", className)} />
+    <Loader className={cn("w-full mx-auto animate-spin mt-10", className)} />
   );
 };
 

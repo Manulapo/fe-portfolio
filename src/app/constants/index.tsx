@@ -4,9 +4,11 @@ import job from '@/assets/icons/job.svg';
 import notification from '@/assets/icons/notification.svg';
 import people from '@/assets/icons/people.svg';
 import publish from '@/assets/icons/publish.svg';
+import cv from '@/assets/PDF/Manuel_la_Porta_CV.pdf';
 import {
   AwardIcon,
   Briefcase,
+  FileUser,
   GithubIcon,
   Linkedin,
   Mail,
@@ -17,9 +19,8 @@ import {
   Repeat2,
   Send,
   Target,
-  TargetIcon,
   ThumbsUp,
-  User,
+  User
 } from 'lucide-react';
 
 export const sitePages = [
@@ -37,14 +38,23 @@ export const userInfo = {
   name: 'Manuel La Porta',
   title: 'Frontend Developer & UX Designer',
   location: 'Copenaghen, Capital region, Denmark',
-  avatarImg: 'https://github.com/shadcn.png',
+  avatarImg: "https://media.licdn.com/dms/image/v2/D4D35AQHTR9lb82qfUA/profile-framedphoto-shrink_200_200/B4DZTtKwszGcAY-/0/1739145808968?e=1746295200&v=beta&t=wklctUfMSBdGfrhO6vmjInhW3sKt5MZQpED217WXReM",
+  university: 'University of Pisa, Italy',
   coverImg:
-    'https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzNjUyOXwwfDF8c2VhcmNofDF8fGZhdGUlMjBjb3ZlcnxlbnwwfHx8fDE2ODQ5NTY1NzE&ixlib=rb-4.0.3&q=80&w=1080',
+    "https://media.licdn.com/dms/image/v2/C4D16AQEVe8xmPwnCKQ/profile-displaybackgroundimage-shrink_350_1400/profile-displaybackgroundimage-shrink_350_1400/0/1637163709585?e=1750896000&v=beta&t=dEslMrPxmJS0NJ78NZUaUZXWtM4CV3u9ksiHuKFeeac",
   aboutPreview:
     'Frontend Engineer and UX Designer who recently relocated to Denmark.',
 };
 
 export const contactInfo = [
+  {
+    title: 'CV',
+    description: '(Downloadable)',
+    value: 'Manuel La Porta - CV.pdf',
+    icon: FileUser,
+    link: cv,
+    download: true,
+  },
   {
     title: 'Email',
     description: '',
@@ -92,21 +102,25 @@ export const contactInfo = [
 export const addPostLinks = [
   {
     name: 'Projects',
+    value: 'Projects',
     icon: <PictureInPicture className="size-5 text-amber-500" />,
     link: '/projects',
   },
   {
     name: 'Experience',
+    value: 'Experience',
     icon: <Briefcase className="size-5 text-green-700" />,
     link: '/experience',
   },
   {
     name: 'Certifications',
+    value: 'Certifications',
     icon: <AwardIcon className="size-5 text-blue-500" />,
     link: '/certifications',
   },
   {
-    name: 'All',
+    name: 'All Posts',
+    value: 'All',
     icon: <Target className="size-5 text-red-500" />,
     link: '/all',
   },
@@ -157,9 +171,14 @@ export const postFooterLinks = [
 export const navbarIcons = [
   { icon: home, path: '/', name: 'Home' },
   { icon: chat, path: '/chat', name: 'Chat' },
-  { icon: publish, path: '/publish', name: 'Post' },
   { icon: job, path: '/experience', name: 'Experience' },
-  { icon: notification, path: '/notification', name: 'Notification' },
+  { icon: publish, path: '/profile', name: 'Connect' },
+  {
+    icon: notification,
+    path: '/notification',
+    name: 'Notification',
+    hasDot: true,
+  },
   { icon: people, path: '/network', name: 'Network' },
 ];
 

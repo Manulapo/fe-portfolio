@@ -22,9 +22,12 @@ export const EmptyPost = () => {
   return (
     <Card className={cn('px-0 mb-2 pb-1 md:pb-0 relative')}>
       <CardContent className="px-0">
-        <CardDescription className="text-gray-900 px-4 mb-5">
+        <CardDescription className="px-6 mb-5 flex items-center gap-5">
           <Bug />
-          No Posts Found
+          <div>
+            <p className="text-gray-900 font-semibold">No Posts Found</p>
+            <p className='text-muted-foreground'>Any typos?</p>
+          </div>
         </CardDescription>
       </CardContent>
     </Card>
