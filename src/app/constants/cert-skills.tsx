@@ -1,8 +1,13 @@
-import { skillsType } from '@/types';
+import { CertificationData, skillsType } from '@/types';
 import accentureLogo from '@/assets/images/accenture_logo.jpg';
 import gamestopLogo from '@/assets/images/gamestop_logo.jpg';
 import startingFinanceLogo from '@/assets/images/starting_finance_logo.jpg';
 import talentikaLogo from '@/assets/images/talentikaschool_logo.jpg';
+import zeroToMasteryLogo from '@/assets/images/ztm_academy_logo.jpg';
+import cambridgeLogo from '@/assets/images/cambridgeinternational_logo.jpg';
+import freecodecampLogo from '@/assets/images/free_code_camp_logo.jpg';
+import johnHopkinsLogo from '@/assets/images/john_hopkins_university_logo.jpg';
+import NextJSEcommerceLogo from '@/assets/images/NextJSEcommerce_logo.png';
 
 export const experiences = [
   {
@@ -10,7 +15,16 @@ export const experiences = [
     title: 'Frontend Developer & UX Designer',
     company: 'Freelance',
     duration: 'Feb 2025 - Present',
-    skills: ['React', 'Next.js', 'TypeScript', 'Tailwind CSS', 'Node.js', 'MongoDB', 'Prisma', 'Figma'],
+    skills: [
+      'React',
+      'Next.js',
+      'TypeScript',
+      'Tailwind CSS',
+      'Node.js',
+      'MongoDB',
+      'Prisma',
+      'Figma',
+    ],
     description:
       'Developing a web application for a client in the e-commerce sector, focusing on creating a responsive and user-friendly interface. Collaborating with backend developers to integrate APIs and ensure seamless data flow. Implementing best practices in code quality and performance optimization.',
   },
@@ -128,6 +142,10 @@ export const skills: Record<skillsType, Record<string, string>[]> = {
       name: 'Prisma',
       icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/prisma/prisma-original.svg',
     },
+    {
+      name: 'Firebase',
+      icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg',
+    },
   ],
   design: [
     {
@@ -140,3 +158,90 @@ export const skills: Record<skillsType, Record<string, string>[]> = {
     },
   ],
 };
+
+export const certifications: CertificationData[] = [
+  {
+    title: 'Next.js Ecommerce 2025 certification',
+    organization: 'Udemy',
+    issueDate: 'Apr 2025',
+    credentialUrl:
+      'https://www.udemy.com/certificate/UC-c322727a-1d79-4214-ac6b-a7368e2939af/',
+    skills: [
+      'Next.js',
+      'React',
+      'TypeScript',
+      'PostgreSQL',
+      'Prisma',
+      'Zod',
+      'Authentication',
+      'Payments Integration',
+      'FullStack Development',
+      'Ecommerce Architecture',
+    ],
+    description:
+      'Beyond the lectures, this certification was about applying real-world full-stack concepts — from performance to database design. Building, breaking, and rebuilding a modern ecommerce platform made the learning stick in a way no tutorial alone could.',
+    logoUrl: NextJSEcommerceLogo,
+  },
+  {
+    title: 'Complete Angular Developer Bootcamp',
+    organization: 'Zero To Mastery Academy',
+    issueDate: 'Feb 2024',
+    credentialUrl:
+      'https://www.udemy.com/certificate/UC-d6d0a563-322f-4abf-bedf-0adae1e4ba2b/',
+    skills: [
+      'AngularJS',
+      'TypeScript',
+      'RxJS',
+      'Firebase',
+      'Tailwind',
+      'Testing',
+    ],
+    description:
+      'Comprehensive program covering Angular, TypeScript, reactive programming, and building real-world apps with modern UI libraries.',
+    logoUrl: zeroToMasteryLogo,
+  },
+  {
+    title: 'Front End Development Libraries',
+    organization: 'freeCodeCamp',
+    issueDate: 'July 2023',
+    credentialUrl:
+      'https://freecodecamp.org/certification/fccfb7b9870-474a-44a7-bd78-67520444e601/front-end-development-libraries',
+    credentialId: 'fccfb7b9870-474a-44a7-bd78-67520444e601-fecd',
+    skills: ['React', 'Bootstrap', 'jQuery', 'SASS', 'Redux'],
+    description:
+      'Hands-on projects focusing on frontend libraries like React, Bootstrap, and SASS, with practical certification challenges.',
+    logoUrl: freecodecampLogo,
+  },
+  {
+    title: 'HTML, CSS, and Javascript for Web Developers',
+    organization: 'John Hopkins University',
+    issueDate: 'Nov 2021',
+    credentialUrl: 'https://coursera.org/verify/AJ7MQYRH2UE7',
+    skills: ['HTML', 'CSS', 'JavaScript', 'Responsive Design'],
+    description:
+      'Foundational course introducing the core building blocks of modern web development and mobile-friendly design.',
+    logoUrl: johnHopkinsLogo,
+  },
+  {
+    title: 'Google UX Design Certificate',
+    organization: 'Google',
+    issueDate: 'Sep 2021',
+    credentialUrl:
+      'https://www.credly.com/badges/746b9f7e-ffb6-460c-829e-979a2e583d1d/public_url',
+    skills: ['UX Research', 'Wireframing', 'Prototyping', 'Usability Testing'],
+    description:
+      'Practical program covering the full UX design process, from user research and wireframes to usability testing and prototyping.',
+    logoUrl:
+      'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/google/google-original.svg',
+  },
+  {
+    title: 'Certificate in Advanced English (CAE) C1',
+    organization: 'Cambridge International Education',
+    issueDate: 'Jun 2021',
+    credentialUrl: '',
+    skills: ['Advanced English', 'Communication', 'Writing Skills'],
+    description:
+      'International certification validating advanced English proficiency (C1 level) for professional and academic settings.',
+    logoUrl: cambridgeLogo,
+  },
+];

@@ -56,3 +56,15 @@ export interface NotificationData {
 
 
 export type skillsType = 'framework' | 'language' | 'design' | 'database';
+
+export type CertificationData = {
+  title: string;
+  organization: string;
+  issueDate: string;
+  credentialUrl?: string;
+  credentialId?: string;
+  skills?: string[];
+  description?: string;
+  logoUrl?: string;
+};
+

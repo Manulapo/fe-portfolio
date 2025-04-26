@@ -8,12 +8,239 @@ import talentikaPreview from '@/assets/images/talentika_preview.jpg';
 import armoganPreview from '@/assets/images/armogan_preview.jpg';
 import dealsPreview from '@/assets/images/deals_preview.jpg';
 import jobDeskPreview from '@/assets/images/jobdesk_preview.jpg';
+import zeroToMasteryLogo from '@/assets/images/ztm_academy_logo.jpg';
+import cambridgeLogo from '@/assets/images/cambridgeinternational_logo.jpg';
+import freecodecampLogo from '@/assets/images/free_code_camp_logo.jpg';
+import johnHopkinsLogo from '@/assets/images/john_hopkins_university_logo.jpg';
+import NextJSEcommerceLogo from '@/assets/images/NextJSEcommerce_logo.png';
 
 import armoganPdf from '@/assets/PDF/Gamestop_armogan.pdf';
 import gsDealsPdf from '@/assets/PDF/Gamestop_gsDeals.pdf';
 import jobDeskPdf from '@/assets/PDF/JobDesk.pdf';
 
 export const posts: PostData[] = [
+  {
+    description:
+      'Officially wrapped up the Next.js Ecommerce 2025 certification. 📜\n\n' +
+      'It wasn’t just about watching lessons — it meant building, breaking, rethinking, and rebuilding.\n\n' +
+      'From frontend performance to database structure and payment flows, the course pushed me to connect the dots between good architecture and real user experience.\n\n' +
+      'The certificate is a milestone, but the real achievement was learning how to ship smarter products, faster.',
+    imageUrl: NextJSEcommerceLogo,
+    imageAlt: 'Udemy Certification Preview',
+    likes: getRandomNumber(80, 300),
+    comments: getRandomNumber(10, 95),
+    shares: getRandomNumber(1, 20),
+    createdAt: '2025-04-21T00:00:00Z',
+    author: {
+      name: userInfo.name,
+      avatarUrl: userInfo.avatarImg,
+      title: userInfo.title,
+    },
+    hasCta: true,
+    ctaUrl:
+      'https://www.udemy.com/certificate/UC-c322727a-1d79-4214-ac6b-a7368e2939af/',
+    type: ['certifications'],
+    tags: [
+      'Certification',
+      'Next.js',
+      'React',
+      'TypeScript',
+      'FullStack',
+      'Udemy',
+      'Ecommerce',
+      'WebDevelopment',
+      'ProfessionalGrowth',
+      'LearningJourney',
+    ],
+  },
+  {
+    description:
+      'Crossed a major milestone recently: completed the Next.js Ecommerce 2025 course. 🚀\n\n' +
+      'Building a full-stack shopping platform — from authentication flows to admin dashboards and real-time payments — forced me to rethink architecture, scalability, and user experience end-to-end.\n\n' +
+      'As someone who has lived mostly on the frontend side, stepping into full-stack territory wasn’t smooth. But it stretched my skills exactly where they needed it.\n\n' +
+      'Portfolio launch coming soon. Shipping always beats perfect.',
+    imageUrl:
+      'https://images.pexels.com/photos/6190327/pexels-photo-6190327.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+    imageAlt: 'Next.js Ecommerce course preview',
+    likes: getRandomNumber(80, 300),
+    comments: getRandomNumber(10, 95),
+    shares: getRandomNumber(1, 20),
+    createdAt: '2025-04-20T00:00:00Z',
+    author: {
+      name: userInfo.name,
+      avatarUrl: userInfo.avatarImg,
+      title: userInfo.title,
+    },
+    hasCta: true,
+    ctaUrl: 'https://www.udemy.com/certificate/', // Update with the real cert link if needed
+    type: ['projects'],
+    tags: [
+      'Next.js',
+      'React',
+      'TypeScript',
+      'FullStack',
+      'WebDevelopment',
+      'Ecommerce',
+      'Vercel',
+      'PostgreSQL',
+      'Prisma',
+      'PortfolioProject',
+    ],
+  },
+  {
+    description:
+      'Proud to have completed the Complete Angular Developer Bootcamp with Zero To Mastery Academy! 🎯\n\nThis experience strengthened my skills in Angular, TypeScript, RxJS, and even introduced me to Firebase and Tailwind CSS. Excited to apply these best practices to future scalable projects!',
+    imageUrl: zeroToMasteryLogo,
+    imageAlt: 'Zero To Mastery Academy logo',
+    likes: getRandomNumber(80, 300),
+    comments: getRandomNumber(10, 95),
+    shares: getRandomNumber(1, 20),
+    createdAt: '2024-02-03T00:00:00Z',
+    author: {
+      name: userInfo.name,
+      avatarUrl: userInfo.avatarImg,
+      title: userInfo.title,
+    },
+    hasCta: true,
+    ctaUrl:
+      'https://www.udemy.com/certificate/UC-d6d0a563-322f-4abf-bedf-0adae1e4ba2b/',
+    type: ['certifications'],
+    tags: [
+      'Angular',
+      'TypeScript',
+      'RxJS',
+      'Firebase',
+      'Tailwind',
+      'Testing',
+      'Frontend',
+      'Bootcamp',
+      'Web Development',
+      'Zero To Mastery',
+    ],
+  },
+  {
+    description:
+      'Excited to share that I earned my certification in Front End Development Libraries from freeCodeCamp! 🚀\n\nReact, Bootstrap, Redux, and SASS — building projects with these technologies taught me practical, real-world frontend skills I now apply daily.',
+    imageUrl: freecodecampLogo,
+    imageAlt: 'freeCodeCamp logo',
+    likes: getRandomNumber(80, 300),
+    comments: getRandomNumber(10, 95),
+    shares: getRandomNumber(1, 20),
+    createdAt: '2023-07-19T00:00:00Z',
+    author: {
+      name: userInfo.name,
+      avatarUrl: userInfo.avatarImg,
+      title: userInfo.title,
+    },
+    hasCta: true,
+    ctaUrl:
+      'https://freecodecamp.org/certification/fccfb7b9870-474a-44a7-bd78-67520444e601/front-end-development-libraries',
+    type: ['certifications'],
+    tags: [
+      'React',
+      'Redux',
+      'Bootstrap',
+      'SASS',
+      'Frontend',
+      'Libraries',
+      'freeCodeCamp',
+      'Certification',
+      'Web Development',
+      'Projects',
+    ],
+  },
+  {
+    description:
+      "Thrilled to have completed the 'HTML, CSS, and Javascript for Web Developers' course by John Hopkins University! 🏛️\n\nIt reinforced my frontend fundamentals and pushed me toward building responsive, real-world websites with modern practices.",
+    imageUrl: johnHopkinsLogo,
+    imageAlt: 'John Hopkins University logo',
+    likes: getRandomNumber(80, 300),
+    comments: getRandomNumber(10, 95),
+    shares: getRandomNumber(1, 20),
+    createdAt: '2021-10-16T00:00:00Z',
+    author: {
+      name: userInfo.name,
+      avatarUrl: userInfo.avatarImg,
+      title: userInfo.title,
+    },
+    hasCta: true,
+    ctaUrl: 'https://coursera.org/verify/AJ7MQYRH2UE7',
+    type: ['certifications'],
+    tags: [
+      'HTML',
+      'CSS',
+      'JavaScript',
+      'Responsive Design',
+      'John Hopkins',
+      'Coursera',
+      'Frontend',
+      'Web Development',
+      'Fundamentals',
+      'Mobile-First',
+    ],
+  },
+  {
+    description:
+      'Proud to have earned the Google UX Design Certificate! 🧠✨\n\nFrom user research to wireframing and usability testing, this program gave me a strong foundation in human-centered design principles that I bring into every project today.',
+    imageUrl:
+      'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/google/google-original.svg',
+    imageAlt: 'Google logo',
+    likes: getRandomNumber(80, 300),
+    comments: getRandomNumber(10, 95),
+    shares: getRandomNumber(1, 20),
+    createdAt: '2021-09-04T00:00:00Z',
+    author: {
+      name: userInfo.name,
+      avatarUrl: userInfo.avatarImg,
+      title: userInfo.title,
+    },
+    hasCta: true,
+    ctaUrl:
+      'https://www.credly.com/badges/746b9f7e-ffb6-460c-829e-979a2e583d1d/public_url',
+    type: ['certifications'],
+    tags: [
+      'UX',
+      'Google',
+      'User Research',
+      'Wireframing',
+      'Prototyping',
+      'Usability Testing',
+      'Human-Centered Design',
+      'Accessibility',
+      'UI/UX',
+      'Design Thinking',
+    ],
+  },
+  {
+    description:
+      'Achieved the Certificate in Advanced English (CAE) C1 from Cambridge International Education! 📚🎓\n\nThis certification strengthened my communication skills, helping me write, present, and collaborate confidently in international environments.',
+    imageUrl: cambridgeLogo,
+    imageAlt: 'Cambridge International Education logo',
+    likes: getRandomNumber(80, 300),
+    comments: getRandomNumber(10, 95),
+    shares: getRandomNumber(1, 20),
+    createdAt: '2021-06-06T00:00:00Z',
+    author: {
+      name: userInfo.name,
+      avatarUrl: userInfo.avatarImg,
+      title: userInfo.title,
+    },
+    hasCta: false,
+    ctaUrl: '',
+    type: ['certifications'],
+    tags: [
+      'Cambridge',
+      'English',
+      'Communication',
+      'Writing',
+      'Speaking',
+      'Advanced English',
+      'C1',
+      'Language Skills',
+      'International Certification',
+      'Education',
+    ],
+  },
   {
     description:
       'Just wrapped up Job Desk — a UX/UI case study aimed at helping small businesses and students find the perfect workspaces. 💼✨\n\nFrom research to high-fidelity prototypes, I led the design process to solve real pain points like affordability, choice, and clarity. This was my first time transforming a mobile-first concept into a fully responsive web experience. A fantastic hands-on summer project!',

@@ -16,6 +16,7 @@ import {
   PictureInPicture,
   Repeat2,
   Send,
+  Target,
   TargetIcon,
   ThumbsUp,
   User,
@@ -103,6 +104,11 @@ export const addPostLinks = [
     name: 'Certifications',
     icon: <AwardIcon className="size-5 text-blue-500" />,
     link: '/certifications',
+  },
+  {
+    name: 'All',
+    icon: <Target className="size-5 text-red-500" />,
+    link: '/all',
   },
 ];
 

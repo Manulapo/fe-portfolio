@@ -20,14 +20,17 @@ const PostFilter = ({
   return (
     <div className="flex items-center justify-center w-[95%] mx-auto my-3">
       <Separator className="flex-1" />
+        Filter posts by
       <Popover open={isClicked} onOpenChange={setIsClicked}>
         <PopoverTrigger
           onClick={() => setIsClicked(!isClicked)}
           asChild
           className="p-0 bg-transparent hover:bg-transparent w-max h-full cursor-pointer"
-        >
+          >
           <Button variant="link">
-            Filter posts by
+            <span className="font-semibold">
+              {filter.slice(0, 1).toUpperCase() + filter.slice(1)}
+            </span>
             {isClicked ? (
               <ChevronUp className="w-4 h-4" />
             ) : (

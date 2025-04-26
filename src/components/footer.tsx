@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import linkedinIcon from '@/assets/icons/LinkedIn_icon.svg';
+import linkedinIcon from '@/assets/images/linkedIM.png';
 import { cn } from '@/lib/utils';
 import { useIsMobile } from '@/hooks/use-mobile';
 

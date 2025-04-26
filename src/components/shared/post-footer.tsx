@@ -1,13 +1,12 @@
-import { Link } from 'react-router-dom';
+import { postFooterLinks } from '@/app/constants';
+import celebrate from '@/assets/images/celebrate.png';
+import funny from '@/assets/images/funny.png';
+import like from '@/assets/images/like.png';
+import love from '@/assets/images/love.png';
+import { getRandomNumber } from '@/lib/utils';
+import { useCallback } from 'react';
 import { Button } from '../ui/button';
 import { Separator } from '../ui/separator';
-import { postFooterLinks } from '@/app/constants';
-import funny from '@/assets/images/funny.png';
-import celebrate from '@/assets/images/celebrate.png';
-import love from '@/assets/images/love.png';
-import like from '@/assets/images/like.png';
-import { useCallback } from 'react';
-import { getRandomNumber } from '@/lib/utils';
 
 const PostFooter = ({
   likes,
@@ -78,14 +77,11 @@ const PostFooter = ({
             key={link.name}
             className="flex items-center justify-center gap-2 py-5 px-2 flex-1 group"
             variant={'ghost'}
-            asChild
           >
-            <Link to={link.link}>
-              {link.icon}
-              <span className="text-xs md:text-sm font-semibold opacity-70 group-hover:opacity-100">
-                {link.name}
-              </span>
-            </Link>
+            {link.icon}
+            <span className="text-xs md:text-sm font-semibold opacity-70 group-hover:opacity-100">
+              {link.name}
+            </span>
           </Button>
         ))}
       </div>

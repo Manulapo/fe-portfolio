@@ -1,10 +1,12 @@
 import { cn, formatDate } from '@/lib/utils';
 import { PostData } from '@/types';
 import {
+  Bug,
   Download,
   Ellipsis,
   Globe2,
   LinkIcon,
+  Loader,
   Presentation,
   X,
 } from 'lucide-react';
@@ -13,13 +15,15 @@ import { Card, CardContent, CardDescription, CardHeader } from '../ui/card';
 import AvatarIcon from './Avatar-icon';
 import PostFooter from './post-footer';
 import Suggested from './suggested';
-import { memo } from 'react';
+import { memo, Suspense } from 'react';
+import CertificationBadge from './certification-badge';
 
 export const EmptyPost = () => {
   return (
     <Card className={cn('px-0 mb-2 pb-1 md:pb-0 relative')}>
       <CardContent className="px-0">
         <CardDescription className="text-gray-900 px-4 mb-5">
+          <Bug />
           No Posts Found
         </CardDescription>
       </CardContent>
@@ -37,6 +41,7 @@ const Post = memo(
     postData?: PostData;
     hasSuggested?: boolean;
   }) => {
+    const isCertification = postData?.type?.includes('certifications');
     return (
       <Card className={cn('px-0 mb-2 pb-1 md:pb-0 relative', className)}>
         {hasSuggested && <Suggested />}
@@ -69,7 +74,13 @@ const Post = memo(
           <CardDescription className="text-gray-900 px-4 mb-5">
             {postData?.description}
           </CardDescription>
-          {postData?.imageUrl &&
+          {isCertification && postData && (
+            <div className="p-4">
+              <CertificationBadge data={postData.description} />
+            </div>
+          )}
+          {!isCertification &&
+            postData?.imageUrl &&
             (postData?.hasPdf ? (
               <div className="w-full relative h-max">
                 <div className="absolute bottom-0 right-5 z-1 flex items-center gap-2 ml-2 mb-4">
@@ -91,11 +102,20 @@ const Post = memo(
                     <Download size={18} /> Download
                   </a>
                 </div>
-                <img
-                  src={postData?.imageUrl}
-                  alt={postData?.imageAlt}
-                  className="w-full"
-                />
+                <Suspense
+                  fallback={
+                    <div className="w-full h-80 bg-gray-200 flex items-center justify-center">
+                      <Loader className="animate-spin" />
+                    </div>
+                  }
+                >
+                  <img
+                    src={postData?.imageUrl}
+                    alt={postData?.imageAlt}
+                    className="w-full"
+                    height={1000}
+                  />
+                </Suspense>
               </div>
             ) : postData?.hasCta ? (
               <div className="w-full relative h-max">

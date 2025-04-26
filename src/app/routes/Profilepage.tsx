@@ -13,12 +13,12 @@ const ProfilePage = () => {
           <ProfileCard isProfilePage={true} />
           <AboutCard />
           <ExperienceCard />
+          <CertificationsCard />
         </div>
       </div>
 
       <div className="col-span-4 space-y-4 h-max m-0 hidden md:block sticky top-20">
         <SkillsCard />
-        <CertificationsCard />
       </div>
     </div>
   );

@@ -1,6 +1,6 @@
 import { navbarIcons, userInfo } from '@/app/constants';
 import chat from '@/assets/icons/chat.svg';
-import linkedinIcon from '@/assets/icons/LinkedIn_icon.svg';
+import linkedinIcon from '@/assets/images/linkedIM.png';
 import sort from '@/assets/icons/sort.svg';
 import {
   NavigationMenu,
@@ -57,7 +57,7 @@ const SearchBar = () => {
 const MobileTopBar = () => (
   <NavigationMenu className="flex justify-between mx-auto md:h-14 md:border-b md:border-gray-200 max-w-full bg-white fixed top-0 z-50">
     <div className="w-full h-full flex justify-between items-center">
-      <div className="w-full flex justify-around items-center p-2 border-b border-gray-200">
+      <div className="w-full flex justify-around items-center p-2 border-b border-gray-200 list-none">
         <AvatarIcon name={userInfo.name} link="/profile" size={30} />
         <NavigationMenuItem>
           <SearchBar />
