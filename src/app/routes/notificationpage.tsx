@@ -1,23 +1,23 @@
+import LoadingSection from '@/components/shared/loading-section';
 import NotificationFilter from '@/components/shared/notification-filter';
 import NotificationRow from '@/components/shared/notificationRow';
 import { Card } from '@/components/ui/card';
-import { notifications } from '../constants/notifications';
-import { NotificationData } from '@/types';
 import { Separator } from '@/components/ui/separator';
 import { getRandomNumber, shuffleArray } from '@/lib/utils';
-import { dateTypes } from '../constants';
+import { NotificationData } from '@/types';
 import { useMemo, useState } from 'react';
-import LoadingSection from '@/components/shared/loading-section';
+import { dateTypes } from '../constants';
+import { notifications } from '../constants/notifications';
 
 const addToreadStatus = (notifications: NotificationData[]) => {
-  // Shuffle and add toRead flag only once
-  const shuffled = shuffleArray(notifications);
-  return shuffled.map((notification) => ({
-    ...notification,
-    toRead: getRandomNumber(0, 100000) % 2 === 0,
-  })).sort((a, b) => {
-    return new Date(b.date).getTime() - new Date(a.date).getTime();
-  });
+  return notifications
+    .map((notification) => ({
+      ...notification,
+      toRead: getRandomNumber(0, 100000) % 2 === 0,
+    }))
+    .sort((a, b) => {
+      return new Date(b.date).getTime() - new Date(a.date).getTime();
+    });
 };
 
 const assignDateTypeByRank = (rowNum: number, totalNotification: number) => {
@@ -29,27 +29,28 @@ const assignDateTypeByRank = (rowNum: number, totalNotification: number) => {
 };
 
 const NotificationPage = () => {
-  // Compute notification array only once using useMemo
   const notificationArray = useMemo(() => {
-    const notificationsWithStatus = addToreadStatus(notifications);
+    const notificationsWithStatus = shuffleArray(addToreadStatus(notifications));
     const notificationsWithDateType = notificationsWithStatus.map(
       (notification, i) => ({
         ...notification,
         date: assignDateTypeByRank(i, notificationsWithStatus.length),
-      })
+      }),
     );
-    const dateTypeRank = dateTypes.reduce((acc, type, index) => {
-      acc[type.name] = index;
-      return acc;
-    }, {} as Record<string, number>);
+    const dateTypeRank = dateTypes.reduce(
+      (acc, type, index) => {
+        acc[type.name] = index;
+        return acc;
+      },
+      {} as Record<string, number>,
+    );
     return notificationsWithDateType.sort((a, b) => {
       return dateTypeRank[a.date] - dateTypeRank[b.date];
     });
-  }, []); // empty dependency so this runs only once
+  }, []);
 
-  // Use initial state computed from memo so it doesn't refresh later
   const [array, setArray] = useState(notificationArray);
-
+  
   return (
     <>
       <NotificationFilter
@@ -61,7 +62,7 @@ const NotificationPage = () => {
                 notification.type.toLocaleLowerCase() ===
                 filterType.toLocaleLowerCase()
               );
-            })
+            }),
           );
         }}
       />

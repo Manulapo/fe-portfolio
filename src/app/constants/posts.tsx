@@ -5,6 +5,9 @@ import gamestopPreview from '@/assets/images/gamestop_preview.jpg';
 import accenturePreview from '@/assets/images/accenture_preview.jpg';
 import sfPreview from '@/assets/images/sf_preview.jpg';
 import talentikaPreview from '@/assets/images/talentika_preview.jpg';
+import armoganPreview from '@/assets/images/armogan_preview.jpg';
+import dealsPreview from '@/assets/images/deals_preview.jpg';
+import jobDeskPreview from '@/assets/images/jobdesk_preview.jpg';
 
 import armoganPdf from '@/assets/PDF/Gamestop_armogan.pdf';
 import gsDealsPdf from '@/assets/PDF/Gamestop_gsDeals.pdf';
@@ -14,8 +17,7 @@ export const posts: PostData[] = [
   {
     description:
       'Just wrapped up Job Desk — a UX/UI case study aimed at helping small businesses and students find the perfect workspaces. 💼✨\n\nFrom research to high-fidelity prototypes, I led the design process to solve real pain points like affordability, choice, and clarity. This was my first time transforming a mobile-first concept into a fully responsive web experience. A fantastic hands-on summer project!',
-    imageUrl:
-      'https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=600',
+    imageUrl: jobDeskPreview,
     imageAlt: 'Job Desk UX Case Study Screens',
     likes: getRandomNumber(80, 300),
     comments: getRandomNumber(10, 95),
@@ -46,8 +48,7 @@ export const posts: PostData[] = [
   {
     description:
       'Excited to have contributed to Armogan — the modular framework that now powers GameStop’s web presence across 6+ countries. 🌍⚙️\n\nFrom messy, inconsistent pages to a unified, responsive, and high-performing ecosystem: 30% better conversion, +22% SEO, and -7% bounce rate. This was a huge milestone in scalable frontend architecture and modular design at an enterprise level.',
-    imageUrl:
-      'https://images.pexels.com/photos/6476267/pexels-photo-6476267.jpeg?auto=compress&cs=tinysrgb&w=600',
+    imageUrl: armoganPreview,
     imageAlt: 'Modular design components on web UI',
     likes: getRandomNumber(80, 300),
     comments: getRandomNumber(10, 95),
@@ -78,8 +79,7 @@ export const posts: PostData[] = [
   {
     description:
       'Thrilled to have worked on the transformation of GameStop’s iconic flyer into the fully digital, responsive GS Deals platform! 📱🛒\n\nWe tackled serious UX issues like mobile readability, update latency, and lack of interactivity. With GS Deals, promotions are modular, dynamic, and fully linked to live data — giving customers a modern, seamless experience while improving engagement and reducing bounce rate by 18%.',
-    imageUrl:
-      'https://images.pexels.com/photos/3184436/pexels-photo-3184436.jpeg?auto=compress&cs=tinysrgb&w=600',
+    imageUrl: dealsPreview,
     imageAlt: 'Responsive UI for GS Deals interface',
     likes: getRandomNumber(80, 300),
     comments: getRandomNumber(10, 95),
