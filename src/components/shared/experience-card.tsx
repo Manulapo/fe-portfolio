@@ -24,7 +24,7 @@ const ExperienceCard = () => {
               </Suspense>
               <h2 className="text-lg font-semibold">{item.title}</h2>
             </div>
-            <div className="flex justify-between">
+            <div className="flex justify-between items-center">
               <p className="text-sm text-muted-foreground font-semibold">
                 {item.company}
               </p>

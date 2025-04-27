@@ -23,7 +23,7 @@ const MainLayout = () => {
 
       {/* Main Feed */}
       <div className="md:px-2 md:col-span-6 col-span-12 h-auto pt-12 md:pt-0 pb-15">
-        <div className="md:space-y-4 space-y-2 ">
+        <div className="md:space-y-4 space-y-2 pt-2 md:pt-0">
           <Outlet />
         </div>
       </div>

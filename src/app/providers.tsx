@@ -1,5 +1,5 @@
-import { BrowserRouter } from 'react-router-dom';
 import { createContext, ReactNode, useState } from 'react';
+import { HashRouter } from 'react-router-dom';
 
 export const SearchContext = createContext<
   | {
@@ -20,9 +20,9 @@ export const SearchProvider = ({ children }: { children: ReactNode }) => {
 
 const AppProviders = ({ children }: { children: React.ReactNode }) => {
   return (
-    <BrowserRouter>
+    <HashRouter >
       <SearchProvider>{children}</SearchProvider>
-    </BrowserRouter>
+    </HashRouter>
   );
 };
 

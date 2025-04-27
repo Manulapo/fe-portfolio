@@ -6,11 +6,11 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc -b && vite build",
+    "build": "npm exec tsc -- -b && npm exec vite -- build",
     "lint": "eslint .",
     "preview": "vite preview",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist"
+    "deploy": "npm exec gh-pages -- -d dist"
   },
   "dependencies": {
     "@radix-ui/react-avatar": "^1.1.4",
