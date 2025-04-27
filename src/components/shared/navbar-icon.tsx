@@ -1,10 +1,9 @@
+import { cn } from '@/lib/utils';
 import { Link } from 'react-router-dom';
 import {
   NavigationMenuItem,
-  NavigationMenuLink,
-  navigationMenuTriggerStyle,
+  navigationMenuTriggerStyle
 } from '../ui/navigation-menu';
-import { cn } from '@/lib/utils';
 
 const NavbarIcon = ({
   navIcon,

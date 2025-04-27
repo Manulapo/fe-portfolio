@@ -6,7 +6,7 @@ import { useIsMobile } from '@/hooks/use-mobile';
 import { useSearch } from '@/hooks/use-search';
 import { cleanStringify, cn } from '@/lib/utils';
 import { PostTagsTypes } from '@/types';
-import { use, useMemo, useState } from 'react';
+import { useMemo, useState } from 'react';
 import { posts } from '../constants/posts';
 
 const Homepage = () => {
