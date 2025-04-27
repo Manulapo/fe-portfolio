@@ -9,7 +9,7 @@ const ProfilePage = () => {
   const isMobile = useIsMobile();
   return (
     <div className="grid grid-cols-12">
-      <div className="md:px-2 mt-2 md:mt-0 md:col-span-8 col-span-12 h-auto pt-12 md:pt-0 pb-15">
+      <div className="md:px-2 mt-4 md:mt-0 md:col-span-8 col-span-12 h-auto pt-12 md:pt-0 pb-15">
         {/* Main Feed */}
         <div className="space-y-2 ">
           <ProfileCard isProfilePage={true} />

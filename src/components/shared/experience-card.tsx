@@ -28,7 +28,7 @@ const ExperienceCard = () => {
               <p className="text-sm text-muted-foreground font-semibold">
                 {item.company}
               </p>
-              <p className="text-sm text-gray-700 font-semibold mt-2">
+              <p className="text-sm text-gray-700 font-semibold">
                 {item.duration}
               </p>
             </div>
