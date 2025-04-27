@@ -94,7 +94,7 @@ export const posts: PostData[] = [
       'As someone who has lived mostly on the frontend side, stepping into full-stack territory wasn’t smooth. But it stretched my skills exactly where they needed it.\n\n' +
       'Portfolio launch coming soon. Shipping always beats perfect.',
     imageUrl:
-      'https://images.pexels.com/photos/6190327/pexels-photo-6190327.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+      "https://propstore.vercel.app/",
     imageAlt: 'Next.js Ecommerce course preview',
     likes: getRandomNumber(80, 300),
     comments: getRandomNumber(10, 95),
