@@ -1,4 +1,3 @@
-// filepath: c:\Users\manul\Repo\fe-portfolio\src\components\shared\Avatar.tsx
 import { userInfo } from '@/app/constants';
 import { cn } from '@/lib/utils';
 import { Avatar, AvatarFallback, AvatarImage } from '@radix-ui/react-avatar';
