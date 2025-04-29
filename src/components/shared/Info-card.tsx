@@ -1,8 +1,7 @@
 import { contactInfo } from '@/app/constants';
-import { Link } from 'react-router-dom';
 import { Card } from '../ui/card';
-import Heading from './heading';
 import { Separator } from '../ui/separator';
+import Heading from './heading';
 
 const InfoCard = () => {
   return (
