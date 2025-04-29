@@ -17,6 +17,7 @@ import PostFooter from './post-footer';
 import Suggested from './suggested';
 import { memo, Suspense } from 'react';
 import CertificationBadge from './certification-badge';
+import MarkDownLayout from './MarkDown';
 
 export const EmptyPost = () => {
   return (
@@ -26,7 +27,7 @@ export const EmptyPost = () => {
           <Bug />
           <div>
             <p className="text-gray-900 font-semibold">No Posts Found</p>
-            <p className='text-muted-foreground'>Any typos?</p>
+            <p className="text-muted-foreground">Any typos?</p>
           </div>
         </CardDescription>
       </CardContent>
@@ -74,8 +75,10 @@ const Post = memo(
           </div>
         </CardHeader>
         <CardContent className="px-0">
-          <CardDescription className="text-gray-900 px-4 mb-5">
-            {postData?.description}
+          <CardDescription className="text-gray-900 px-4 mb-5 space-y-3">
+            {postData?.description && (
+              <MarkDownLayout>{postData.description}</MarkDownLayout>
+            )}
           </CardDescription>
           {isCertification && postData && (
             <div className="p-4">
