@@ -37,7 +37,7 @@ const CertificationRow = ({ data }: { data: CertificationData }) => {
       {description && <p className="text-sm text-gray-700">{description}</p>}
       <div className="flex gap-2 mt-4 w-full justify-between items-center md:flex-nowrap flex-wrap">
         {skills && (
-          <div className="flex flex-wrap gap-2 mt-2">
+          <div className="flex flex-wrap gap-2 mt-2 w-max">
             {skills.map((skill, index) => (
               <span
                 key={index}
@@ -48,19 +48,19 @@ const CertificationRow = ({ data }: { data: CertificationData }) => {
             ))}
           </div>
         )}
-        <div className="flex justify-end items-center w-full">
-          {credentialUrl && (
-            <Button
-              variant={'outline'}
-              className="bg-transparent mt-2 w-max rounded-full text-gray-500 border-gray-300 hover:text-gray-600 hover:border-gray-600 transition-all ease-in-out hover:bg-transparent hover:shadow-none shadow-none"
-              asChild
-            >
-              <Link to={credentialUrl} target="_blank" rel="noopener noreferrer">
-                View Credential
-              </Link>
-            </Button>
-          )}
-        </div>
+      </div>
+      <div className="flex justify-end items-center w-full">
+        {credentialUrl && (
+          <Button
+            variant={'outline'}
+            className="bg-transparent mt-2 w-max rounded-full text-gray-500 border-gray-300 hover:text-gray-600 hover:border-gray-600 transition-all ease-in-out hover:bg-transparent hover:shadow-none shadow-none"
+            asChild
+          >
+            <Link to={credentialUrl} target="_blank" rel="noopener noreferrer">
+              View Credential
+            </Link>
+          </Button>
+        )}
       </div>
     </div>
   );
