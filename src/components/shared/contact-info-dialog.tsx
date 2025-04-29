@@ -1,5 +1,4 @@
 import { contactInfo } from '@/app/constants';
-import { Link } from 'react-router-dom';
 
 const ContactinfoDialogContent = () => {
   return (
@@ -20,15 +19,9 @@ const ContactinfoDialogContent = () => {
             </div>
             {item.value &&
               (item.link.length > 0 ? (
-                <Link
-                download={item.download}
-                  className="text-blue-500"
-                  to={item.link}
-                  rel="noreferrer"
-                  target="_blank"
-                >
+                <a className="text-blue-500" href={item.link} download>
                   {item.value}
-                </Link>
+                </a>
               ) : (
                 <p className="text-sm text-muted-foreground">{item.value}</p>
               ))}

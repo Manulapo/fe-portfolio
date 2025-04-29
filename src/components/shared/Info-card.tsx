@@ -16,14 +16,14 @@ const InfoCard = () => {
               <div className="flex flex-col">
                 {item.value &&
                   (item.link.length > 0 ? (
-                    <Link
+                    <a 
                       className="text-sm text-muted-foreground"
-                      to={item.link}
+                      href={item.link}
                       rel="noreferrer"
                       target="_blank"
                     >
                       {item.value}
-                    </Link>
+                    </a>
                   ) : (
                     <p className="text-sm text-muted-foreground">
                       {item.value}

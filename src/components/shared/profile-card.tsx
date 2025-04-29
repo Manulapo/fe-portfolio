@@ -1,17 +1,17 @@
-import { useState, memo, useMemo, Suspense } from 'react';
-import { useIsMobile } from '@/hooks/use-mobile';
-import { Card, CardContent, CardHeader, CardTitle } from '../ui/card';
-import AvatarIcon from './Avatar-icon';
-import { cn } from '@/lib/utils';
-import unipisa from '@/assets/images/unipisa_logo.jpg';
-import { Button } from '../ui/button';
-import { FileUser, Forward, Loader, PlusIcon, Send } from 'lucide-react';
-import { Popover, PopoverContent, PopoverTrigger } from '../ui/popover';
-import DialogLayout from '../dialog-layout';
-import ContactinfoDialogContent from './contact-info-dialog';
 import { userInfo } from '@/app/constants';
-import { Link } from 'react-router-dom';
+import unipisa from '@/assets/images/unipisa_logo.jpg';
 import cv from '@/assets/PDF/Manuel_la_Porta_CV.pdf';
+import { useIsMobile } from '@/hooks/use-mobile';
+import { cn } from '@/lib/utils';
+import { FileUser, Forward, Loader, PlusIcon, Send } from 'lucide-react';
+import { memo, Suspense, useMemo, useState } from 'react';
+import { Link } from 'react-router-dom';
+import DialogLayout from '../dialog-layout';
+import { Button } from '../ui/button';
+import { Card, CardContent, CardHeader, CardTitle } from '../ui/card';
+import { Popover, PopoverContent, PopoverTrigger } from '../ui/popover';
+import AvatarIcon from './Avatar-icon';
+import ContactinfoDialogContent from './contact-info-dialog';
 
 const ProfileCard = ({
   isProfilePage = false,

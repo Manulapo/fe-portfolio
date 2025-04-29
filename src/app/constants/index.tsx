@@ -5,6 +5,8 @@ import notification from '@/assets/icons/notification.svg';
 import people from '@/assets/icons/people.svg';
 import publish from '@/assets/icons/publish.svg';
 import cv from '@/assets/PDF/Manuel_la_Porta_CV.pdf';
+import coverImg from '@/assets/images/coverImage.jpg';
+import avatarImg from '@/assets/images/profileImage.jpg';
 import {
   AwardIcon,
   Briefcase,
@@ -38,11 +40,9 @@ export const userInfo = {
   name: 'Manuel La Porta',
   title: 'Frontend Developer & UX Designer',
   location: 'Copenaghen, Capital region, Denmark',
-  avatarImg:
-    'https://media.licdn.com/dms/image/v2/D4D35AQHTR9lb82qfUA/profile-framedphoto-shrink_200_200/B4DZTtKwszGcAY-/0/1739145808968?e=1746295200&v=beta&t=wklctUfMSBdGfrhO6vmjInhW3sKt5MZQpED217WXReM',
+  avatarImg,
   university: 'University of Pisa, Italy',
-  coverImg:
-    'https://media.licdn.com/dms/image/v2/C4D16AQEVe8xmPwnCKQ/profile-displaybackgroundimage-shrink_350_1400/profile-displaybackgroundimage-shrink_350_1400/0/1637163709585?e=1750896000&v=beta&t=dEslMrPxmJS0NJ78NZUaUZXWtM4CV3u9ksiHuKFeeac',
+  coverImg,
   aboutPreview:
     'Frontend Engineer and UX Designer who recently relocated to Denmark.',
 };
@@ -248,4 +248,3 @@ export const dateTypes = [
     rank: 9,
   },
 ];
-
