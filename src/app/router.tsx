@@ -1,6 +1,6 @@
 import ChatPage from '@/app/routes/chatpage';
-import ExperiencePage from '@/app/routes/experiencepage';
-import HomePage from '@/app/routes/homepage';
+import ExperiencePage from '@/app/routes/Experiencepage';
+import HomePage from '@/app/routes/Homepage';
 import NotFound from '@/app/routes/notFound';
 import AppLayout from '@/components/appShell';
 import MainLayout from '@/components/layout';
@@ -11,7 +11,7 @@ import { Route, Routes, useLocation } from 'react-router-dom';
 import MobileRouteGuard from './guards/mobile-guard';
 import NetworkPage from './routes/networkpage';
 import NotificationPage from './routes/notificationpage';
-import ProfilePage from './routes/profilepage';
+import ProfilePage from '@/app/routes/Profilepage';
 
 const AppRouter = () => {
   const location = useLocation();
