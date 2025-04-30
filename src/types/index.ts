@@ -68,3 +68,20 @@ export type CertificationData = {
   logoUrl?: string;
 };
 
+export type TestimonialData = {
+  name: string;
+  role: string;
+  company?: string;
+  date: string;
+  text: string;
+  avatarUrl?: string;
+  companyLogo?: string; 
+}
+
+
+export type InspirationsData = {
+  name: string;
+  text: string;
+  avatarUrl?: string;
+  company?: string;
+}
