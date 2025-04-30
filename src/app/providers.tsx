@@ -1,5 +1,5 @@
 import { createContext, ReactNode, useState } from 'react';
-import { HashRouter, Router } from 'react-router-dom';
+import { HashRouter } from 'react-router-dom';
 
 export const SearchContext = createContext<
   | {
