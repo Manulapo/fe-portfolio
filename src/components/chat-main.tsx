@@ -32,7 +32,6 @@ const ChatBar = ({
 
   const handleChatRowClick = (chat: ChatData) => {
     onChatRowSelect?.(chat);
-    console.log('Chat row clicked:', chat);
   };
 
   return (
