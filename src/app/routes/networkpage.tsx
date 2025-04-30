@@ -1,5 +1,7 @@
 const NetworkPage = () => {
-    return ( <></> );
+    return ( <>
+        
+    </> );
 }
  
 export default NetworkPage;
