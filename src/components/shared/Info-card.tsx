@@ -6,16 +6,18 @@ import Heading from './heading';
 const InfoCard = () => {
   return (
     <Card>
-        <Heading title="Contact Info" className="pt-0" />
-        <Separator />
-        <div className='pl-2'>
-          {contactInfo.map((item, index) => (
+      <Heading title="Contact Info" className="pt-0" />
+      <Separator />
+      <div className="pl-2">
+        {contactInfo.map((item, index) => {
+          if (item.title === 'Phone') return null
+          return (
             <div key={index} className="flex items-center gap-4 mb-4">
               <item.icon className="w-4 h-4" />
               <div className="flex flex-col">
                 {item.value &&
                   (item.link.length > 0 ? (
-                    <a 
+                    <a
                       className="text-sm text-muted-foreground"
                       href={item.link}
                       rel="noreferrer"
@@ -30,9 +32,10 @@ const InfoCard = () => {
                   ))}
               </div>
             </div>
-          ))}
-        </div>
-      </Card>
+          );
+        })}
+      </div>
+    </Card>
   );
 };
 

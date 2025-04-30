@@ -16,9 +16,9 @@ import NextJSEcommerceLogo from '@/assets/images/NextJSEcommerce_logo.png';
 import portfolioPreview from '@/assets/images/portfolio_preview.jpg';
 import propStorePreview from '@/assets/images/propstore_preview.jpg';
 
-import armoganPdf from '@/assets/PDF/Gamestop_armogan.pdf';
-import gsDealsPdf from '@/assets/PDF/Gamestop_gsDeals.pdf';
-import jobDeskPdf from '@/assets/PDF/JobDesk.pdf';
+const armoganPdf = window.location.origin + '/assets/PDF/Gamestop_armogan.pdf';
+const gsDealsPdf = window.location.origin + '/assets/PDF/Gamestop_gsDeals.pdf';
+const jobDeskPdf = window.location.origin + '/assets/PDF/JobDesk.pdf';
 
 export const posts: PostData[] = [
   {

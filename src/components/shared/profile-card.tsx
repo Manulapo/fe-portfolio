@@ -1,6 +1,5 @@
 import { userInfo } from '@/app/constants';
 import unipisa from '@/assets/images/unipisa_logo.jpg';
-import cv from '@/assets/PDF/Manuel_la_Porta_CV.pdf';
 import { useIsMobile } from '@/hooks/use-mobile';
 import { cn } from '@/lib/utils';
 import { FileUser, Forward, Loader, PlusIcon, Send } from 'lucide-react';
@@ -13,6 +12,7 @@ import { Popover, PopoverContent, PopoverTrigger } from '../ui/popover';
 import AvatarIcon from './Avatar-icon';
 import ContactinfoDialogContent from './contact-info-dialog';
 
+const cv = window.location.origin + '/assets/PDF/Manuel_la_Porta_CV.pdf';
 const ProfileCard = ({
   isProfilePage = false,
 }: {
