@@ -23,7 +23,7 @@ const SkillsCard = () => {
                 {skills[key as skillsType].map((skill) => (
                   <li
                     key={skill.name}
-                    className="flex items-center gap-2 border-1 rounded-full p-1 px-2 transition-all ease-in-out w-max hover:border-gray-300 hover:text-gray-700 hover:shadow-sm"
+                    className="flex items-center gap-2 border-1 rounded-full p-1 px-2 transition-all ease-in-out w-max hover:border-gray-300 hover:text-gray-700 hover:shadow-sm select-none"
                   >
                     <img
                       src={skill.icon}
