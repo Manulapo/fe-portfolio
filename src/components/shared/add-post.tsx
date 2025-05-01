@@ -1,7 +1,6 @@
 import { useIsMobile } from '@/hooks/use-mobile';
 import { cn } from '@/lib/utils';
 import { PostTagsTypes } from '@/types';
-import { useLocation } from 'react-router-dom';
 import { addPostLinks, userInfo } from '../../app/constants/index';
 import DialogLayout from '../dialog-layout';
 import { Button } from '../ui/button';
