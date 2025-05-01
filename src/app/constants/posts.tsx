@@ -24,7 +24,7 @@ export const posts: PostData[] = [
   {
     description:
       '**Just launched my new portfolio** — designed not just to show what I can build, but **how I think about building it**. 🎯\n\n' +
-      'I picked a **clean, LinkedIn-inspired template** for a very strategic reason: I want even the busiest HR team (or hiring manager scanning at 3 PM after back-to-back calls) to find exactly what they need — fast. 🚀\n\n' +
+      'Do you see anything familiar? The choice was made for a very strategic reason: I want even the busiest HR team (or hiring manager scanning at 3 PM after back-to-back calls) to find exactly what they need — fast. 🚀\n\n' +
       "The truth is: **good design isn't about standing out at any cost**. It's about **standing out where it matters**.\n\n" +
       "This portfolio is a reflection of that — **clear, structured, and ready to grow with me**. It's not perfect, and that’s the point: it’s **real, it's live, and it's getting better every day**.",
     imageUrl: portfolioPreview,

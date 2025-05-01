@@ -15,7 +15,7 @@ import { Card, CardContent, CardDescription, CardHeader } from '../ui/card';
 import AvatarIcon from './Avatar-icon';
 import PostFooter from './post-footer';
 import Suggested from './suggested';
-import { memo, Suspense } from 'react';
+import { memo, Suspense, useState } from 'react';
 import CertificationBadge from './certification-badge';
 import MarkDownLayout from './MarkDown';
 
@@ -45,7 +45,15 @@ const Post = memo(
     postData?: PostData;
     hasSuggested?: boolean;
   }) => {
+    const [isReadMoreOpen, setIsReadMoreOpen] = useState(false);
     const isCertification = postData?.type?.includes('certifications');
+    const maxWord = 40;
+    const descWords = postData?.description?.split(' ').length ?? 0;
+    const isTruncatedDescription =
+      descWords > maxWord
+        ? postData?.description?.split(' ').slice(0, maxWord).join(' ')
+        : postData?.description;
+
     return (
       <Card className={cn('px-0 mb-2 pb-1 md:pb-0 relative', className)}>
         {hasSuggested && <Suggested />}
@@ -75,9 +83,20 @@ const Post = memo(
           </div>
         </CardHeader>
         <CardContent className="px-0">
-          <CardDescription className="text-gray-900 px-4 mb-5 space-y-3">
+          <CardDescription className="text-gray-900 px-4 mb-5 space-y-3 relative">
             {postData?.description && (
-              <MarkDownLayout>{postData.description}</MarkDownLayout>
+              <div
+                className="mb-8"
+                onClick={() => {descWords > maxWord && setIsReadMoreOpen((prev) => !prev)}}
+              >
+                <MarkDownLayout>
+                  {descWords > maxWord
+                    ? isReadMoreOpen
+                      ? postData.description + ' \n\n **Read less**'
+                      : isTruncatedDescription + '... **Read more**'
+                    : postData.description}
+                </MarkDownLayout>
+              </div>
             )}
           </CardDescription>
           {isCertification && postData && (

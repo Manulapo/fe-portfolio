@@ -1,7 +1,7 @@
 import { postFooterLinks } from '@/app/constants';
 import { randomUsers } from '@/app/constants/randomUser';
 import { getRandomNumber } from '@/lib/utils';
-import { useCallback } from 'react';
+import { useCallback, useMemo } from 'react';
 import { Button } from '../ui/button';
 import { Separator } from '../ui/separator';
 
@@ -19,20 +19,20 @@ const PostFooter = ({
     return Math.floor(Math.random() * 99) + 1;
   };
 
-  const LikesIcons = () => {
-    const getRandomIcons = useCallback(() => {
-      const randomIcons = new Set<string>();
-      while (randomIcons.size < getRandomNumber(3, 4)) {
-        const randomIndex = Math.floor(Math.random() * randomUsers.length);
-        randomIcons.add(randomUsers[randomIndex].avatarUrl);
-      }
-      return Array.from(randomIcons);
-    }, []);
+  const getRandomIcons = useMemo(() => {
+    const randomIcons = new Set<string>();
+    while (randomIcons.size < getRandomNumber(3, 4)) {
+      const randomIndex = Math.floor(Math.random() * randomUsers.length);
+      randomIcons.add(randomUsers[randomIndex].avatarUrl);
+    }
+    return Array.from(randomIcons);
+  }, [])
 
+  const UserImages = useCallback(() => {
     return (
-      getRandomIcons().length > 0 && (
+      getRandomIcons.length > 0 && (
         <div className="flex items-center mr-2">
-          {getRandomIcons().map((icon, index) => (
+          {getRandomIcons.map((icon, index) => (
             <img
               key={index}
               src={icon}
@@ -48,13 +48,13 @@ const PostFooter = ({
         </div>
       )
     );
-  };
+  }, []);
 
   return (
     <>
       <div className="px-4 h-5 flex items-center justify-between text-muted-foreground text-xs">
         <div className="flex gap-4 items-center">
-          <LikesIcons />
+          <UserImages />
           {likes ? likes.toString() : getRandomTwoDigitNumber()} likes
         </div>
         <div className="flex items-center gap-2">

@@ -1,5 +1,7 @@
 import { useIsMobile } from '@/hooks/use-mobile';
+import { cn } from '@/lib/utils';
 import { PostTagsTypes } from '@/types';
+import { useLocation } from 'react-router-dom';
 import { addPostLinks, userInfo } from '../../app/constants/index';
 import DialogLayout from '../dialog-layout';
 import { Button } from '../ui/button';
@@ -9,8 +11,10 @@ import ContactinfoDialogContent from './contact-info-dialog';
 
 const AddPost = ({
   onAddPostFilterToggle,
+  filter = 'all',
 }: {
   onAddPostFilterToggle: (filter: PostTagsTypes) => void;
+  filter?: PostTagsTypes;
 }) => {
   const isMobile = useIsMobile();
   return (
@@ -35,26 +39,32 @@ const AddPost = ({
           </div>
         )}
         <div className="flex items-center justify-start w-full md:gap-2 flex-nowrap overflow-auto md:relative md:h-max md:top-0 fixed h-13 top-13 bg-white z-10">
-          {addPostLinks.map((link) => (
-            <Button
-              onClick={() => {
-                onAddPostFilterToggle(
-                  link.value.toLocaleLowerCase() as PostTagsTypes,
-                );
-              }}
-              key={link.name}
-              className="flex items-center justify-center gap-2 py-5 px-2 flex-1 group  cursor-pointer"
-              variant={'ghost'}
-              asChild
-            >
-              <div>
-                {link.icon}
-                <span className=" text-xs md:text-sm font-semibold opacity-70 group-hover:opacity-100">
-                  {link.name}
-                </span>
-              </div>
-            </Button>
-          ))}
+          {addPostLinks.map((link) => {
+            return (
+              <Button
+                onClick={() => {
+                  onAddPostFilterToggle(
+                    link.value.toLocaleLowerCase() as PostTagsTypes,
+                  );
+                }}
+                key={link.name}
+                className={cn(
+                  'flex items-center justify-center gap-2 py-5 px-2 flex-1 group  cursor-pointer bg-transparent text-gray-800 hover:text-gray-800 hover:bg-gray-100 shadow-none transition-all duration-200 ease-in-out',
+                  filter === link.value.toLocaleLowerCase()
+                    ? 'bg-gray-100 text-gray-800 '
+                    : '',
+                )}
+                asChild
+              >
+                <div>
+                  {link.icon}
+                  <span className=" text-xs md:text-sm font-semibold opacity-70 group-hover:opacity-100">
+                    {link.name}
+                  </span>
+                </div>
+              </Button>
+            );
+          })}
         </div>
       </CardContent>
     </Card>

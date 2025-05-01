@@ -64,6 +64,7 @@ const Homepage = () => {
           setSearchTerm('');
           setFilter(filter as PostTagsTypes);
         }}
+        filter={filter}
       />
       {!isMobile && (
         <PostFilter
