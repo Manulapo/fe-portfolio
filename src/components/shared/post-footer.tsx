@@ -1,9 +1,10 @@
 import { postFooterLinks } from '@/app/constants';
 import { randomUsers } from '@/app/constants/randomUser';
 import { getRandomNumber } from '@/lib/utils';
-import { useCallback, useMemo } from 'react';
+import { useCallback, useMemo, useState } from 'react';
 import { Button } from '../ui/button';
 import { Separator } from '../ui/separator';
+import { ThumbsUp } from 'lucide-react';
 
 const PostFooter = ({
   likes,
@@ -14,6 +15,7 @@ const PostFooter = ({
   comments?: number;
   shares?: number;
 }) => {
+  const [liked, setLiked] = useState(false);
   const getRandomTwoDigitNumber = () => {
     // from 1 to 99
     return Math.floor(Math.random() * 99) + 1;
@@ -26,7 +28,7 @@ const PostFooter = ({
       randomIcons.add(randomUsers[randomIndex].avatarUrl);
     }
     return Array.from(randomIcons);
-  }, [])
+  }, []);
 
   const UserImages = useCallback(() => {
     return (
@@ -55,7 +57,12 @@ const PostFooter = ({
       <div className="px-4 h-5 flex items-center justify-between text-muted-foreground text-xs">
         <div className="flex gap-4 items-center">
           <UserImages />
-          {likes ? likes.toString() : getRandomTwoDigitNumber()} likes
+          {likes
+            ? liked
+              ? (likes + 1).toString()
+              : likes.toString()
+            : getRandomTwoDigitNumber()}{' '}
+          likes
         </div>
         <div className="flex items-center gap-2">
           <p>
@@ -68,6 +75,20 @@ const PostFooter = ({
       </div>
       <Separator className="w-[95%] mx-auto my-0 py-0 h-min" />
       <div className="flex items-center justify-start w-full md:gap-2 flex-nowrap overflow-auto px-2 pb-2">
+        <Button
+          className="flex items-center justify-center gap-2 py-5 px-2 flex-1 group"
+          variant={'ghost'}
+          onClick={() => setLiked((prev) => !prev)}
+        >
+          {liked ? (
+            <ThumbsUp className="size-5" fill="#111" />
+          ) : (
+            <ThumbsUp className="size-5" />
+          )}
+          <span className="text-xs md:text-sm font-semibold opacity-70 group-hover:opacity-100">
+            Like
+          </span>
+        </Button>
         {postFooterLinks.map((link) => (
           <Button
             key={link.name}

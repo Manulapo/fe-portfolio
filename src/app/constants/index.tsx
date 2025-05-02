@@ -148,11 +148,6 @@ export const notificationFilter = [
 
 export const postFooterLinks = [
   {
-    name: 'Like',
-    icon: <ThumbsUp className="size-5" />,
-    link: '/projects',
-  },
-  {
     name: 'Comment',
     icon: <MessageSquareMore className="size-5" />,
     link: '/experience',

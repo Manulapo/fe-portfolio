@@ -22,7 +22,7 @@ const AboutCard = ({
           {isTruncated ? (
             <>
               {userInfo.aboutPreview.split(' ').slice(0, maxWord).join(' ')}
-              {'...'}
+              {'... '}
               <Link className="text-blue-600" to={'/profile'}>
                 Read More
               </Link>
