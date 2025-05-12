@@ -6,7 +6,7 @@ import { userInfo } from '@/app/constants';
 
 const AboutCard = ({
   isTruncated,
-  maxWord = 10,
+  maxWord = 20,
 }: {
   isTruncated?: boolean;
   maxWord?: number;
@@ -28,14 +28,12 @@ const AboutCard = ({
               </Link>
             </>
           ) : (
-            // the output should be a string with html tags
             <>
               <span role="img" aria-label="hand" className="text-2xl mr-2">
                 👋🤖
               </span>
               <p className="my-4">
-                I’m Manuel La Porta, a Frontend Engineer and UX Designer who
-                recently relocated to Denmark. I’m seeking a full-time position
+                I’m Manuel La Porta, a Frontend Engineer and UX Designer who recently relocated to Denmark. I’m seeking a full-time position
                 where I can bring both technical rigor and a genuine curiosity
                 about people’s needs to every project.
               </p>

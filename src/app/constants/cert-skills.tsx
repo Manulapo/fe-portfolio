@@ -114,7 +114,7 @@ export const skills: Record<skillsType, Record<string, string>[]> = {
       icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg',
     },
   ],
-  framework: [
+  frameworks: [
     {
       name: 'Next.js',
       icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg',
@@ -132,11 +132,14 @@ export const skills: Record<skillsType, Record<string, string>[]> = {
       icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg',
     },
   ],
-
   database: [
     {
       name: 'MongoDB',
       icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg',
+    },
+    {
+      name: 'PostgreSQL',
+      icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg',
     },
     {
       name: 'Prisma',

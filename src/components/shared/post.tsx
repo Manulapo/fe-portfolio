@@ -67,6 +67,7 @@ const Post = memo(
               name={postData?.author.name}
               image={postData?.author.avatarUrl}
               size={50}
+              link='/profile'
             />
             <div className="flex flex-col justify-center">
               <h2 className="md:text-lg text-sm font-semibold py-0 md:h-6">

@@ -17,7 +17,7 @@ export const testimonials: TestimonialData[] = [
   },
   {
     name: 'Davide Soldano',
-    role: 'E-Eommerce & CRM Manager',
+    role: 'E-commerce & CRM Manager',
     company: 'GameStop',
     date: '2023-11-14',
     companyLogo: gamestopLogo,

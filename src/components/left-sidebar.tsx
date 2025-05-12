@@ -6,7 +6,7 @@ const LeftSidebar = () => {
   return (
     <>
       <ProfileCard />
-      <AboutCard isTruncated={true}  />
+      <AboutCard isTruncated={true} />
       <InfoCard />
     </>
   );

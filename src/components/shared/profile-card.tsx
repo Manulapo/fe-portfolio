@@ -1,6 +1,7 @@
 import { userInfo } from '@/app/constants';
 import unipisa from '@/assets/images/unipisa_logo.jpg';
 import { useIsMobile } from '@/hooks/use-mobile';
+import { useTypewriter } from '@/hooks/use-type-writer';
 import { cn } from '@/lib/utils';
 import { FileUser, Forward, Loader, PlusIcon, Send } from 'lucide-react';
 import { memo, Suspense, useMemo, useState } from 'react';
@@ -25,6 +26,8 @@ const ProfileCard = ({
     [isProfilePage, isMobile],
   );
 
+  const userTitle = useTypewriter(userInfo.title, 100);
+
   return (
     <Card className="p-0 h-auto">
       <CardHeader
@@ -47,11 +50,16 @@ const ProfileCard = ({
         </div>
         <div
           className={cn(
-            'absolute left-3 border-2 border-white rounded-full bg-white',
+            'absolute left-3 border-3 border-white rounded-full bg-white',
             isProfilePage ? 'bottom-[-35px]' : 'bottom-[-20px]',
           )}
         >
-          <AvatarIcon name={userInfo.name} link="/profile" size={avatarSize} />
+          <AvatarIcon
+            name={userInfo.name}
+            link="/profile"
+            size={avatarSize}
+            
+          />
         </div>
       </CardHeader>
       <CardContent className="h-auto pb-5">
@@ -72,7 +80,7 @@ const ProfileCard = ({
                 isProfilePage && 'text-lg',
               )}
             >
-              {userInfo.title}
+              {userTitle}
             </p>
             <p
               className={cn(

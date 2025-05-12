@@ -26,11 +26,14 @@ const AvatarIcon = ({
         className={cn('rounded-full', className)}
         {...props}
         src={image ?? userInfo.avatarImg}
-        style={{ width: dimension, height: dimension, objectFit: 'cover', minWidth: dimension }}
+        style={{
+          width: dimension,
+          height: dimension,
+          objectFit: 'cover',
+          minWidth: dimension,
+        }}
       />
-      <AvatarFallback
-        className={cn('rounded-full bg-blue-100 p-2', className)}
-      >
+      <AvatarFallback className={cn('rounded-full bg-blue-100 p-2', className)}>
         {name
           ? name
               .split(' ')
@@ -44,7 +47,7 @@ const AvatarIcon = ({
   return (
     <Avatar>
       {link ? (
-        <Link to={link} className='w-max'>
+        <Link to={link} className="w-max">
           <AvatarContent />
         </Link>
       ) : (

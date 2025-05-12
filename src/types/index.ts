@@ -55,7 +55,7 @@ export interface NotificationData {
 }
 
 
-export type skillsType = 'framework' | 'language' | 'design' | 'database';
+export type skillsType = 'frameworks' | 'language' | 'design' | 'database';
 
 export type CertificationData = {
   title: string;

@@ -66,8 +66,8 @@ const NotificationPage = () => {
           );
         }}
       />
-      <Card className="p-0 m-0 gap-0 min-h-15">
-        <LoadingSection delay={500} key={array.length}>
+      <Card className="p-0 m-0 gap-0 min-h-30">
+        <LoadingSection delay={1000} key={array.length}>
           {array.map((notification: NotificationData, i: number) => (
             <div key={notification.title}>
               <NotificationRow data={notification} />
