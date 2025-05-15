@@ -26,7 +26,7 @@ export const EmptyPost = () => {
         <CardDescription className="px-6 mb-5 flex items-center gap-5">
           <Bug />
           <div>
-            <p className="text-gray-900 font-semibold">No Posts Found</p>
+            <p className="text-gray-900 dark:text-gray-300 font-semibold">No Posts Found</p>
             <p className="text-muted-foreground">Any typos?</p>
           </div>
         </CardDescription>
@@ -84,7 +84,7 @@ const Post = memo(
           </div>
         </CardHeader>
         <CardContent className="px-0">
-          <CardDescription className="text-gray-900 px-4 mb-5 space-y-3 relative">
+          <CardDescription className="text-gray-900 dark:text-white px-4 mb-5 space-y-3 relative">
             {postData?.description && (
               <div
                 className="mb-8"
@@ -130,7 +130,7 @@ const Post = memo(
                 </div>
                 <Suspense
                   fallback={
-                    <div className="w-full h-80 bg-gray-200 flex items-center justify-center">
+                    <div className="w-full h-80 bg-muted flex items-center justify-center">
                       <Loader className="animate-spin" />
                     </div>
                   }

@@ -158,13 +158,13 @@ const ChatFull = ({
           <div className="flex gap-1">
             <Button
               onClick={onToggle}
-              className="bg-transparent text-black hover:text-gray-800 hover:bg-gray-200 rounded-full flex items-center justify-center p-2 shadow-none"
+              className="bg-transparent text-black hover:text-gray-800 hover:bg-muted rounded-full flex items-center justify-center p-2 shadow-none"
             >
               {!isMobile && (isOpen ? <ChevronDown /> : <ChevronUp />)}
             </Button>
             <Button
               onClick={() => chatClosedTrigger(chatData)}
-              className="bg-transparent text-gray-500 hover:text-gray-800 hover:bg-gray-200 rounded-full flex items-center justify-center p-2 shadow-none"
+              className="bg-transparent text-gray-500 hover:text-gray-800 hover:bg-muted rounded-full flex items-center justify-center p-2 shadow-none"
             >
               <X />
             </Button>

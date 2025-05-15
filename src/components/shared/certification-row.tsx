@@ -34,14 +34,14 @@ const CertificationRow = ({ data }: { data: CertificationData }) => {
           <p className="text-sm text-gray-500">{issueDate}</p>
         </div>
       </div>
-      {description && <p className="text-sm text-gray-700">{description}</p>}
+      {description && <p className="text-sm text-muted-foreground">{description}</p>}
       <div className="flex gap-2 mt-4 w-full justify-between items-center md:flex-nowrap flex-wrap">
         {skills && (
           <div className="flex flex-wrap gap-2 mt-2 w-max">
             {skills.map((skill, index) => (
               <span
                 key={index}
-                className="bg-gray-200 text-gray-700 px-2 py-1 rounded-full text-xs"
+                className="bg-muted text-muted-foreground px-2 py-1 rounded-full text-xs"
               >
                 {skill}
               </span>
@@ -53,7 +53,7 @@ const CertificationRow = ({ data }: { data: CertificationData }) => {
         {credentialUrl && (
           <Button
             variant={'outline'}
-            className="bg-transparent mt-2 w-max rounded-full text-gray-500 border-gray-300 hover:text-gray-600 hover:border-gray-600 transition-all ease-in-out hover:bg-transparent hover:shadow-none shadow-none"
+            className="bg-transparent mt-2 w-max rounded-full text-gray-500 dark:text-blue-800 border-gray-300 hover:text-gray-600 hover:border-gray-600 transition-all ease-in-out hover:bg-transparent hover:shadow-none shadow-none"
             asChild
           >
             <Link to={credentialUrl} target="_blank" rel="noopener noreferrer">

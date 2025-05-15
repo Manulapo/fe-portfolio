@@ -31,7 +31,7 @@ const NavbarIcon = ({
         <div
           className={cn(
             navigationMenuTriggerStyle(),
-            'h-full flex flex-col items-center justify-center w-15 md:w-20 bg-white',
+            'h-full flex flex-col items-center justify-center w-15 md:w-20 bg-card',
           )}
         >
           <div className="relative">
@@ -43,7 +43,7 @@ const NavbarIcon = ({
               alt="Icon"
               width={24}
               height={24}
-              className={cn(
+              className={cn('dark:invert-75',
                 pathname === navIcon.path && navIcon.hasDot ? 'rotate-345' : '',
               )}
             />

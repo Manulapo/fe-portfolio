@@ -1,5 +1,6 @@
-import { createContext, ReactNode, useState } from 'react';
 import { HashRouter } from 'react-router-dom';
+import { ThemeProvider } from './theme.provider';
+import { createContext, ReactNode, useState } from 'react';
 
 export const SearchContext = createContext<
   | {
@@ -18,10 +19,13 @@ export const SearchProvider = ({ children }: { children: ReactNode }) => {
   );
 };
 
+
 const AppProviders = ({ children }: { children: React.ReactNode }) => {
   return (
     <HashRouter>
-      <SearchProvider>{children}</SearchProvider>
+      <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
+        <SearchProvider>{children}</SearchProvider>
+      </ThemeProvider>
     </HashRouter>
   );
 };

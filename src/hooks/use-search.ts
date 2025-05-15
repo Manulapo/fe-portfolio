@@ -1,4 +1,4 @@
-import { SearchContext } from '@/app/providers';
+import { SearchContext } from '@/app/providers/providers';
 import { useContext } from 'react';
 
 export const useSearch = () => {

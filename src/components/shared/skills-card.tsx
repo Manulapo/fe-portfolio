@@ -15,14 +15,14 @@ const SkillsCard = () => {
         <div className="flex">
           <ul className="text-sm text-muted-foreground list-none">
             {Object.keys(skills).map((key, i) => (
-              <div className="mb-4 flex gap-1 flex-wrap" key={i}>
-                <h3 className="text-sm font-semibold text-gray-900 capitalize w-full mb-1">
+              <div className="mb-4 flex gap-1 flex-wrap text-muted-foreground" key={i}>
+                <h3 className="text-sm font-semibold text-muted-foreground capitalize w-full mb-1">
                   {key.split('')[0].toUpperCase() + key.slice(1).toLowerCase()}
                 </h3>
                 {skills[key as skillsType].map((skill) => (
                   <li
                     key={skill.name}
-                    className="flex items-center gap-2 border-1 rounded-full p-1 px-2 transition-all ease-in-out w-max hover:border-gray-300 hover:text-gray-700 hover:shadow-sm select-none"
+                    className="flex items-center gap-2  rounded-full p-1 px-2 transition-all ease-in-out w-max bg-muted hover:text-muted-foreground select-none"
                   >
                     <img
                       src={skill.icon}

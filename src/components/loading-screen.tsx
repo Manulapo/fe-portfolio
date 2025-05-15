@@ -23,7 +23,7 @@ const DelayedLoader: React.FC<DelayedLoaderProps> = ({
   }, [delay]);
 
   return !isLoading ? (
-    <div className='flex flex-col items-center justify-center w-full h-screen bg-white'>
+    <div className='flex flex-col items-center justify-center w-full h-screen bg-card'>
       <img
         src={portfolio_logo_screen}
         className="flex items-center justify-center w-50 md:w-70 animate-pulse"

@@ -28,7 +28,7 @@ const AddPost = ({
             />
             <DialogLayout
               triggerContent={
-                <p className="w-[90%] rounded-full h-max p-4 shadow-none border-2 border-gray-300 text-gray-400">
+                <p className="w-[90%] rounded-full h-max p-4 shadow-none border-2 border-muted text-gray-400">
                   Let's stay in touch!
                 </p>
               }
@@ -37,7 +37,7 @@ const AddPost = ({
             />
           </div>
         )}
-        <div className="flex items-center justify-start w-full md:gap-2 flex-nowrap overflow-auto md:relative md:h-max md:top-0 fixed h-13 top-13 bg-white z-10">
+        <div className="flex items-center justify-start w-full md:gap-2 flex-nowrap overflow-auto md:relative md:h-max md:top-0 fixed h-13 top-13 bg-card z-10">
           {addPostLinks.map((link) => {
             return (
               <Button
@@ -48,9 +48,9 @@ const AddPost = ({
                 }}
                 key={link.name}
                 className={cn(
-                  'flex items-center justify-center gap-2 py-5 px-2 flex-1 group  cursor-pointer bg-transparent text-gray-800 hover:text-gray-800 hover:bg-gray-100 shadow-none transition-all duration-200 ease-in-out',
+                  'flex items-center justify-center gap-2 py-5 px-2 flex-1 group  cursor-pointer bg-transparent text-muted-foreground hover:bg-muted shadow-none transition-all duration-200 ease-in-out',
                   filter === link.value.toLocaleLowerCase()
-                    ? 'bg-gray-100 text-gray-800 '
+                    ? 'bg-muted text-muted-foreground'
                     : '',
                 )}
                 asChild

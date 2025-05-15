@@ -30,7 +30,7 @@ const NotFound = () => {
           <Link to={selectRandomPage()}>
             <Button
               className={cn(
-                'flex items-center justify-center gap-2 py-2 cursor-pointer rounded-full font-semibold bg-transparent border-1 text-gray-500 border-gray-300 hover:bg-gray-200 hover:text-gray-800',
+                'flex items-center justify-center gap-2 py-2 cursor-pointer rounded-full font-semibold bg-transparent border-1 text-gray-500 border-gray-300 hover:bg-muted hover:text-gray-800',
               )}
               variant="outline"
             >

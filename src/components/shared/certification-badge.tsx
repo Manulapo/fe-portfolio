@@ -11,20 +11,20 @@ const CertificationBadge = ({ data }: { data: string }) => {
   return (
     <>
       {match ? (
-        <Card className=" rounded-md p-2 border-1 w-full mx-auto border-blue-100 bg-blue-50 relative overflow-hidden">
+        <Card className=" rounded-md p-2 border-1 w-full mx-auto border-primary-foreground bg-blue-50 dark:bg-secondary relative overflow-hidden">
           <Link target='_blank' to={match.credentialUrl ?? '/'}>
             <div className="flex gap-4 items-start justify-between py-2 px-4 relative z-2">
               <div className="flex items-center gap-4">
                 <img
                   src={match.logoUrl}
                   alt={`${match.organization} logo`}
-                  className="w-12 h-12 rounded-full shadow-sm bg-white p-1 relative z-2"
+                  className="w-12 h-12 rounded-full shadow-sm bg-card p-1 relative z-2"
                 />
                 <div>
-                  <CardTitle className="text-black font-semibold">
+                  <CardTitle className="font-semibold">
                     {match.title}
                   </CardTitle>
-                  <CardDescription className="text-xs md:text-sm text-gray-600">
+                  <CardDescription className="text-xs md:text-sm text-muted-foreground">
                     Issued by{' '}
                     <span className="font-semibold text-shadow">
                       {match.organization}
@@ -32,7 +32,7 @@ const CertificationBadge = ({ data }: { data: string }) => {
                   </CardDescription>
                 </div>
               </div>
-              <div className="items-start text-xs text-gray-500 hidden md:flex">
+              <div className="items-start text-xs text-muted-foreground hidden md:flex">
                 <Award size={18} />
                 {match.issueDate}
               </div>

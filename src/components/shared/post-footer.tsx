@@ -39,7 +39,7 @@ const PostFooter = ({
               key={index}
               src={icon}
               alt="like-icon"
-              className="w-7 h-7 object-fill rounded-full bg-white border-1 border-white"
+              className="w-7 h-7 object-fill rounded-full bg-card border-1 border-muted"
               style={{
                 transform: `translateX(${index * 5}px)`,
                 transition: 'transform 0.3s ease-in-out',

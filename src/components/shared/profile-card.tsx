@@ -50,7 +50,7 @@ const ProfileCard = ({
         </div>
         <div
           className={cn(
-            'absolute left-3 border-3 border-white rounded-full bg-white',
+            'absolute left-3 border-3 border-white rounded-full bg-card',
             isProfilePage ? 'bottom-[-35px]' : 'bottom-[-20px]',
           )}
         >
@@ -149,7 +149,7 @@ const ProfileCard = ({
                   asChild
                   className="p-0 bg-transparent hover:bg-transparent w-max h-full cursor-pointer"
                 >
-                  <Button className="rounded-full bg-white border border-gray-400 hover:bg-gray-100 text-gray-500 px-4 py-2">
+                  <Button className="rounded-full bg-card border border-gray-400 hover:bg-gray-100 text-gray-500 px-4 py-2">
                     Other
                   </Button>
                 </PopoverTrigger>

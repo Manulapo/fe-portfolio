@@ -22,6 +22,7 @@ import { Popover, PopoverContent, PopoverTrigger } from './ui/popover';
 import NavbarIcon from './shared/navbar-icon';
 import DialogLayout from './dialog-layout';
 import ContactinfoDialogContent from './shared/contact-info-dialog';
+import { ModeToggle } from './mode-toggle';
 
 // Extracted SearchBar component
 const SearchBar = () => {
@@ -58,7 +59,7 @@ const SearchBar = () => {
 
 // Mobile top navigation bar
 const MobileTopBar = () => (
-  <NavigationMenu className="flex justify-between mx-auto md:h-14 md:border-b md:border-gray-200 max-w-full bg-white fixed top-0 z-50">
+  <NavigationMenu className="flex justify-between mx-auto md:h-14 md:border-b md:border-gray-200 max-w-full bg-card fixed top-0 z-50">
     <div className="w-full h-full flex justify-between items-center">
       <div className="w-full flex justify-around items-center p-2 border-b border-gray-200 list-none">
         <AvatarIcon name={userInfo.name} link="/profile" size={30} />
@@ -73,7 +74,7 @@ const MobileTopBar = () => (
             <NavigationMenuLink
               className={cn(
                 navigationMenuTriggerStyle(),
-                'h-full w-max p-0 bg-white',
+                'h-full w-max p-0 bg-card',
               )}
             >
               <img src={sort} alt="Sort Icon" width={24} height={24} />
@@ -88,7 +89,7 @@ const MobileTopBar = () => (
             <div
               className={cn(
                 navigationMenuTriggerStyle(),
-                'h-full w-max p-0 bg-white',
+                'h-full w-max p-0 bg-card',
               )}
             >
               <img src={chat} alt="Chat Icon" width={24} height={24} />
@@ -119,10 +120,10 @@ const ProfileIcon = () => {
           <div
             className={cn(
               navigationMenuTriggerStyle(),
-              'h-full flex flex-col items-center justify-center w-15 md:w-20 bg-white',
+              'h-full flex flex-col items-center justify-center w-15 md:w-20 bg-card',
             )}
           >
-            <div className="bg-white">
+            <div className="bg-card">
               <AvatarIcon name={userInfo.name} size={28} />
             </div>
             <span className="text-muted-foreground text-xs flex items-center justify-between opacity-70 hover:opacity-100">
@@ -139,7 +140,7 @@ const ProfileIcon = () => {
       <PopoverContent className="w-max p-0">
         <Card className="w-max h-max p-0 border-0">
           <CardContent className="h-auto py-4 flex flex-col items-center justify-center gap-4">
-            <div className="rounded-full bg-white flex items-center justify-center gap-3">
+            <div className="rounded-full  flex items-center justify-center gap-3">
               <AvatarIcon name={userInfo.name} size={45} />
               <CardTitle className="font-semibold flex flex-col gap-1">
                 <h2>{userInfo.name}</h2>
@@ -148,18 +149,21 @@ const ProfileIcon = () => {
                 </p>
               </CardTitle>
             </div>
-            <Button
-              onClick={() => setIsClicked(false)}
-              variant="outline"
-              className="w-full rounded-full py-3 border border-blue-500 hover:border-blue-800 bg-transparent"
-              asChild
-            >
-              <Link to="/profile">
-                <span className="font-semibold text-blue-500 hover:text-blue-800">
-                  View Profile
-                </span>
-              </Link>
-            </Button>
+            <div className="flex justify-between items-center w-full gap-2">
+              <ModeToggle />
+              <Button
+                onClick={() => setIsClicked(false)}
+                variant="outline"
+                className="flex-1 w-full rounded-full py-3 border border-blue-500 hover:border-blue-800 bg-transparent"
+                asChild
+              >
+                <Link to="/profile">
+                  <span className="font-semibold text-blue-500 hover:text-blue-800">
+                    View Profile
+                  </span>
+                </Link>
+              </Button>
+            </div>
           </CardContent>
         </Card>
       </PopoverContent>
@@ -180,7 +184,7 @@ export default function Navbar() {
   return (
     <>
       {isMobile && <MobileTopBar />}
-      <NavigationMenu className="flex justify-center mx-auto h-14 border-t md:border-b border-b-0 md:border-gray-200 max-w-full bg-white fixed bottom-0 md:top-0 z-50">
+      <NavigationMenu className="flex justify-center mx-auto h-14 border-t md:border-b border-b-0 md:border-gray-200 max-w-full bg-card dark:bg-card dark:border-[#333] fixed bottom-0 md:top-0 z-50">
         <div className="lg:w-[67%] md:w-[90%] w-full h-full flex justify-between items-center">
           <div className="items-center h-full hidden md:flex">
             <NavigationMenuItem className="flex items-center gap-3">
@@ -199,7 +203,7 @@ export default function Navbar() {
                     <NavigationMenuLink
                       className={cn(
                         navigationMenuTriggerStyle(),
-                        'h-full flex flex-col items-center justify-center w-15 md:w-20 bg-white opacity-70',
+                        'h-full flex flex-col items-center justify-center w-15 md:w-20 bg-card opacity-70',
                       )}
                     >
                       <div className="relative">
