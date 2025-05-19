@@ -1,16 +1,9 @@
-# MongoDB Database Access 
+import { createRoot } from 'react-dom/client';
+import App from './app/App.tsx';
+import AppProviders from './app/providers/providers.tsx';
 
-Database Name:   mockDB
-Username:        mockDbUser
-Password:        manudatabase
-Port:            27017
-Hostname:        api.manuel-la-porta.me
-Connection URI (for compass):  
-mongodb://mockDbUser:manudatabase@api.manuel-la-porta.me:27017/mockDB?authSource=mockDB
-
-# SSH manuel@api.manuel-la-porta.me
-
-# MongoDB admin access
-
-admin
-manudatabase
+createRoot(document.getElementById('root')!).render(
+  <AppProviders>
+    <App />
+  </AppProviders>,
+);
