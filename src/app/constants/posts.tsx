@@ -14,7 +14,7 @@ import freecodecampLogo from '@/assets/images/free_code_camp_logo.jpg';
 import johnHopkinsLogo from '@/assets/images/john_hopkins_university_logo.jpg';
 import NextJSEcommerceLogo from '@/assets/images/NextJSEcommerce_logo.png';
 import portfolioPreview from '@/assets/images/portfolio_preview.jpg';
-import propStorePreview from '@/assets/images/propstore_preview.jpg';
+import propStorePreview from '@/assets/images/propStore_preview.jpg';
 
 const armoganPdf = window.location.origin + '/assets/PDF/Gamestop_armogan.pdf';
 const gsDealsPdf = window.location.origin + '/assets/PDF/Gamestop_gsDeals.pdf';
@@ -38,7 +38,7 @@ export const posts: PostData[] = [
       avatarUrl: userInfo.avatarImg,
       title: userInfo.title,
     },
-    ctaUrl: 'https://your-portfolio-domain.com', // Your real portfolio URL
+    ctaUrl: '/', 
     type: ['projects'],
     tags: [
       'PortfolioLaunch',
