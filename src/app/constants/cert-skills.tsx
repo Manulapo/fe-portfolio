@@ -12,7 +12,7 @@ import NextJSEcommerceLogo from '@/assets/images/NextJSEcommerce_logo.png';
 export const experiences = [
   {
     icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg',
-    title: 'Frontend Developer & UX Designer',
+    title: 'Frontend Engineer & UX Designer',
     company: 'Freelance',
     duration: 'Feb 2025 - Present',
     skills: [
