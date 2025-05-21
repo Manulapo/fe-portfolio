@@ -20,7 +20,7 @@ import {
   Repeat2,
   Send,
   Target,
-  User
+  User,
 } from 'lucide-react';
 import cv from '/assets/PDF/Manuel_la_Porta_CV.pdf';
 
@@ -42,8 +42,7 @@ export const userInfo = {
   avatarImg,
   university: 'University of Pisa, Italy',
   coverImg,
-  aboutPreview:
-    'Frontend Engineer and UX Designer who recently relocated to Denmark.',
+  aboutPreview: 'Passionate Frontend Engineer and UX Designer based in Denmark',
 };
 
 export const contactInfo = [
