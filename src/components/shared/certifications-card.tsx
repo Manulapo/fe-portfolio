@@ -16,7 +16,7 @@ const CertificationsCard = () => {
           <div key={index}>
             <CertificationRow data={certification} />
             {index < certifications.length - 1 && (
-              <Separator className="my-0 bg-gray-300" />
+              <Separator className="my-0 bg-gray-300 dark:bg-muted" />
             )}
           </div>
         ))}

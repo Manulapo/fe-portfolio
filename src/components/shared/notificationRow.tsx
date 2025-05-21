@@ -13,7 +13,7 @@ const NotificationRow = ({
     <div
       className={cn(
         'md:p-4 pl-1 pr-4 py-3 md:py-6 m-0',
-        data.toRead ? 'bg-blue-100' : 'bg-card',
+        data.toRead ? 'bg-blue-100 dark:bg-blue-950/50' : 'bg-card',
       )}
     >
       <div className="flex items-center justify-between gap-2 w-full">
@@ -25,7 +25,7 @@ const NotificationRow = ({
         <div className="flex items-center gap-2 md:w-[80%] w-full">
           <p className="text-2xl mr-2">{data.icon}</p>
           <div>
-            <h3 className="md:text-[1rem] text-sm text-gray-900 font-semibold leading-tight mb-1">
+            <h3 className="md:text-[1rem] text-sm text-gray-900 dark:text-gray-200 font-semibold leading-tight mb-1">
               {data.title}
             </h3>
             <p className="text-muted-foreground text-sm">{data.description}</p>

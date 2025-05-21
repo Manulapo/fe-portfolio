@@ -72,7 +72,7 @@ const NotificationPage = () => {
             <div key={notification.title}>
               <NotificationRow data={notification} />
               {i < array.length - 1 && (
-                <Separator className="my-0 bg-gray-300" />
+                <Separator className="my-0 bg-gray-300 dark:bg-gray-900" />
               )}
             </div>
           ))}

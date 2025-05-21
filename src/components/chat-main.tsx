@@ -45,16 +45,28 @@ const ChatBar = ({
             </div>
             <div className="flex gap-1">
               <Button className="bg-transparent text-gray-500 hover:text-gray-800 hover:bg-muted rounded-full flex items-center justify-center p-2 shadow-none">
-                <img src={options} alt="options" className="w-4 h-4" />
+                <img
+                  src={options}
+                  alt="options"
+                  className="w-4 h-4 dark:invert-50"
+                />
               </Button>
               <Button className="bg-transparent text-gray-500 hover:text-gray-800 hover:bg-muted rounded-full flex items-center justify-center p-2 shadow-none">
-                <img src={newPost} alt="newPost" className="w-4 h-4" />
+                <img
+                  src={newPost}
+                  alt="newPost"
+                  className="w-4 h-4 dark:invert-50"
+                />
               </Button>
               <Button
                 onClick={() => setIsOpen((prev) => !prev)}
                 className="bg-transparent text-black hover:text-gray-800 hover:bg-muted rounded-full flex items-center justify-center p-2 shadow-none"
               >
-                {isOpen ? <ChevronDown /> : <ChevronUp />}
+                {isOpen ? (
+                  <ChevronDown className="dark:invert-50" />
+                ) : (
+                  <ChevronUp className="dark:invert-50" />
+                )}
               </Button>
             </div>
           </CardTitle>

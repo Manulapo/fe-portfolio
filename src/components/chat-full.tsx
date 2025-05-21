@@ -41,7 +41,7 @@ const ChatAvatar = memo(
       <div className="flex items-center gap-2">
         <AvatarIcon name={user} image={userAvatar} size={50} />
         <div>
-          <p className="font-semibold text-black">
+          <p className="font-semibold text-primary">
             {user}{' '}
             {isMobile && (
               <span className="flex items-center gap-1">
@@ -158,7 +158,7 @@ const ChatFull = ({
           <div className="flex gap-1">
             <Button
               onClick={onToggle}
-              className="bg-transparent text-black hover:text-gray-800 hover:bg-muted rounded-full flex items-center justify-center p-2 shadow-none"
+              className="bg-transparent text-black dark:invert-50 hover:text-gray-800 hover:bg-muted rounded-full flex items-center justify-center p-2 shadow-none"
             >
               {!isMobile && (isOpen ? <ChevronDown /> : <ChevronUp />)}
             </Button>
@@ -182,11 +182,11 @@ const ChatFull = ({
           isMobile={isMobile}
         />
         <div className="flex items-center justify-center gap-3">
-          <div className="my-2 border border-gray-100 flex-1" />
+          <div className="my-2 border border-secondary flex-1" />
           <p className="text-muted-foreground text-xs w-max">
             {formatDate(date).onlyDayMonth.toUpperCase()}
           </p>
-          <div className="my-2 border border-gray-100 flex-1" />
+          <div className="my-2 border border-secondary flex-1" />
         </div>
         <div style={chatStyle as React.CSSProperties}>
           {messagesStream.map((m, i) => (
@@ -220,10 +220,10 @@ const ChatFull = ({
         <Separator className="p-0 w-full" />
         <CardContent className="flex items-center justify-between gap-2 p-0">
           <div className="flex items-center gap-4 md:gap-1">
-            <Image className="text-gray-800" size={18} />
-            <Paperclip className="text-gray-800" size={18} />
-            <ImagePlay className="text-gray-800" size={18} />
-            <Smile className="text-gray-800" size={18} />
+            <Image className="text-gray-800 dark:text-gray-500" size={18} />
+            <Paperclip className="text-gray-800 dark:text-gray-500" size={18} />
+            <ImagePlay className="text-gray-800 dark:text-gray-500" size={18} />
+            <Smile className="text-gray-800 dark:text-gray-500" size={18} />
           </div>
           <Button
             disabled={inputValue.trim().length === 0}
