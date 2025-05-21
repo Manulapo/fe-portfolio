@@ -43,7 +43,6 @@ export const userInfo = {
   university: 'University of Pisa, Italy',
   coverImg,
   aboutPreview: 'Passionate Frontend Engineer and UX Designer based in Denmark',
-  test:"test"
 };
 
 export const contactInfo = [
