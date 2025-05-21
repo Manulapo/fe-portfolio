@@ -52,7 +52,6 @@ export const posts: PostData[] = [
       'UIUX',
       'SelfTaught',
       'ShippingMindset',
-      'DesignThinking',
     ],
   },
   {
