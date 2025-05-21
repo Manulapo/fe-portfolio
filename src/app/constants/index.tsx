@@ -37,7 +37,7 @@ export const sitePages = [
 
 export const userInfo = {
   name: 'Manuel La Porta',
-  title: 'Frontend Engineer & UX Designer',
+  title: 'Frontend Developer & UX Designer',
   location: 'Copenaghen, Capital region, Denmark',
   avatarImg,
   university: 'University of Pisa, Italy',
