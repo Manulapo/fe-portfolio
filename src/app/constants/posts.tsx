@@ -20,6 +20,7 @@ const armoganPdf = window.location.origin + '/assets/PDF/Gamestop_armogan.pdf';
 const gsDealsPdf = window.location.origin + '/assets/PDF/Gamestop_gsDeals.pdf';
 const jobDeskPdf = window.location.origin + '/assets/PDF/jobDesk.pdf';
 
+
 export const posts: PostData[] = [
   {
     description:
