@@ -32,7 +32,7 @@ export const posts: PostData[] = [
     imageAlt: 'New portfolio website preview',
     likes: getRandomNumber(80, 300),
     comments: getRandomNumber(10, 95),
-    shares: getRandomNumber(1, 22),
+    shares: getRandomNumber(1, 20),
     createdAt: '2025-04-25T00:00:00Z', 
     author: {
       name: userInfo.name,
