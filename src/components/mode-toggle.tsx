@@ -20,7 +20,7 @@ export function ModeToggle() {
         </Button>
       </PopoverTrigger>
       <PopoverContent className='w-min' align="end">
-        <Card className="h-max p-0 border-0">
+        <Card className="h-max p-0 border-0 bg-transparent">
           <Button className='flex justify-start' variant={'ghost'} onClick={() => setTheme('light')}>
             <Sun /> Light
           </Button>
