@@ -18,7 +18,7 @@ const PostFilter = ({
   const [isClicked, setIsClicked] = useState(false);
 
   return (
-    <div className="flex items-center justify-center w-[95%] mx-auto my-3">
+    <div className="flex items-center justify-center w-[95%] mx-auto my-3 text-primary">
       <Separator className="flex-1" />
         Filter posts by
       <Popover open={isClicked} onOpenChange={setIsClicked}>
