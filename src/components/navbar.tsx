@@ -1,7 +1,6 @@
 import { navbarIcons, userInfo } from '@/app/constants';
 import chat from '@/assets/icons/chat.svg';
 import linkedinIcon from '@/assets/images/linkedIM.png';
-import sort from '@/assets/icons/sort.svg';
 import {
   NavigationMenu,
   NavigationMenuLink,
@@ -14,15 +13,15 @@ import { NavigationMenuItem } from '@radix-ui/react-navigation-menu';
 import { ChevronDown, ChevronUp, Search } from 'lucide-react';
 import { useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
+import DialogLayout from './dialog-layout';
+import { ModeToggle } from './mode-toggle';
 import AvatarIcon from './shared/Avatar-icon';
+import ContactinfoDialogContent from './shared/contact-info-dialog';
+import NavbarIcon from './shared/navbar-icon';
 import { Button } from './ui/button';
 import { Card, CardContent, CardTitle } from './ui/card';
 import { Input } from './ui/input';
 import { Popover, PopoverContent, PopoverTrigger } from './ui/popover';
-import NavbarIcon from './shared/navbar-icon';
-import DialogLayout from './dialog-layout';
-import ContactinfoDialogContent from './shared/contact-info-dialog';
-import { ModeToggle } from './mode-toggle';
 
 // Extracted SearchBar component
 const SearchBar = () => {
