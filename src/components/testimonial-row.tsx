@@ -7,7 +7,7 @@ const TestimonialRow = ({ data }: { data: TestimonialData }) => {
     <div className="flex flex-col gap-2 p-2 relative">
       <img
         src={quotes}
-        className="absolute top-2 right-10 text-blue-400 opacity-10 w-20"
+        className="absolute top-2 right-10 text-blue-400 opacity-10 dark:opacity-20 w-20"
       />
       <div className="flex items-center gap-4">
         {data.avatarUrl && (

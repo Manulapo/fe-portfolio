@@ -5,6 +5,7 @@ import { useCallback, useMemo, useState } from 'react';
 import { Button } from '../ui/button';
 import { Separator } from '../ui/separator';
 import { ThumbsUp } from 'lucide-react';
+import { useTheme } from 'next-themes';
 
 const PostFooter = ({
   likes,
@@ -52,6 +53,9 @@ const PostFooter = ({
     );
   }, []);
 
+  const { theme } = useTheme();
+  const likeFillColor = theme === 'dark' ? '#fff' : '#444';
+
   return (
     <>
       <div className="px-4 h-5 flex items-center justify-between text-muted-foreground text-xs">
@@ -76,12 +80,12 @@ const PostFooter = ({
       <Separator className="w-[95%] mx-auto my-0 py-0 h-min" />
       <div className="flex items-center justify-start w-full md:gap-2 flex-nowrap overflow-auto px-2 pb-2">
         <Button
-          className="flex items-center justify-center gap-2 py-5 px-2 flex-1 group"
+          className="flex items-center justify-center gap-2 py-5 px-2 flex-1 group dark:invert-25"
           variant={'ghost'}
           onClick={() => setLiked((prev) => !prev)}
         >
           {liked ? (
-            <ThumbsUp className="size-5" fill="#111" />
+            <ThumbsUp className="size-5 dark:invert" fill={likeFillColor} />
           ) : (
             <ThumbsUp className="size-5" />
           )}
@@ -92,7 +96,7 @@ const PostFooter = ({
         {postFooterLinks.map((link) => (
           <Button
             key={link.name}
-            className="flex items-center justify-center gap-2 py-5 px-2 flex-1 group"
+            className="flex items-center justify-center gap-2 py-5 px-2 flex-1 group dark:invert-25"
             variant={'ghost'}
           >
             {link.icon}

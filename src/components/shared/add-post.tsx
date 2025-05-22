@@ -50,7 +50,7 @@ const AddPost = ({
                 className={cn(
                   'flex items-center justify-center gap-2 py-5 px-2 flex-1 group  cursor-pointer bg-transparent text-muted-foreground hover:bg-muted shadow-none transition-all duration-200 ease-in-out',
                   filter === link.value.toLocaleLowerCase()
-                    ? 'bg-muted text-muted-foreground'
+                    ? 'bg-muted text-primary'
                     : '',
                 )}
                 asChild
