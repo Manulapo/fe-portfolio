@@ -67,19 +67,7 @@ const MobileTopBar = () => (
           <SearchBar />
         </NavigationMenuItem>
         <NavigationMenuItem>
-          <Link
-            to="/chat"
-            className="h-full flex items-center justify-center opacity-70"
-          >
-            <NavigationMenuLink
-              className={cn(
-                navigationMenuTriggerStyle(),
-                'h-full w-max p-0 bg-card',
-              )}
-            >
-              <img src={sort} alt="Sort Icon" className='dark:invert' width={24} height={24} />
-            </NavigationMenuLink>
-          </Link>
+          <ModeToggle />
         </NavigationMenuItem>
         <NavigationMenuItem>
           <Link
@@ -92,7 +80,13 @@ const MobileTopBar = () => (
                 'h-full w-max p-0 bg-card',
               )}
             >
-              <img src={chat} className='dark:invert' alt="Chat Icon" width={24} height={24} />
+              <img
+                src={chat}
+                className="dark:invert"
+                alt="Chat Icon"
+                width={24}
+                height={24}
+              />
             </div>
           </Link>
         </NavigationMenuItem>

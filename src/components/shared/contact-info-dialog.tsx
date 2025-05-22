@@ -5,9 +5,9 @@ const ContactinfoDialogContent = () => {
     <div>
       {contactInfo.map((item, index) => (
         <div key={index} className="flex items-center gap-4 mb-4">
-          <item.icon className="w-6 h-6" />
+          <item.icon className="w-6 h-6 dark:invert-75" />
           <div className="flex flex-col">
-            <div className="text-md font-semibold flex items-center gap-2">
+            <div className="text-md text-primary font-semibold flex items-center gap-2">
               {item.title}
               <span>
                 {item.description && (

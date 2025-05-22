@@ -50,7 +50,7 @@ const ProfileCard = ({
         </div>
         <div
           className={cn(
-            'absolute left-3 border-3 border-white rounded-full bg-card',
+            'absolute left-3 border-2 dark:border-secondary border-primary rounded-full bg-card',
             isProfilePage ? 'bottom-[-35px]' : 'bottom-[-20px]',
           )}
         >

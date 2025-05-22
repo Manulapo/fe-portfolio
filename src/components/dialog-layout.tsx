@@ -28,7 +28,7 @@ const DialogLayout = ({
       <DialogTrigger asChild>{triggerContent}</DialogTrigger>
       <DialogContent aria-describedby='' className="max-w-[80%] md:w-max md:min-w-[40%] min-w-[90%] w-max bg-card">
         <DialogHeader>
-          {dialogTitle && <DialogTitle className='text-left'>{dialogTitle}</DialogTitle>}
+          {dialogTitle && <DialogTitle className='text-left text-primary'>{dialogTitle}</DialogTitle>}
           {dialogdescription && (
             <DialogDescription>{dialogdescription}</DialogDescription>
           )}
