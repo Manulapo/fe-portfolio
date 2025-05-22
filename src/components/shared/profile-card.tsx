@@ -93,11 +93,11 @@ const ProfileCard = ({
           </div>
           <div>
             {!isMobile && isProfilePage && (
-              <p className="text-muted-foreground text-sm font-semibold flex items-center gap-2 mr-3">
+              <p className="text-muted-foreground text-sm font-semibold flex items-center gap-2 mr-3 ">
                 <Suspense
                   fallback={<Loader className="animate-spin text-gray-500" />}
                 >
-                  <img src={unipisa} alt="University logo" className="w-8" />
+                  <img src={unipisa} alt="University logo " className="w-8 rounded-full" />
                 </Suspense>
                 {userInfo.university}
               </p>
@@ -149,7 +149,7 @@ const ProfileCard = ({
                   asChild
                   className="p-0 bg-transparent hover:bg-transparent w-max h-full cursor-pointer"
                 >
-                  <Button className="rounded-full bg-card border border-gray-400 hover:bg-gray-100 text-gray-500 px-4 py-2">
+                  <Button className="rounded-full bg-card border text-primary border-gray-400 dark:border-gray-700 hover:bg-muted px-4 py-2">
                     Other
                   </Button>
                 </PopoverTrigger>

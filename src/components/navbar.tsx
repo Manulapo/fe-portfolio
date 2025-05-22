@@ -147,7 +147,7 @@ const ProfileIcon = () => {
               <Button
                 onClick={() => setIsClicked(false)}
                 variant="outline"
-                className="flex-1 w-full rounded-full py-3 border border-blue-500 hover:border-blue-800 bg-transparent"
+                className="flex-1 w-full rounded-full py-3 border text-blue-400 dark:bg-blue-900/30 dark:border-blue-800 dark:text-blue-primary border-blue-400 hover:text-gray-600 bg-transparent"
                 asChild
               >
                 <Link to="/profile">

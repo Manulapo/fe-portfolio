@@ -1,4 +1,4 @@
-import { ComputerIcon, Moon, Sun } from 'lucide-react';
+import { Moon, Sun } from 'lucide-react';
 
 import { useTheme } from '@/app/providers/theme.provider';
 import { Button } from '@/components/ui/button';
@@ -26,9 +26,6 @@ export function ModeToggle() {
           </Button>
           <Button className='flex justify-start' variant={'ghost'} onClick={() => setTheme('dark')}>
             <Moon /> Dark
-          </Button>
-          <Button className='flex justify-start' variant={'ghost'} onClick={() => setTheme('system')}>
-            <ComputerIcon />System
           </Button>
         </Card>
       </PopoverContent>
