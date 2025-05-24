@@ -23,7 +23,7 @@ export const SearchProvider = ({ children }: { children: ReactNode }) => {
 const AppProviders = ({ children }: { children: React.ReactNode }) => {
   return (
     <HashRouter>
-      <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
+      <ThemeProvider defaultTheme="light" storageKey="vite-ui-theme">
         <SearchProvider>{children}</SearchProvider>
       </ThemeProvider>
     </HashRouter>
