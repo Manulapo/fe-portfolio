@@ -15,6 +15,7 @@ import johnHopkinsLogo from '@/assets/images/john_hopkins_university_logo.jpg';
 import NextJSEcommerceLogo from '@/assets/images/NextJSEcommerce_logo.png';
 import portfolioPreview from '@/assets/images/portfolio_preview.jpg';
 import propStorePreview from '@/assets/images/propStore_preview.jpg';
+import hococoOfficePreview from '@/assets/images/hococo_office_preview.jpg';
 
 const armoganPdf = window.location.origin + '/assets/PDF/Gamestop_armogan.pdf';
 const gsDealsPdf = window.location.origin + '/assets/PDF/Gamestop_gsDeals.pdf';
@@ -22,6 +23,37 @@ const jobDeskPdf = window.location.origin + '/assets/PDF/jobDesk.pdf';
 
 
 export const posts: PostData[] = [
+  {
+    description:
+       "**Excited to share that I’ve joined Hococo as a Frontend Developer!** 🙌\n\n" +
+    "This also marks my **first work experience in Copenhagen** — and I couldn’t have landed in a better place. A small, ambitious team, clear product vision, and the kind of culture where thoughtful design and code actually matter.\n\n" +
+    "At Hococo, we’re trying to make renting easier and more human — for both tenants and landlords. I’ll be focusing on the frontend (Vue, UI work, responsive design), but more than anything, I’m learning how to build things that make sense for real people.\n\n" +
+    "Still getting to know the city, the team, and the codebase — but already feeling grateful for the welcome and the challenge. Let’s see where this goes. 🚲🌤️",
+    imageUrl: hococoOfficePreview, // Replace with actual image or screenshot
+    imageAlt: 'Preview of working at Hococo or office vibe',
+    likes: getRandomNumber(80, 300),
+    comments: getRandomNumber(10, 95),
+    shares: getRandomNumber(1, 20),
+    createdAt: '2025-06-29T00:00:00Z',
+    author: {
+      name: userInfo.name,
+      avatarUrl: userInfo.avatarImg,
+      title: userInfo.title,
+    },
+    ctaUrl: '/', // Optional: link to Hococo or personal site
+    type: ['experience'],
+    tags: [
+      'NewJob',
+      'FrontendDeveloper',
+      'VueJS',
+      'StartupVibes',
+      'RealWorldUI',
+      'KeepShipping',
+      'HonestWork',
+      'TechForPeople',
+      'SmallTeamBigImpact',
+    ],
+  },
   {
     description:
       '**Just launched my new portfolio** — designed not just to show what I can build, but **how I think about building it**. 🎯\n\n' +
@@ -33,13 +65,13 @@ export const posts: PostData[] = [
     likes: getRandomNumber(80, 300),
     comments: getRandomNumber(10, 95),
     shares: getRandomNumber(1, 20),
-    createdAt: '2025-04-25T00:00:00Z', 
+    createdAt: '2025-04-25T00:00:00Z',
     author: {
       name: userInfo.name,
       avatarUrl: userInfo.avatarImg,
       title: userInfo.title,
     },
-    ctaUrl: '/', 
+    ctaUrl: '/',
     type: ['projects'],
     tags: [
       'PortfolioLaunch',

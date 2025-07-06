@@ -178,7 +178,7 @@ export default function Navbar() {
     <>
       {isMobile && <MobileTopBar />}
       <NavigationMenu className="flex justify-center mx-auto h-14 border-t md:border-b border-b-0 md:border-gray-200 max-w-full bg-card dark:bg-card dark:border-[#333] fixed bottom-0 md:top-0 z-50">
-        <div className="lg:w-[67%] md:w-[90%] w-full h-full flex justify-between items-center">
+        <div className="lg:w-[77%] md:w-[90%] w-full h-full flex justify-between items-center">
           <div className="items-center h-full hidden md:flex">
             <NavigationMenuItem className="flex items-center gap-3">
               <Link to="/">

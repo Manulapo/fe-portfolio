@@ -9,8 +9,7 @@
     "build": "npm exec tsc -- -b && npm exec vite -- build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "predeploy": "npm run build",
-    "deploy": "npm exec gh-pages -- -d dist"
+    "predeploy": "npm run build"
   },
   "dependencies": {
     "@radix-ui/react-avatar": "^1.1.4",

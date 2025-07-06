@@ -1,6 +1,7 @@
 import { CertificationData, skillsType } from '@/types';
 import accentureLogo from '@/assets/images/accenture_logo.jpg';
 import gamestopLogo from '@/assets/images/gamestop_logo.jpg';
+import hococoLogo from '@/assets/images/hococo_logo.jpeg';
 import startingFinanceLogo from '@/assets/images/starting_finance_logo.jpg';
 import talentikaLogo from '@/assets/images/talentikaschool_logo.jpg';
 import zeroToMasteryLogo from '@/assets/images/ztm_academy_logo.jpg';
@@ -10,6 +11,23 @@ import johnHopkinsLogo from '@/assets/images/john_hopkins_university_logo.jpg';
 import NextJSEcommerceLogo from '@/assets/images/NextJSEcommerce_logo.png';
 
 export const experiences = [
+  {
+    icon: hococoLogo,
+    title: 'Frontend Developer',
+    company: 'Hococo',
+    duration: 'Jul 2025 - Present',
+    skills: [
+      'Vue.js',
+      'JavaScript',
+      'TypeScript',
+      'Tailwind CSS',
+      'Figma',
+      'Responsive Design',
+      'UI/UX',
+    ],
+    description:
+      "Contributing to Hococo’s tenant experience platform by building clean, responsive frontend components. Working closely with designers and backend developers to deliver pixel-perfect UI and intuitive user flows. Taking part in feature planning, design handoff, testing, and deployment in a fast-moving startup environment.",
+  },
   {
     icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg',
     title: 'Frontend Developer & UX Designer',
@@ -115,6 +133,14 @@ export const skills: Record<skillsType, Record<string, string>[]> = {
     },
   ],
   frameworks: [
+    {
+      name: 'Nuxt.js',
+      icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nuxtjs/nuxtjs-original.svg',
+    },
+    {
+      name: 'Vue.js',
+      icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vuejs/vuejs-original.svg',
+    },
     {
       name: 'Next.js',
       icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg',
