@@ -51,11 +51,15 @@ export interface NotificationData {
   hasCTA: boolean;
   cta: string;
   toRead: boolean;
-  type: 'job' | 'myPost' | 'mention' 
+  type: 'job' | 'myPost' | 'mention';
 }
 
-
-export type skillsType = 'frameworks' | 'language' | 'design' | 'database';
+export type skillsType =
+  | 'frontend'
+  | 'language'
+  | 'design'
+  | 'database'
+  | 'backend';
 
 export type CertificationData = {
   title: string;
@@ -75,13 +79,12 @@ export type TestimonialData = {
   date: string;
   text: string;
   avatarUrl?: string;
-  companyLogo?: string; 
-}
-
+  companyLogo?: string;
+};
 
 export type InspirationsData = {
   name: string;
   text: string;
   avatarUrl?: string;
   company?: string;
-}
+};

@@ -17,8 +17,9 @@ export const experiences = [
     company: 'Hococo',
     duration: 'Jul 2025 - Present',
     skills: [
-      'Vue.js',
-      'JavaScript',
+      'Vue',
+      'Laravel',
+      'AI Integration',
       'TypeScript',
       'Tailwind CSS',
       'Figma',
@@ -26,7 +27,7 @@ export const experiences = [
       'UI/UX',
     ],
     description:
-      "Contributing to Hococo’s tenant experience platform by building clean, responsive frontend components. Working closely with designers and backend developers to deliver pixel-perfect UI and intuitive user flows. Taking part in feature planning, design handoff, testing, and deployment in a fast-moving startup environment.",
+      "Building intuitive, high-performance frontend features and AI-enabled capabilities for Hococo’s tenant relationship platform. Working with Vue.js and Laravel alongside designers and developers to deliver pixel-perfect, responsive web and mobile experiences. Built the frontend interface and backend logic for a conversational assistant, tuned AI behavior to match product goals, and independently led initiatives from discovery to design, implementation, and final delivery in a fast-paced SaaS environment.",
   },
   {
     icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg',
@@ -120,8 +121,8 @@ export const skills: Record<skillsType, Record<string, string>[]> = {
       icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg',
     },
     {
-      name: 'Tailwind CSS',
-      icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg',
+      name: 'Php',
+      icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg',
     },
     {
       name: 'CSS',
@@ -132,18 +133,10 @@ export const skills: Record<skillsType, Record<string, string>[]> = {
       icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg',
     },
   ],
-  frameworks: [
+  frontend: [
     {
-      name: 'Nuxt.js',
-      icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nuxtjs/nuxtjs-original.svg',
-    },
-    {
-      name: 'Vue.js',
+      name: 'Vue',
       icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vuejs/vuejs-original.svg',
-    },
-    {
-      name: 'Next.js',
-      icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg',
     },
     {
       name: 'React',
@@ -154,8 +147,18 @@ export const skills: Record<skillsType, Record<string, string>[]> = {
       icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/angularjs/angularjs-original.svg',
     },
     {
+      name: 'Next.js',
+      icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg',
+    },
+  ],
+  backend: [
+    {
       name: 'Node.js',
       icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg',
+    },
+    {
+      name: 'Laravel',
+      icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/laravel/laravel-original.svg',
     },
   ],
   database: [
@@ -170,10 +173,6 @@ export const skills: Record<skillsType, Record<string, string>[]> = {
     {
       name: 'Prisma',
       icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/prisma/prisma-original.svg',
-    },
-    {
-      name: 'Firebase',
-      icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg',
     },
   ],
   design: [

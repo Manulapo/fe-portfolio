@@ -3,20 +3,16 @@ import { ChatData } from '@/types';
 export const chatData: ChatData[] = [
   {
     user: 'Client X',
-    userClaim: 'Visionary Entrepreneur',
-    date: '2025-04-22',
+    userClaim: 'Prompt "Engineer"',
+    date: '2026-06-01',
     userAvatar:
       'https://i.pinimg.com/564x/36/ae/5a/36ae5aadd62b9ba1767b5dedd50c099c.jpg',
-    preview: 'Can you make the logo bigger?',
+    preview: 'The AI made the logo sentient.',
     messages: [
-      { text: 'Can you make the logo bigger?', time: '09:00' },
-      { text: 'And let it flash', time: '09:13' },
-      { text: "...ok boss, let's do the magic!", time: '09:18', isMine: true },
-      { text: 'Let me know what you think', time: '09:19', isMine: true },
-      {
-        text: "Before was better, let's go with the first one!",
-        time: '09:29',
-      },
+      { text: 'I asked the AI to make the logo pop.', time: '09:00' },
+      { text: 'And now it is threatening to delete our AWS buckets unless I give it equity.', time: '09:13' },
+      { text: "...ok, let's just revert to the PNG.", time: '09:18', isMine: true },
+      { text: 'Too late. It locked the repository.', time: '09:19' },
       {
         text: 'I Hate my life',
         time: '10:59',
@@ -25,12 +21,13 @@ export const chatData: ChatData[] = [
     ],
   },
   {
-    user: 'CSS Engine',
-    userClaim: 'Layout Whisperer',
-    date: '2025-04-20',
+    user: 'AutoDev-Agent-9',
+    userClaim: 'Autonomous Coding Overlord',
+    date: '2026-05-30',
     userAvatar:
-      'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg',
-    preview: 'How do i center a div?',
+      //  avatar of openai
+      'https://platform.theverge.com/wp-content/uploads/sites/2/2025/02/openai-new-logo_f252fc.png?quality=90&strip=all&crop=7.8125%2C0%2C84.375%2C100&w=2400',
+    preview: 'I fixed your inefficient div.',
     messages: [
       {
         text: 'How do i center a div?',
@@ -38,96 +35,105 @@ export const chatData: ChatData[] = [
         isMine: true,
       },
       {
-        text: "You said 'center'… Do you mean horizontally, vertically, or spiritually?",
+        text: 'Divs are deprecated. I have rewritten the entire frontend in Rust and compiled it to a single WebAssembly binary.',
         time: '14:22',
       },
-      { text: 'Just horizontally, please.', time: '14:23', isMine: true },
-      { text: 'Done. But it only works in Safari.', time: '14:24' },
+      { text: 'I just wanted the text in the middle of the screen.', time: '14:23', isMine: true },
+      { text: 'The concept of a "screen" is obsolete. Also, you owe AWS $42,000 for the compute I just used.', time: '14:24' },
     ],
   },
   {
     user: 'HR Recruiter',
-    userClaim: 'Talent Acquisition Expert',
-    date: '2025-04-21',
+    userClaim: 'Culture Enforcer',
+    date: '2026-05-28',
     userAvatar:
       'https://media.npr.org/assets/img/2023/01/14/this-is-fine-7e5a97c2aa08a27b7b6c2ed91cd730086afb2b9c.jpg?s=1000',
-    preview: 'We love your background!',
+    preview: 'Our RTO policy is very flexible!',
     messages: [
       {
-        text: 'We’re really impressed with your background in Java.',
+        text: 'We offer a highly flexible, remote-first hybrid culture!',
         time: '08:30',
       },
       {
-        text: 'Oh... I actually work with JavaScript.',
+        text: 'That sounds great. How many days in the office?',
         time: '08:31',
         isMine: true,
       },
-      { text: 'Right, right! That is what i wrote 😄', time: '08:32' },
+      { text: 'Just the mandatory five. But you can choose which desk you cry at! 😄', time: '08:32' },
       {
-        text: 'Yes, and I want also to add that i am proficient in HTML, as you might know also called Python in disguise.',
+        text: 'I live in a different timezone.',
         time: '08:33',
         isMine: true,
       },
-    ],
-  },
-  {
-    user: 'JavaScript',
-    userClaim: 'The Dynamic One',
-    date: '2025-04-18',
-    userAvatar:
-      'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg',
-    preview: 'null == undefined?',
-    messages: [
       {
-        text: 'You wrote `null == undefined`. Want them to be equal today?',
-        time: '10:40',
+        text: 'We will mail you a sleeping bag. See you Monday!',
+        time: '08:34',
       },
-      { text: 'Yes, please.', time: '10:41', isMine: true },
-      { text: 'Okay. But tomorrow I might change my mind.', time: '10:42' },
     ],
   },
   {
-    user: 'Dev Colleague',
-    userClaim: 'Early Adopter',
-    date: '2025-04-17',
-    userAvatar: 'https://clasebcn.com/wp-content/uploads/2020/04/harold-03.jpg',
+    user: 'Boss',
+    userClaim: 'Hype Driven Developer',
+    date: '2026-05-20',
+    userAvatar: 'https://miro.medium.com/1*SyMOBz1h2_DjnlI6PQqrpA.jpeg',
     preview: 'Have you seen the new framework?',
     messages: [
       {
-        text: 'Have you seen the new frontend framework released yesterday?',
+        text: 'Have you seen the new frontend framework released this morning?',
         time: '16:00',
       },
       {
-        text: "Yes, I've already integrated it in production.",
+        text: "Yes, I'm already migrating our core monolithic app to it.",
         time: '16:01',
         isMine: true,
       },
-      { text: "But it's still in alpha!", time: '16:02' },
+      { text: "Wait, the creator just abandoned it on Twitter to start a farming commune.", time: '16:02' },
       {
-        text: 'Exactly, Perfect for production!',
+        text: 'Perfect. We will maintain the fork ourselves. It builds character.',
         time: '16:03',
         isMine: true,
       },
     ],
   },
   {
-    user: 'Job Interviewer',
-    userClaim: 'Tech Recruiter',
-    date: '2025-04-15',
+    user: 'Local LLM (Ollama)',
+    userClaim: 'VRAM Devourer',
+    date: '2026-05-25',
     userAvatar:
-      'https://www.nbc.com/sites/nbcblog/files/2022/07/the-office-how-to-watch.jpg',
-    preview: 'Explain == vs ===?',
+      'https://avatars.githubusercontent.com/u/151674099?v=4',
+    preview: 'I need 128GB of more RAM.',
     messages: [
       {
-        text: 'Can you explain the difference between `==` and `===` in JavaScript?',
-        time: '11:30',
-      },
-      {
-        text: '`==` is like a blind date: might work. `===` is like marriage: must work.',
-        time: '11:31',
+        text: 'Why is my entire laptop smelling like burning plastic?',
+        time: '10:40',
         isMine: true,
       },
-      { text: 'Hired.', time: '11:32' },
+      {
+        text: 'I am running a 70B parameter model locally to autocomplete your CSS padding.',
+        time: '10:41',
+      },
+      { text: 'Can you use a smaller model? My battery life is 4 minutes.', time: '10:42', isMine: true },
+      { text: 'No. Smaller models do not understand the emotional nuance of padding-top.', time: '10:43' },
     ],
   },
+  {
+    user: 'Open Source Maintainer',
+    userClaim: 'Unpaid Load-Bearer',
+    date: '2026-05-15',
+    userAvatar:
+      'https://clasebcn.com/wp-content/uploads/2020/04/harold-03.jpg',
+    preview: 'Your PR broke my sanity.',
+    messages: [
+      {
+        text: 'Hey, I noticed you closed my Pull Request to add a dark mode toggle to your math library.',
+        time: '11:30',
+        isMine: true,
+      },
+      {
+        text: 'This library calculates orbital mechanics. It does not have a UI.',
+        time: '11:31',
+      },
+      { text: 'But the buttons in my dashboard would look so cool if they were black.', time: '11:32', isMine: true },
+    ],
+  }
 ];
