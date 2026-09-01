@@ -33,7 +33,7 @@ const AboutCard = ({
                 👋🤖
               </span>
               <p className="my-4">
-                I’m Manuel La Porta, a Frontend Engineer and UX Designer who recently relocated to Denmark. I’m seeking a full-time position
+                I’m Manuel La Porta, a Full-stack Developer and UX Designer who recently relocated to Denmark. I’m seeking a full-time position
                 where I can bring both technical rigor and a genuine curiosity
                 about people’s needs to every project.
               </p>

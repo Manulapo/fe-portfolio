@@ -37,12 +37,12 @@ export const sitePages = [
 
 export const userInfo = {
   name: 'Manuel La Porta',
-  title: 'Frontend Engineer & UX Designer',
+  title: 'Full-stack Developer & UX Designer',
   location: 'Copenhagen, Capital region, Denmark',
   avatarImg,
   university: 'University of Pisa, Italy',
   coverImg,
-  aboutPreview: 'Passionate Frontend Engineer and UX Designer based in Denmark',
+  aboutPreview: 'Passionate Full-stack Developer and UX Designer based in Denmark',
   test:"test"
 };
 

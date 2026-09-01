@@ -49,7 +49,7 @@ export const experiences = [
   },
   {
     icon: accentureLogo,
-    title: 'Frontend Engineer',
+    title: 'Full-stack Developer',
     company: 'Accenture Italia',
     duration: 'Nov 2023 - Feb 2025',
     skills: [

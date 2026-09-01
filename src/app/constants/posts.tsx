@@ -16,20 +16,63 @@ import NextJSEcommerceLogo from '@/assets/images/NextJSEcommerce_logo.png';
 import portfolioPreview from '@/assets/images/portfolio_preview.jpg';
 import propStorePreview from '@/assets/images/propStore_preview.jpg';
 import hococoOfficePreview from '@/assets/images/hococo_office_preview.jpg';
+import proTrackPreview from '@/assets/images/proTrack_preview.jpg';
 
 const armoganPdf = window.location.origin + '/assets/PDF/Gamestop_armogan.pdf';
 const gsDealsPdf = window.location.origin + '/assets/PDF/Gamestop_gsDeals.pdf';
 const jobDeskPdf = window.location.origin + '/assets/PDF/jobDesk.pdf';
+const proTrackPdf = window.location.origin + '/assets/PDF/pro-track.pdf';
 
 
 export const posts: PostData[] = [
+  {
+    description:
+      '**I’ve been working on ProTrack**, a fitness app I originally started because I wanted something I could actually use during my own workouts. 🏋️‍♂️\n\n' +
+      'Logging a workout is easy, but understanding **what should happen next** is usually still a manual process. So I built ProTrack around that loop: **create a routine, train one set at a time, log the results, and use the data to guide progressive overload** — or reduce the load when needed.\n\n' +
+      'What started as a small personal project grew into a much bigger full-stack exercise. I’m mainly a **frontend developer**, and UX is still the part I enjoy most, but with ProTrack I worked across the whole system: **Vue + TypeScript**, **Node/Express**, **PostgreSQL + Prisma**, authentication, persistent workout sessions, progression logic, statistics, achievements, and more.\n\n' +
+      'Probably the most valuable part was seeing how much **frontend, backend, UX, and data modelling influence each other** once you stop treating them as separate pieces. I put together a short **case study** explaining the product, the decisions behind it, and what I learned while building it.',
+    imageUrl: proTrackPreview,
+    imageAlt: 'ProTrack fitness app case study preview',
+    likes: getRandomNumber(80, 300),
+    comments: getRandomNumber(10, 95),
+    shares: getRandomNumber(1, 20),
+    createdAt: '2026-08-31T00:00:00Z',
+    author: {
+      name: userInfo.name,
+      avatarUrl: userInfo.avatarImg,
+      title: userInfo.title,
+    },
+    hasPdf: true,
+    ctaUrl: proTrackPdf,
+    downloadUrl: proTrackPdf,
+    type: ['projects'],
+    tags: [
+      'TypeScript',
+      'Vue',
+      'FullStack',
+      'Node.js',
+      'Express',
+      'PostgreSQL',
+      'Prisma',
+      'Authentication',
+      'ProgressiveOverload',
+      'FitnessApp',
+      'UX',
+      'WorkoutTracking',
+      'Statistics',
+      'Achievements',
+      'CaseStudy',
+      'WebDevelopment',
+      'Portfolio',
+    ],
+  },
   {
     description:
        "**Excited to share that I’ve joined Hococo as a Frontend Developer!** 🙌\n\n" +
     "This also marks my **first work experience in Copenhagen** — and I couldn’t have landed in a better place. A small, ambitious team, clear product vision, and the kind of culture where thoughtful design and code actually matter.\n\n" +
     "At Hococo, we’re trying to make renting easier and more human — for both tenants and landlords. I’ll be focusing on the frontend (Vue, UI work, responsive design), but more than anything, I’m learning how to build things that make sense for real people.\n\n" +
     "Still getting to know the city, the team, and the codebase — but already feeling grateful for the welcome and the challenge. Let’s see where this goes. 🚲🌤️",
-    imageUrl: hococoOfficePreview, // Replace with actual image or screenshot
+    imageUrl: hococoOfficePreview,
     imageAlt: 'Preview of working at Hococo or office vibe',
     likes: getRandomNumber(80, 300),
     comments: getRandomNumber(10, 95),
@@ -443,7 +486,7 @@ export const posts: PostData[] = [
   },
   {
     description:
-      '**Kicking off a new chapter** at Accenture Italia as a Frontend Engineer! 🏢✨\n\n' +
+      '**Kicking off a new chapter** at Accenture Italia as a Full-stack Developer! 🏢✨\n\n' +
       'I had the chance to **collaborate on impactful projects** for public administration, **dive deep into Angular**, and **sharpen my skills in scalable architecture**. Grateful for the experience and everyone I learned from.',
     likes: getRandomNumber(80, 300),
     comments: getRandomNumber(10, 95),
