@@ -8,6 +8,7 @@ import zeroToMasteryLogo from '@/assets/images/ztm_academy_logo.jpg';
 import cambridgeLogo from '@/assets/images/cambridgeinternational_logo.jpg';
 import freecodecampLogo from '@/assets/images/free_code_camp_logo.jpg';
 import johnHopkinsLogo from '@/assets/images/john_hopkins_university_logo.jpg';
+import laravelLogo from '@/assets/images/laravel_logo.jpeg';
 import NextJSEcommerceLogo from '@/assets/images/NextJSEcommerce_logo.png';
 
 export const experiences = [
@@ -188,6 +189,21 @@ export const skills: Record<skillsType, Record<string, string>[]> = {
 };
 
 export const certifications: CertificationData[] = [
+  {
+    title: 'Laravel From Scratch',
+    organization: 'Laracasts',
+    issueDate: 'Jul 2026',
+    skills: [
+      'Laravel',
+      'PHP',
+      'Backend Development',
+      'APIs',
+      'Full-Stack Development',
+    ],
+    description:
+      'A practical introduction to Laravel, covering backend application structure, data, APIs, and the framework concepts used in day-to-day development.',
+    logoUrl: laravelLogo,
+  },
   {
     title: 'Next.js Ecommerce 2025 certification',
     organization: 'Udemy',

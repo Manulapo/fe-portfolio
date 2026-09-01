@@ -14,7 +14,6 @@ const Homepage = () => {
   const [filter, setFilter] = useState<PostTagsTypes>('all');
   const { searchTerm, setSearchTerm } = useSearch();
 
-  // Sorted posts remain static assuming posts are constant
   const sortedPosts = useMemo(() => {
     return [...posts].sort((a, b) => {
       const dateA = new Date(a.createdAt).getTime();
@@ -23,7 +22,6 @@ const Homepage = () => {
     });
   }, []);
 
-  // Precompute cleaned text for each post to avoid repeatedly stringifying/cleaning on every filter operation.
   const allPosts = useMemo(() => {
     return sortedPosts.map((post) => ({
       post,

@@ -1,11 +1,10 @@
-import React, { memo } from 'react';
+import { userInfo } from '@/app/constants';
 import { useIsMobile } from '@/hooks/use-mobile';
-import { cn, escapeHtml, formatDate, getRandomNumber } from '@/lib/utils';
+import { cn, escapeHtml, formatDate } from '@/lib/utils';
 import { ChatData } from '@/types';
 import {
   ChevronDown,
   ChevronUp,
-  Circle,
   Image,
   ImagePlay,
   Paperclip,
@@ -19,46 +18,6 @@ import { Button } from './ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from './ui/card';
 import { Input } from './ui/input';
 import { Separator } from './ui/separator';
-import { userInfo } from '@/app/constants';
-
-const ChatAvatar = memo(
-  ({
-    user,
-    userAvatar,
-    userClaim,
-    isOnline,
-    onlineStatus,
-    isMobile,
-  }: {
-    user: string;
-    userClaim: string;
-    userAvatar: string;
-    isOnline: boolean;
-    onlineStatus: string;
-    isMobile: boolean;
-  }) => {
-    return (
-      <div className="flex items-center gap-2">
-        <AvatarIcon name={user} image={userAvatar} size={50} />
-        <div>
-          <p className="font-semibold text-primary">
-            {user}{' '}
-            {isMobile && (
-              <span className="flex items-center gap-1">
-                <Circle
-                  className={cn(isOnline ? 'text-green-700' : 'text-red-500')}
-                  size={10}
-                />
-                <span>{onlineStatus}</span>
-              </span>
-            )}
-          </p>
-          <p className="text-muted-foreground">{userClaim}</p>
-        </div>
-      </div>
-    );
-  },
-);
 
 const ChatFull = ({
   chatData,
@@ -73,38 +32,22 @@ const ChatFull = ({
   onToggle?: () => void;
   chatClosedTrigger: (chat: ChatData) => void;
 }) => {
-  const { user, userAvatar, messages, date, userClaim } = chatData;
+  const { user, userAvatar, messages, date, userClaim, isOnline } = chatData;
   const isMobile = useIsMobile();
   const [inputValue, setInputValue] = useState('');
   const [messagesStream, setMessagesStream] = useState(messages);
-  const chatContainerRef = useRef<HTMLDivElement>(null);
-
-  // Cache online status
-  const isOnline = useMemo(() => getRandomNumber(0, 1) === 1, [messagesStream]);
-  const onlineStatus = isOnline ? 'Online' : 'Offline';
+  const chatEndRef = useRef<HTMLDivElement>(null);
 
   const cardStyle = useMemo(
     () => ({
-      height: isOpen
-        ? isMobile
-          ? 'calc(100vh - 50px)'
-          : 'max-content'
-        : '65px',
-      position: isMobile ? 'absolute' : 'relative',
+      height: isOpen ? (isMobile ? 'calc(100vh - 50px)' : '600px') : '67px',
+      position: isMobile ? ('absolute' as const) : ('relative' as const),
       top: isMobile ? '50px' : undefined,
       zIndex: isMobile ? 1000 : undefined,
       bottom: isOpen ? 0 : '-5px',
+      boxShadow: isMobile ? 'none' : '0 12px 30px rgba(0, 0, 0, 0.12)',
     }),
     [isOpen, isMobile],
-  );
-
-  const chatStyle = useMemo(
-    () => ({
-      maxHeight: !isMobile ? '300px' : 'calc(60vh - 50px)',
-      height: isMobile ? 'calc(60vh-50px)' : undefined,
-      overflowY: 'auto',
-    }),
-    [isMobile],
   );
 
   const handleSendButtonClick = useCallback(() => {
@@ -120,120 +63,155 @@ const ChatFull = ({
   }, [inputValue]);
 
   useEffect(() => {
-    if (chatContainerRef.current) {
-      chatContainerRef.current.scrollIntoView({ behavior: 'smooth' });
-    }
+    chatEndRef.current?.scrollIntoView({
+      behavior: 'smooth',
+      block: 'nearest',
+    });
   }, [messagesStream]);
 
   return (
-    <Card className={className} style={cardStyle as React.CSSProperties}>
-      <CardHeader
-        className="px-3 pb-2"
-        style={{
-          position: isMobile ? 'absolute' : 'relative',
-          right: isMobile ? '1em' : undefined,
-        }}
-      >
-        <CardTitle
-          className="flex items-center justify-between"
-          style={{
-            position: isMobile ? 'absolute' : 'relative',
-            right: isMobile ? '0' : undefined,
-          }}
-        >
-          <div className="flex flex-col gap-1 items-start justify-center">
-            {!isMobile && (
-              <div>
-                <h3 className="m-0 mb-1">{user}</h3>
-                <div className="text-muted-foreground text-xs flex items-center gap-1">
-                  <Circle
-                    className={cn(isOnline ? 'text-green-700' : 'text-red-500')}
-                    size={10}
-                  />
-                  <span>{onlineStatus}</span>
-                </div>
-              </div>
-            )}
+    <Card
+      className={cn(
+        'overflow-hidden rounded-xl border-border bg-card p-0 shadow-none',
+        className,
+      )}
+      style={cardStyle}
+    >
+      <CardHeader className="gap-2 px-5 py-4 pb-0">
+        <CardTitle className="flex items-center justify-between gap-4">
+          <div className="flex min-w-0 items-center gap-3">
+            <div className="relative shrink-0">
+              <AvatarIcon name={user} image={userAvatar} size={40} />
+              <span
+                aria-label={isOnline ? 'Online' : 'Offline'}
+                className={cn(
+                  'absolute bottom-0 right-0 h-3 w-3 rounded-full border-2 border-card',
+                  isOnline ? 'bg-emerald-500' : 'bg-muted-foreground',
+                )}
+              />
+            </div>
+            <div className="min-w-0">
+              <h3 className="truncate text-base font-semibold leading-tight">
+                {user}
+              </h3>
+              <p className="mt-1 truncate text-xs font-normal text-muted-foreground">
+                {userClaim} · {isOnline ? 'Online' : 'Offline'}
+              </p>
+            </div>
           </div>
-          <div className="flex gap-1">
+          <div className="flex shrink-0 items-center gap-1">
+            {onToggle && !isMobile && (
+              <Button
+                aria-label={
+                  isOpen ? 'Collapse conversation' : 'Expand conversation'
+                }
+                className="cursor-pointer rounded-full p-2 text-muted-foreground shadow-none hover:bg-muted hover:text-foreground"
+                onClick={onToggle}
+                size="icon"
+                variant="ghost"
+              >
+                {isOpen ? <ChevronDown /> : <ChevronUp />}
+              </Button>
+            )}
             <Button
-              onClick={onToggle}
-              className="bg-transparent text-black dark:invert-50 hover:text-gray-800 hover:bg-muted rounded-full flex items-center justify-center p-2 shadow-none"
-            >
-              {!isMobile && (isOpen ? <ChevronDown /> : <ChevronUp />)}
-            </Button>
-            <Button
+              aria-label={`Close conversation with ${user}`}
+              className="cursor-pointer rounded-full p-2 text-muted-foreground shadow-none hover:bg-muted hover:text-foreground"
               onClick={() => chatClosedTrigger(chatData)}
-              className="bg-transparent text-gray-500 hover:text-gray-800 hover:bg-muted rounded-full flex items-center justify-center p-2 shadow-none"
+              size="icon"
+              variant="ghost"
             >
               <X />
             </Button>
           </div>
         </CardTitle>
-        {!isMobile && <Separator className="p-0 w-full" />}
       </CardHeader>
-      <CardContent className="h-max w-full px-1 m-0 flex flex-col gap-2">
-        <ChatAvatar
-          user={user}
-          userAvatar={userAvatar}
-          userClaim={userClaim}
-          isOnline={isOnline}
-          onlineStatus={onlineStatus}
-          isMobile={isMobile}
-        />
-        <div className="flex items-center justify-center gap-3">
-          <div className="my-2 border border-secondary flex-1" />
-          <p className="text-muted-foreground text-xs w-max">
-            {formatDate(date).onlyDayMonth.toUpperCase()}
-          </p>
-          <div className="my-2 border border-secondary flex-1" />
-        </div>
-        <div style={chatStyle as React.CSSProperties}>
-          {messagesStream.map((m, i) => (
-            <ChatMessage
-              key={i}
-              className="p-0 m-0"
-              user={m.isMine ? userInfo.name : user}
-              chatmessage={m}
-              avatar={m.isMine ? userInfo.avatarImg : userAvatar}
-              hasHeader={i === 0 || messagesStream[i - 1]?.isMine !== m.isMine}
-            />
-          ))}
-          <div ref={chatContainerRef} />
-        </div>
-      </CardContent>
-      <div className="flex flex-col gap-4 w-full mt-auto md:m-auto">
-        <Separator className="p-0 w-full" />
-        <CardContent className="flex items-center w-full justify-around gap-4 p-0">
-          <Input
-            value={inputValue}
-            onKeyDown={(e) => {
-              if (e.key === 'Enter') handleSendButtonClick();
-            }}
-            onChange={(e) => setInputValue(e.target.value)}
-            placeholder="Write a message"
-            className={cn(
-              'bg-gray-100 shadow-none border-none focus:outline-none w-full h-10',
-            )}
-          />
-        </CardContent>
-        <Separator className="p-0 w-full" />
-        <CardContent className="flex items-center justify-between gap-2 p-0">
-          <div className="flex items-center gap-4 md:gap-1">
-            <Image className="text-gray-800 dark:text-gray-500" size={18} />
-            <Paperclip className="text-gray-800 dark:text-gray-500" size={18} />
-            <ImagePlay className="text-gray-800 dark:text-gray-500" size={18} />
-            <Smile className="text-gray-800 dark:text-gray-500" size={18} />
-          </div>
-          <Button
-            disabled={inputValue.trim().length === 0}
-            onClick={handleSendButtonClick}
-            className="bg-blue-500 text-white hover:bg-blue-900 rounded-full flex items-center justify-center px-4 shadow-none font-semibold md:h-8 h-10"
-          >
-            Send
-          </Button>
-        </CardContent>
-      </div>
+
+      {isOpen && (
+        <>
+          <Separator className="py-0" />
+          <CardContent className="flex min-h-0 flex-1 flex-col p-0">
+            <div className="flex min-h-0 flex-1 flex-col overflow-y-auto px-5 py-4">
+              <div className="flex items-center gap-3 pb-2">
+                <AvatarIcon name={user} image={userAvatar} size={48} />
+                <div className="min-w-0">
+                  <p className="truncate text-sm font-semibold text-foreground">
+                    {user}
+                  </p>
+                  <p className="truncate text-xs text-muted-foreground">
+                    {userClaim}
+                  </p>
+                </div>
+              </div>
+
+              <div className="my-3 flex items-center gap-3">
+                <Separator className="flex-1" />
+                <p className="shrink-0 text-[11px] font-medium text-muted-foreground">
+                  {formatDate(date).onlyDayMonth.toUpperCase()}
+                </p>
+                <Separator className="flex-1" />
+              </div>
+
+              <div className="min-h-0 flex-1">
+                {messagesStream.map((message, index) => (
+                  <ChatMessage
+                    avatar={message.isMine ? userInfo.avatarImg : userAvatar}
+                    chatmessage={message}
+                    className="m-0 p-0"
+                    hasHeader={
+                      index === 0 ||
+                      messagesStream[index - 1]?.isMine !== message.isMine
+                    }
+                    key={`${message.time}-${index}`}
+                    user={message.isMine ? userInfo.name : user}
+                  />
+                ))}
+                <div ref={chatEndRef} />
+              </div>
+            </div>
+
+            <div className="border-t border-border bg-card px-4 py-3">
+              <div className="flex items-center gap-2">
+                <Input
+                  aria-label="Message"
+                  className="h-10 rounded-lg border-0 bg-muted px-3 shadow-none focus-visible:ring-1"
+                  onChange={(event) => setInputValue(event.target.value)}
+                  onKeyDown={(event) => {
+                    if (event.key === 'Enter') handleSendButtonClick();
+                  }}
+                  placeholder="Write a message"
+                  value={inputValue}
+                />
+                <Button
+                  className="rounded-full px-4 font-semibold shadow-none"
+                  disabled={inputValue.trim().length === 0}
+                  onClick={handleSendButtonClick}
+                >
+                  Send
+                </Button>
+              </div>
+              <div className="mt-2 flex items-center gap-1">
+                {[
+                  { icon: Image, label: 'Add image' },
+                  { icon: Paperclip, label: 'Attach file' },
+                  { icon: ImagePlay, label: 'Add GIF' },
+                  { icon: Smile, label: 'Add emoji' },
+                ].map(({ icon: Icon, label }) => (
+                  <Button
+                    aria-label={label}
+                    className="rounded-full text-muted-foreground shadow-none hover:bg-muted hover:text-foreground"
+                    key={label}
+                    size="icon"
+                    type="button"
+                    variant="ghost"
+                  >
+                    <Icon size={18} />
+                  </Button>
+                ))}
+              </div>
+            </div>
+          </CardContent>
+        </>
+      )}
     </Card>
   );
 };

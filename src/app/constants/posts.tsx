@@ -12,6 +12,7 @@ import zeroToMasteryLogo from '@/assets/images/ztm_academy_logo.jpg';
 import cambridgeLogo from '@/assets/images/cambridgeinternational_logo.jpg';
 import freecodecampLogo from '@/assets/images/free_code_camp_logo.jpg';
 import johnHopkinsLogo from '@/assets/images/john_hopkins_university_logo.jpg';
+import laravelLogo from '@/assets/images/laravel_logo.jpeg';
 import NextJSEcommerceLogo from '@/assets/images/NextJSEcommerce_logo.png';
 import portfolioPreview from '@/assets/images/portfolio_preview.jpg';
 import propStorePreview from '@/assets/images/propStore_preview.jpg';
@@ -28,8 +29,8 @@ export const posts: PostData[] = [
   {
     description:
       '**I’ve been working on ProTrack**, a fitness app I originally started because I wanted something I could actually use during my own workouts. 🏋️‍♂️\n\n' +
-      'Logging a workout is easy, but understanding **what should happen next** is usually still a manual process. So I built ProTrack around that loop: **create a routine, train one set at a time, log the results, and use the data to guide progressive overload** — or reduce the load when needed.\n\n' +
-      'What started as a small personal project grew into a much bigger full-stack exercise. I’m mainly a **frontend developer**, and UX is still the part I enjoy most, but with ProTrack I worked across the whole system: **Vue + TypeScript**, **Node/Express**, **PostgreSQL + Prisma**, authentication, persistent workout sessions, progression logic, statistics, achievements, and more.\n\n' +
+      'Logging a workout is easy, but understanding **what should happen next** is usually still a manual process. So I built ProTrack around that loop: **create a routine, train one set at a time, log the results, and use the data to guide progressive overload** (or reduce the load when needed.)\n\n' +
+      'What started as a small personal project grew into a much bigger full-stack exercise. Even tough UX is still the part I enjoy most, but with ProTrack I worked across the whole system: **Vue + TypeScript**, **Node/Express**, **PostgreSQL + Prisma**, authentication, persistent workout sessions, progression logic, statistics, achievements, and more.\n\n' +
       'Probably the most valuable part was seeing how much **frontend, backend, UX, and data modelling influence each other** once you stop treating them as separate pieces. I put together a short **case study** explaining the product, the decisions behind it, and what I learned while building it.',
     imageUrl: proTrackPreview,
     imageAlt: 'ProTrack fitness app case study preview',
@@ -68,6 +69,36 @@ export const posts: PostData[] = [
   },
   {
     description:
+      '**A small milestone, but one that means a lot to me:** I just completed the **Laravel From Scratch** course from **Laracasts**! 🎉\n\n' +
+      'I already use **Laravel** in my current role, and working with it every day is what made me more curious about the framework and its capabilities.\n\n' +
+      'The course gave me a deeper understanding of how **backend logic, APIs, and data** come together and how they can complement my frontend experience to create complete products.\n\n' +
+      'It also made the path toward becoming a **full-stack developer** feel even more exciting and a little more real. One step at a time! 🚀',
+    imageUrl: laravelLogo,
+    imageAlt: 'Laracasts Laravel From Scratch course logo',
+    likes: getRandomNumber(80, 300),
+    comments: getRandomNumber(10, 95),
+    shares: getRandomNumber(1, 20),
+    createdAt: '2026-07-16T00:00:00Z',
+    author: {
+      name: userInfo.name,
+      avatarUrl: userInfo.avatarImg,
+      title: userInfo.title,
+    },
+    type: ['certifications'],
+    tags: [
+      'Laravel',
+      'Laracasts',
+      'PHP',
+      'BackendDevelopment',
+      'APIs',
+      'FullStackDevelopment',
+      'WebDevelopment',
+      'LearningJourney',
+      'ProfessionalGrowth',
+    ],
+  },
+  {
+    description:
        "**Excited to share that I’ve joined Hococo as a Frontend Developer!** 🙌\n\n" +
     "This also marks my **first work experience in Copenhagen** — and I couldn’t have landed in a better place. A small, ambitious team, clear product vision, and the kind of culture where thoughtful design and code actually matter.\n\n" +
     "At Hococo, we’re trying to make renting easier and more human — for both tenants and landlords. I’ll be focusing on the frontend (Vue, UI work, responsive design), but more than anything, I’m learning how to build things that make sense for real people.\n\n" +
@@ -83,7 +114,6 @@ export const posts: PostData[] = [
       avatarUrl: userInfo.avatarImg,
       title: userInfo.title,
     },
-    ctaUrl: '/', // Optional: link to Hococo or personal site
     type: ['experience'],
     tags: [
       'NewJob',

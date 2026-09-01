@@ -26,6 +26,7 @@ export interface ChatData {
   userClaim: string;
   date: string;
   userAvatar: string;
+  isOnline: boolean;
   preview: string;
   messages: ChatMessagesStream[];
 }

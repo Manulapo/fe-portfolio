@@ -33,10 +33,10 @@ const ChatLayer = ({ className }: { className: string }) => {
   };
 
   return (
-    <div className={className} style={{ bottom: '-5px', right: '3em' }}>
+    <div className={className} style={{ bottom: '0px', right: '3em' }}>
       {activeChats.map((chat) => (
         <ChatFull
-          className="w-95 flex flex-col gap-4 p-3 rounded-sm shadow-md transition-all duration-200"
+          className="flex w-[380px] flex-col transition-all duration-200"
           isOpen={!openChatMap[chat.user]}
           onToggle={() => toggleChat(chat.user)}
           chatData={chat}
@@ -47,7 +47,7 @@ const ChatLayer = ({ className }: { className: string }) => {
         />
       ))}
       <ChatBar
-        className="w-75 flex flex-col gap-4 p-4 rounded-sm shadow-md transition-all duration-200"
+        className="w-[380px] flex flex-col transition-all duration-200"
         onChatRowSelect={(chat: ChatData) => handleChatRowSelected(chat)}
       />
     </div>

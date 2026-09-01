@@ -1,28 +1,45 @@
-import { reduceText } from '@/lib/utils';
+import { cn, formatDate, reduceText } from '@/lib/utils';
 import { ChatData } from '@/types';
 import AvatarIcon from './shared/Avatar-icon';
 import { Button } from './ui/button';
 
 const ChatRow = ({ chatData }: { chatData: ChatData }) => {
-  const { userAvatar, preview, user } = chatData;
+  const { userAvatar, preview, user, userClaim, date, isOnline } = chatData;
 
   return (
-    <>
-      <Button
-        variant={'ghost'}
-        className=" block w-full h-max px-1 m-0 rounded-sm hover:bg-gray-100 cursor-pointer"
-      >
-        <div className="flex gap-4 justify-start items-center w-full pl-2">
-          <AvatarIcon name={user} image={userAvatar} size={37} />
-          <div className="flex flex-col items-start justify-start">
-            <h3 className="text-sm font-semibold">{user}</h3>
-            <p className="text-xs font-normal text-gray-500">
-              {reduceText(preview)}
-            </p>
-          </div>
+    <Button
+      variant="ghost"
+      className="group block h-auto w-full cursor-pointer rounded-none px-5 py-3.5 text-left hover:bg-muted/60"
+    >
+      <div className="flex w-full items-center gap-3">
+        <div className="relative shrink-0">
+          <AvatarIcon name={user} image={userAvatar} size={48} />
+          <span
+            aria-hidden="true"
+            className={cn(
+              'absolute bottom-0 right-0 h-3 w-3 rounded-full border-2 border-card',
+              isOnline ? 'bg-green-700' : 'bg-red-500',
+            )}
+          />
         </div>
-      </Button>
-    </>
+        <div className="min-w-0 flex-1">
+          <div className="flex items-center justify-between gap-3">
+            <h3 className="truncate text-sm font-semibold text-foreground">
+              {user}
+            </h3>
+            <span className="shrink-0 text-[11px] font-normal text-muted-foreground">
+              {formatDate(date).onlyDayMonth}
+            </span>
+          </div>
+          <p className="truncate text-xs font-medium text-muted-foreground">
+            {userClaim}
+          </p>
+          <p className="mt-1 truncate text-xs font-normal text-muted-foreground group-hover:text-foreground">
+            {reduceText(preview, 12)}
+          </p>
+        </div>
+      </div>
+    </Button>
   );
 };
 
