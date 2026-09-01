@@ -111,11 +111,26 @@
 }
 
 @layer base {
+  html {
+    /* Keep the page width stable while search results and routes are loading. */
+    scrollbar-gutter: stable;
+    scrollbar-color: rgb(156 163 175 / 65%) transparent;
+  }
+
+  html::-webkit-scrollbar {
+    background: transparent;
+  }
+
+  html::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
   * {
     @apply border-border outline-ring/50;
   }
 
   body {
     @apply bg-background md:text-sm text-xs font-sans leading-relaxed;
+    scrollbar-color: auto;
   }
 }
