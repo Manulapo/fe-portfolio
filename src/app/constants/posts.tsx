@@ -24,7 +24,6 @@ const gsDealsPdf = window.location.origin + '/assets/PDF/Gamestop_gsDeals.pdf';
 const jobDeskPdf = window.location.origin + '/assets/PDF/jobDesk.pdf';
 const proTrackPdf = window.location.origin + '/assets/PDF/Pro-Track.pdf';
 
-
 export const posts: PostData[] = [
   {
     description:
