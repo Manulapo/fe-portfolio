@@ -22,7 +22,7 @@ import proTrackPreview from '@/assets/images/proTrack_preview.jpg';
 const armoganPdf = window.location.origin + '/assets/PDF/Gamestop_armogan.pdf';
 const gsDealsPdf = window.location.origin + '/assets/PDF/Gamestop_gsDeals.pdf';
 const jobDeskPdf = window.location.origin + '/assets/PDF/jobDesk.pdf';
-const proTrackPdf = window.location.origin + '/assets/PDF/pro-track.pdf';
+const proTrackPdf = window.location.origin + '/assets/PDF/Pro-Track.pdf';
 
 
 export const posts: PostData[] = [
