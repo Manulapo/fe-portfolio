@@ -18,7 +18,7 @@ const AboutCard = ({
         <Separator className="mt-0" />
       </CardHeader>
       <CardContent className="m-0">
-        <p className="text-sm text-muted-foreground">
+        <div className="text-sm text-muted-foreground">
           {isTruncated ? (
             <>
               {userInfo.aboutPreview.split(' ').slice(0, maxWord).join(' ')}
@@ -41,7 +41,7 @@ const AboutCard = ({
 <p className="my-4"> Outside of work, I’m predictably a bit of a nerd: videogames, Dungeons & Dragons, board games, films, DJing, and occasionally opening Figma for fun, which I’m aware is not a particularly convincing definition of “switching off.” I like curious people, honest feedback, good ideas, and building things that feel useful rather than simply impressive. </p>
             </>
           )}
-        </p>
+        </div>
       </CardContent>
     </Card>
   );
