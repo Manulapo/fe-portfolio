@@ -77,7 +77,7 @@ const Post = memo(
                 {postData?.author?.title}
               </p>
               <p className="text-xs text-gray-600 pt-1 font-semibold flex items-center gap-1">
-                <p>{formatDate(postData!.createdAt.toString()).fullDate}</p>
+                <span>{formatDate(postData!.createdAt.toString()).fullDate}</span>
                 <Globe2 size={13} />
               </p>
             </div>

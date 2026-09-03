@@ -4,7 +4,7 @@ import job from '@/assets/icons/job.svg';
 import notification from '@/assets/icons/notification.svg';
 import people from '@/assets/icons/people.svg';
 import publish from '@/assets/icons/publish.svg';
-import coverImg from '@/assets/images/coverImage.jpg';
+import coverImg from '@/assets/images/coverImage2.jpeg';
 import avatarImg from '@/assets/images/profileImage.jpg';
 import {
   AwardIcon,
