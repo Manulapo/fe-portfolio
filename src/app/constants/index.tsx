@@ -171,7 +171,7 @@ export const navbarIcons = [
   {
     icon: notification,
     path: '/notification',
-    name: 'Notification',
+    name: 'Notifications',
     hasDot: true,
   },
   { icon: people, path: '/network', name: 'Network' },

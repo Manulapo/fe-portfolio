@@ -22,7 +22,7 @@ const ProfilePage = () => {
         </div>
       </div>
 
-      <div className="col-span-4 space-y-4 h-max m-0 hidden md:block sticky top-20">
+      <div className="col-span-4 space-y-4 h-max m-0 hidden md:block sticky">
         <SkillsCard />
       </div>
     </div>

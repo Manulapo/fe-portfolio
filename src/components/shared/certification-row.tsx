@@ -57,7 +57,7 @@ const CertificationRow = ({ data }: { data: CertificationData }) => {
             asChild
           >
             <Link to={credentialUrl} target="_blank" rel="noopener noreferrer">
-              View Credential
+              View Credentials
             </Link>
           </Button>
         )}
