@@ -1,7 +1,7 @@
 import { ChatData } from '@/types';
 import { useState } from 'react';
-import ChatBar from './chat-main';
 import ChatFull from './chat-full';
+import ChatBar from './chat-main';
 
 const ChatLayer = ({ className }: { className: string }) => {
   const [activeChats, setActiveChats] = useState<ChatData[]>([]);
@@ -34,22 +34,24 @@ const ChatLayer = ({ className }: { className: string }) => {
 
   return (
     <div className={className} style={{ bottom: '0px', right: '3em' }}>
+      <div className="relative">
       {activeChats.map((chat) => (
         <ChatFull
-          className="flex w-[380px] flex-col transition-all duration-200"
-          isOpen={!openChatMap[chat.user]}
-          onToggle={() => toggleChat(chat.user)}
-          chatData={chat}
-          key={chat.user}
-          chatClosedTrigger={(chatClosed: ChatData) =>
-            handleClosingClick(chatClosed)
-          }
+        className="flex w-[380px] flex-col transition-all duration-200"
+        isOpen={!openChatMap[chat.user]}
+        onToggle={() => toggleChat(chat.user)}
+        chatData={chat}
+        key={chat.user}
+        chatClosedTrigger={(chatClosed: ChatData) =>
+          handleClosingClick(chatClosed)
+        }
         />
       ))}
       <ChatBar
         className="w-[380px] flex flex-col transition-all duration-200"
         onChatRowSelect={(chat: ChatData) => handleChatRowSelected(chat)}
-      />
+        />
+        </div>
     </div>
   );
 };

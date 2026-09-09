@@ -1,15 +1,15 @@
 import { experiences } from '@/app/constants/cert-skills';
+import { Loader } from 'lucide-react';
+import { Suspense } from 'react';
 import { Card, CardContent, CardHeader } from '../ui/card';
 import { Separator } from '../ui/separator';
 import Heading from './heading';
-import { Suspense } from 'react';
-import { Loader } from 'lucide-react';
 
 const ExperienceCard = () => {
   return (
     <Card className="p-0 h-auto">
       <CardHeader>
-        <Heading title="Experience" />
+        <Heading title="Experience"  />
       </CardHeader>
       <CardContent className="h-auto pb-5">
         {experiences.map((item, index) => (

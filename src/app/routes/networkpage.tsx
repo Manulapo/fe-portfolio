@@ -4,13 +4,17 @@ import { inspirations, testimonials } from '../constants/network';
 import TestimonialRow from '@/components/testimonial-row';
 import { Separator } from '@/components/ui/separator';
 import InspirationsRow from '@/components/shared/inspirations-row';
+import Minifig3 from '@/components/minifig3';
 
 const NetworkPage = () => {
   return (
     <>
       <Card className="w-full h-full flex flex-col px-6">
-        <Heading title="Talking about me" className='pt-2'/>
-        <Separator />
+        <Heading title="Talking about me" className='pt-2 '/>
+        <div className="relative">
+                <Separator />
+                <Minifig3 className="absolute right-10 -top-20 z-0 hidden w-28 md:block" />
+        </div>
         {testimonials.map((testimonial, index) => (
           <>
             <TestimonialRow data={testimonial} key={index} />
