@@ -5,7 +5,7 @@ import notification from '@/assets/icons/notification.svg';
 import people from '@/assets/icons/people.svg';
 import publish from '@/assets/icons/publish.svg';
 import coverImg from '@/assets/images/coverImage2.jpeg';
-import avatarImg from '@/assets/images/profileImage.jpg';
+import avatarImg from '@/assets/images/profileImage2.jpg';
 import {
   AwardIcon,
   Briefcase,
