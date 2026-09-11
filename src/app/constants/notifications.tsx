@@ -88,18 +88,7 @@ export const notifications: NotificationData[] = [
     toRead: false,
     type: "mention"
   },
-
-  {
-    title: "New endorsement: 'Knowing when the bug is actually state management'",
-    icon: "🧠",
-    description: "Pinia, Vuex and RxJS have all submitted character references.",
-    date: "2026-05-24T12:45:00",
-    hasCTA: false,
-    cta: "",
-    toRead: false,
-    type: "mention"
-  },
-
+  
   {
     title: "You reviewed a senior developer's PR and survived",
     icon: "👀",
@@ -120,28 +109,6 @@ export const notifications: NotificationData[] = [
     cta: "Archive build",
     toRead: false,
     type: "myPost"
-  },
-
-  {
-    title: "Door-unlocking feature is working",
-    icon: "🚪",
-    description: "You started in frontend. You can now physically open buildings. Career progression is getting weird.",
-    date: "2026-05-21T09:22:00",
-    hasCTA: true,
-    cta: "Unlock career",
-    toRead: false,
-    type: "myPost"
-  },
-
-  {
-    title: "Your Laravel controller contains business logic",
-    icon: "🐘",
-    description: "Clean Architecture has requested a private meeting.",
-    date: "2026-05-20T08:40:00",
-    hasCTA: true,
-    cta: "Extract service",
-    toRead: false,
-    type: "mention"
   },
 
   {
