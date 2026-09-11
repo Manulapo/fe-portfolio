@@ -22,17 +22,19 @@ const ExperienceCard = () => {
               >
                 <img src={item.icon} alt={item.title} className="w-15 h-15 " />
               </Suspense>
-              <h2 className="text-lg font-semibold">{item.title}</h2>
+              <div className="flex justify-between items-start w-full">
+              <div className="flex flex-col">
+                <h2 className="text-lg font-semibold">{item.title}</h2>
+                <p className="text-sm text-muted-foreground font-semibold">
+                  {item.company}
+                </p>
+              </div>
+                <p className="text-sm text-muted-foreground font-semibold">
+                  {item.duration}
+                </p>
+              </div>
             </div>
-            <div className="flex justify-between items-center">
-              <p className="text-sm text-muted-foreground font-semibold">
-                {item.company}
-              </p>
-              <p className="text-sm text-muted-foreground font-semibold">
-                {item.duration}
-              </p>
-            </div>
-            <p className="text-sm text-muted-foreground">{item.description}</p>
+            <p className="text-sm text-muted-foreground break-words whitespace-pre-line">{item.description}</p>
             <div className="flex flex-wrap gap-2 mt-2">
               {item.skills.map((skill, index) => (
                 <span

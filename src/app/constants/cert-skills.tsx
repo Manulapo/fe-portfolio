@@ -14,22 +14,29 @@ import NextJSEcommerceLogo from '@/assets/images/NextJSEcommerce_logo.png';
 export const experiences = [
   {
     icon: hococoLogo,
-    title: 'Frontend Developer',
+    title: 'Frontend Developer (Full-Stack & AI)',
     company: 'Hococo',
     duration: 'Jul 2025 - Present',
     skills: [
-      'Vue',
-      'Laravel',
-      'AI Integration',
+      'Vue 3',
       'TypeScript',
+      'Laravel',
+      'PostgreSQL',
+      'Pinia',
+      'AI Integration',
+      'Playwright',
+      'Capacitor',
       'Tailwind CSS',
-      'Figma',
-      'Responsive Design',
+      'REST APIs',
       'UI/UX',
     ],
     description:
-      "Building intuitive, high-performance frontend features and AI-enabled capabilities for Hococo’s tenant relationship platform. Working with Vue.js and Laravel alongside designers and developers to deliver pixel-perfect, responsive web and mobile experiences. Built the frontend interface and backend logic for a conversational assistant, tuned AI behavior to match product goals, and independently led initiatives from discovery to design, implementation, and final delivery in a fast-paced SaaS environment.",
+      `Building web and mobile features for Hococo’s tenant relationship platform across both frontend and backend layers.
+      Working with Vue 3, TypeScript, Laravel, PostgreSQL, and Capacitor while contributing to the migration from Vue Options API to the Composition API.
+      Developed AI-powered product features integrating OpenAI, Claude, and Gemini with retrieval, conversation history, streaming responses, citations, guardrails, tool calling, and internal APIs.
+      Also work with Laravel controllers, services, Eloquent models, migrations, validation, authentication and permissions, REST endpoints, Playwright testing, and end-to-end feature delivery from UX and logic definition through implementation and stakeholder demos.`,
   },
+
   {
     icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg',
     title: 'Frontend Developer & UX Designer',
@@ -41,73 +48,92 @@ export const experiences = [
       'TypeScript',
       'Tailwind CSS',
       'Node.js',
-      'MongoDB',
+      'PostgreSQL',
       'Prisma',
       'Figma',
     ],
     description:
-      'Developing a web application for a client in the e-commerce sector, focusing on creating a responsive and user-friendly interface. Collaborating with backend developers to integrate APIs and ensure seamless data flow. Implementing best practices in code quality and performance optimization.',
+      `Developing client-facing web products with a focus on responsive interfaces, UX, and full-stack implementation.
+      Working across React, Next.js, TypeScript, backend integrations, data modelling, and API consumption while translating product requirements into usable and maintainable features.`,
   },
+
   {
     icon: accentureLogo,
     title: 'Frontend Engineer',
-    company: 'Accenture Italia',
+    company: 'Accenture Technology',
     duration: 'Nov 2023 - Feb 2025',
     skills: [
       'Angular',
       'TypeScript',
-      'JavaScript',
-      'SCSS',
-      'Rxjs',
-      'StoryBook',
-      'Node.js',
+      'RxJS',
+      'React',
+      'Storybook',
+      'REST APIs',
+      'Figma',
+      'CI/CD',
     ],
     description:
-      'Designed, developed, and tested custom software solutions across multiple system components and applications, focusing on public administration projects. Collaborated with cross-functional teams to translate system requirements into effective design specifications and implement scalable solutions. Developed and integrated frontend components with backend services, ensuring smooth data flow and system stability. Led the implementation and integration of applications, providing primary support for production releases and ensuring compliance with programming standards and interface specifications.',
+      `Developed national public-sector healthcare applications primarily with Angular, TypeScript, and RxJS, with additional experience on a React-based project.
+      Integrated REST APIs from Swagger/OpenAPI specifications, collaborated closely with backend teams on data structures and API behaviour, and translated Figma designs into responsive and accessible interfaces.
+      Contributed to reusable UI libraries documented in Storybook and worked with product managers, designers, backend engineers, and frontend developers throughout testing, code review, Git workflows, and CI/CD delivery.`,
   },
+
   {
     icon: gamestopLogo,
     title: 'Frontend Developer & UX Designer',
     company: 'GameStop',
     duration: 'Dec 2021 - Nov 2023',
     skills: [
-      'Bootstrap',
-      'Javascript',
+      'JavaScript',
+      'TypeScript',
+      '.NET / ASP.NET',
+      'PHP',
+      'REST APIs',
       'Figma',
-      '.NET',
-      'HTML',
-      'CSS',
+      'Google Analytics 4',
       'Google Tag Manager',
-      'Google Analytics',
+      'Microsoft Clarity',
       'SEO',
     ],
     description:
-      'Worked on the European Ecommerce renovation project, covering markets like Italy, Switzerland, Germany, Ireland, Austria, and Canada. Focused on frontend development, UX optimization, and SEO improvements within a .NET architecture environment. Collaborated with cross-functional teams to enhance website performance, ensure consistent UX across regions, and implement global site functionalities beyond the Italian business.',
+      `Contributed to the international redesign of GameStop’s e-commerce platform across six European markets.
+      Designed and implemented UX/UI and frontend logic for the Italian market within a shared modular codebase supporting country-specific features and marketing needs.
+      Built new customer-facing functionality including account features, promotional experiences, and the GS Deals digital flyer, while integrating APIs and supporting selected backend functionality through .NET and PHP.
+      The redesign was followed by a 22% increase in SEO score, a 7% reduction in bounce rate, and a 30% increase in conversions.`,
   },
+
   {
     icon: startingFinanceLogo,
-    title: 'Graphic Content Creator',
+    title: 'Web Content Creator',
     company: 'Starting Finance',
-    duration: 'Feb 2021 - Nov 2023',
+    duration: 'Feb 2021 - Mar 2023',
     skills: [
       'Adobe Photoshop',
-      'Canva',
-      'HTML',
-      'CSS',
-      'Advertising',
       'Adobe Illustrator',
+      'Canva',
+      'Financial Content',
+      'Data Visualisation',
+      'Social Media',
     ],
     description:
-      'Managed the LinkedIn profile for Starting Finance, creating and revising financial news tailored to the platform’s audience. Developed visual content using Canva and designed website components with HTML & CSS to maintain brand consistency across digital platforms. Collaborated with the marketing team to enhance content engagement and deliver clear, audience-focused financial information.',
+      `Created financial-news content, reports, infographics, and social-media assets for Starting Finance’s educational channels.
+      Worked with financial topics and current market news to turn complex information into clear, visually engaging content for a broader audience.`,
   },
+
   {
     icon: talentikaLogo,
     title: 'Short-Term Educator',
     company: 'Talentika',
     duration: 'Mar 2021 - May 2021',
-    skills: ['Advertising', 'E-commerce', 'Financial Education', 'Teaching'],
+    skills: [
+      'Financial Education',
+      'Teaching',
+      'Banking',
+      'Financial Markets',
+      'Communication',
+    ],
     description:
-      'Delivered courses on financial and economic topics, focusing on fundamental concepts in banking, financial markets, and personal finance. Developed and presented practical lessons to help students understand key financial principles and their real-world applications. Fostered an interactive learning environment to enhance student engagement and comprehension.',
+      `Delivered short-form educational sessions on finance and economics, covering banking, financial markets, and personal finance through practical, accessible explanations.`,
   },
 ];
 
@@ -122,60 +148,71 @@ export const skills: Record<skillsType, Record<string, string>[]> = {
       icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg',
     },
     {
-      name: 'Php',
+      name: 'PHP',
       icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg',
-    },
-    {
-      name: 'CSS',
-      icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg',
     },
     {
       name: 'HTML',
       icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg',
     },
+    {
+      name: 'CSS',
+      icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg',
+    },
   ],
+
   frontend: [
     {
-      name: 'Vue',
+      name: 'Vue 3',
       icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vuejs/vuejs-original.svg',
-    },
-    {
-      name: 'React',
-      icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg',
     },
     {
       name: 'Angular',
       icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/angularjs/angularjs-original.svg',
     },
     {
-      name: 'Next.js',
-      icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg',
+      name: 'React',
+      icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg',
+    },
+    {
+      name: 'Tailwind CSS',
+      icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg',
     },
   ],
+
   backend: [
-    {
-      name: 'Node.js',
-      icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg',
-    },
     {
       name: 'Laravel',
       icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/laravel/laravel-original.svg',
     },
-  ],
-  database: [
     {
-      name: 'MongoDB',
-      icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg',
+      name: 'Node.js',
+      icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg',
     },
+  ],
+
+  database: [
     {
       name: 'PostgreSQL',
       icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg',
     },
     {
-      name: 'Prisma',
-      icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/prisma/prisma-original.svg',
+      name: 'MongoDB',
+      icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg',
     },
   ],
+
+  tooling: [
+    {
+      name: 'Git',
+      icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg',
+    },
+    {
+      name: 'Docker',
+      icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg',
+    },
+  ],
+
   design: [
     {
       name: 'Figma',

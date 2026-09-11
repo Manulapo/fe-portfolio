@@ -2,182 +2,265 @@ import { NotificationData } from '@/types';
 
 export const notifications: NotificationData[] = [
   {
-    title: "Endorsed for 'Pretending the Wi-Fi is bad during mandatory video calls'",
-    icon: "📶",
-    description: "The most universally respected soft skill of 2026.",
+    title: "Achievement unlocked: Explained that Full-Stack does not mean 'knows literally everything'",
+    icon: "🧙‍♂️",
+    description: "Frontend, backend, UX, AI... DNS remains between you and your chosen deity.",
     date: "2026-06-01T09:12:00",
     hasCTA: false,
     cta: "",
     toRead: false,
     type: "mention"
   },
+
   {
-    title: "Unlocked: Deciphered a vague Jira ticket without asking questions",
-    icon: "🔮",
-    description: "Achievement: Mind Reader. The Product Manager owes you a coffee.",
+    title: "Vue Options API has left the building",
+    icon: "🟢",
+    description: "Composition API is now in charge. Several this.$ references are requesting witness protection.",
     date: "2026-05-31T16:47:00",
-    hasCTA: false,
-    cta: "",
+    hasCTA: true,
+    cta: "Refactor one more",
     toRead: false,
     type: "myPost"
   },
+
   {
-    title: "Endorsed for 'AI Synergy' by someone who thinks ChatGPT is a physical robot",
+    title: "Your AI assistant successfully called the correct tool",
     icon: "🤖",
-    description: "They also endorsed you for 'The Cyber' in 2023. Let it go.",
+    description: "It only took prompts, guardrails, permissions, retrieval logic and several existential conversations.",
     date: "2026-05-30T10:00:00",
     hasCTA: false,
     cta: "",
     toRead: false,
-    type: "mention"
-  },
-  {
-    title: "Post engagement: ‘Unlimited PTO is just a trap’",
-    icon: "🪤",
-    description: "1 connection gained. HR wants to schedule a quick chat.",
-    date: "2026-05-29T18:22:00",
-    hasCTA: true,
-    cta: "Ignore meeting invite",
-    toRead: false,
     type: "myPost"
   },
+
   {
-    title: "New recruiter message: Looking for an Entry-Level Wizard",
+    title: "OpenAI, Claude and Gemini have entered the same codebase",
+    icon: "🥊",
+    description: "You have been promoted to couples therapist.",
+    date: "2026-05-29T18:22:00",
+    hasCTA: true,
+    cta: "Mediate dispute",
+    toRead: false,
+    type: "mention"
+  },
+
+  {
+    title: "New recruiter message: Senior Full-Stack AI UX DevOps Blockchain Ninja",
     icon: "💼",
-    description: "Must have 10 years of experience with an AI tool released last week. Salary: Pizza Fridays.",
+    description: "Required: 3 years of experience with a framework released next Tuesday.",
     date: "2026-05-28T11:11:00",
     hasCTA: true,
-    cta: "Counter offer",
+    cta: "Ask salary first",
     toRead: false,
     type: "job"
   },
+
   {
-    title: "New connection: The coworker who microwaves fish in the open office",
-    icon: "🐟",
-    description: "Brace yourself for collateral damage to your network.",
+    title: "A backend endpoint returned exactly what the Swagger documentation promised",
+    icon: "🦄",
+    description: "Scientists are calling it a once-in-a-generation event.",
     date: "2026-05-27T14:40:00",
     hasCTA: false,
     cta: "",
     toRead: false,
     type: "mention"
   },
+
   {
-    title: "You’re trending: ‘Replied \"per my last email\" and CC’d the manager’",
-    icon: "🔥",
-    description: "Corporate violence at its finest. We see you.",
+    title: "You moved one pixel in Figma and then rewrote the component architecture",
+    icon: "🎨",
+    description: "What began as 'small visual polish' is now sprint planning.",
     date: "2026-05-26T09:09:00",
-    hasCTA: false,
-    cta: "",
+    hasCTA: true,
+    cta: "Open devtools",
     toRead: false,
     type: "myPost"
   },
+
   {
-    title: "Skill suggestion: Survived a 3-hour agile planning session that resulted in zero plans",
-    icon: "🧘",
-    description: "We recommend adding 'Extreme Patience' to your profile.",
+    title: "Playwright test passed locally",
+    icon: "🎭",
+    description: "CI has been informed and has chosen not to recognize your authority.",
     date: "2026-05-25T08:20:00",
     hasCTA: true,
-    cta: "Add to skills",
+    cta: "Run it again",
     toRead: false,
     type: "mention"
   },
+
   {
-    title: "Recruiter confused Java with JavaScript again",
-    icon: "☕",
-    description: "They said: 'We love your work with CoffeeScript!'",
+    title: "New endorsement: 'Knowing when the bug is actually state management'",
+    icon: "🧠",
+    description: "Pinia, Vuex and RxJS have all submitted character references.",
     date: "2026-05-24T12:45:00",
     hasCTA: false,
     cta: "",
     toRead: false,
-    type: "job"
+    type: "mention"
   },
+
   {
-    title: "You’ve been endorsed for ‘Staring at a screen sighing heavily’",
-    icon: "😮‍💨",
-    description: "It’s not just debugging, it’s a form of meditation.",
+    title: "You reviewed a senior developer's PR and survived",
+    icon: "👀",
+    description: "Comment left: 'Tiny suggestion.' Emotional impact: catastrophic.",
     date: "2026-05-23T18:00:00",
     hasCTA: false,
     cta: "",
     toRead: false,
     type: "mention"
   },
+
   {
-    title: "New follower: The person you accidentally shared your screen to while Slack-venting",
-    icon: "😱",
-    description: "They saw everything. You are now bonded for life.",
+    title: "Capacitor build succeeded on both iOS and Android",
+    icon: "📱",
+    description: "Do not touch anything. Do not update anything. Slowly back away from the laptop.",
     date: "2026-05-22T20:10:00",
-    hasCTA: false,
-    cta: "",
-    toRead: false,
-    type: "mention"
-  },
-  {
-    title: "Your comment ‘Can we just use a spreadsheet?’ caused a pivot",
-    icon: "📉",
-    description: "A 6-month software project was just canceled. You're a hero.",
-    date: "2026-05-21T09:22:00",
     hasCTA: true,
-    cta: "Take the credit",
+    cta: "Archive build",
     toRead: false,
     type: "myPost"
   },
+
   {
-    title: "Job alert: 'Translator – Must explain to the CEO why the button took 3 weeks'",
-    icon: "🗣️",
-    description: "Requires advanced diplomacy and a bulletproof vest.",
+    title: "Door-unlocking feature is working",
+    icon: "🚪",
+    description: "You started in frontend. You can now physically open buildings. Career progression is getting weird.",
+    date: "2026-05-21T09:22:00",
+    hasCTA: true,
+    cta: "Unlock career",
+    toRead: false,
+    type: "myPost"
+  },
+
+  {
+    title: "Your Laravel controller contains business logic",
+    icon: "🐘",
+    description: "Clean Architecture has requested a private meeting.",
     date: "2026-05-20T08:40:00",
     hasCTA: true,
-    cta: "Apply carefully",
+    cta: "Extract service",
     toRead: false,
-    type: "job"
+    type: "mention"
   },
+
   {
-    title: "Someone liked your Out of Office status: 'Will delete all emails unread upon return'",
-    icon: "❤️",
-    description: "Setting boundaries is the new hustle culture.",
+    title: "Someone asked whether the interface really needs to be intuitive",
+    icon: "🫠",
+    description: "Your UX designer half has taken control. The developer half is making coffee.",
     date: "2026-05-19T14:33:00",
     hasCTA: false,
     cta: "",
     toRead: false,
-    type: "myPost"
-  },
-  {
-    title: "You've been mentioned in: ‘Why Return to Office is just expensive team building’",
-    icon: "🏢",
-    description: "They said: 'We commute an hour to sit on Zoom.'",
-    date: "2026-05-18T10:10:00",
-    hasCTA: true,
-    cta: "Like and subscribe",
-    toRead: false,
     type: "mention"
   },
+
   {
-    title: "New notification from the Internal Company Wiki",
-    icon: "📌",
-    description: "Someone updated the onboarding doc 4 years too late. It's still wrong.",
+    title: "Your finance degree has finally become relevant",
+    icon: "📈",
+    description: "You estimated story points with a confidence interval.",
+    date: "2026-05-18T10:10:00",
+    hasCTA: true,
+    cta: "Update forecast",
+    toRead: false,
+    type: "myPost"
+  },
+
+  {
+    title: "A six-country e-commerce codebase wants to know your location",
+    icon: "🌍",
+    description: "Italy changed one button. Germany changed the flow. Marketing changed reality.",
     date: "2026-05-17T17:55:00",
     hasCTA: false,
     cta: "",
     toRead: false,
     type: "mention"
   },
+
   {
-    title: "Colleague updated title: ‘VP of Synergistic AI Strategy’",
-    icon: "✨",
-    description: "They still just forward emails. Now with a fancier signature.",
+    title: "Public-sector requirement updated",
+    icon: "🏛️",
+    description: "The previous final specification has been replaced by the newer final specification.",
     date: "2026-05-16T13:13:00",
+    hasCTA: true,
+    cta: "Reopen ticket",
+    toRead: false,
+    type: "mention"
+  },
+
+  {
+    title: "RAG retrieved the correct document",
+    icon: "📚",
+    description: "The model read the PDF. Nobody else on the project has.",
+    date: "2026-05-15T09:00:00",
+    hasCTA: false,
+    cta: "",
+    toRead: false,
+    type: "myPost"
+  },
+
+  {
+    title: "Security review: AI cannot access another tenant's data",
+    icon: "🔐",
+    description: "Congratulations. 'Please don't leak customer data' is now enforced by code instead of optimism.",
+    date: "2026-05-14T15:31:00",
+    hasCTA: true,
+    cta: "Sleep slightly better",
+    toRead: false,
+    type: "myPost"
+  },
+
+  {
+    title: "Stakeholder feedback: 'Can we make it pop?'",
+    icon: "✨",
+    description: "No acceptance criteria were harmed because none existed.",
+    date: "2026-05-13T11:48:00",
+    hasCTA: true,
+    cta: "Increase border radius",
+    toRead: false,
+    type: "mention"
+  },
+
+  {
+    title: "You opened Figma after work 'just for five minutes'",
+    icon: "🖌️",
+    description: "It is now 01:14 and you have accidentally designed an entire product.",
+    date: "2026-05-12T01:14:00",
+    hasCTA: true,
+    cta: "Go to bed",
+    toRead: false,
+    type: "myPost"
+  },
+
+  {
+    title: "Dungeon Master skill endorsed by Product Management",
+    icon: "🐉",
+    description: "Apparently guiding five people through chaos with incomplete information is transferable experience.",
+    date: "2026-05-11T19:30:00",
     hasCTA: false,
     cta: "",
     toRead: false,
     type: "mention"
   },
+
   {
-    title: "You’re invited to join: ‘Quick 15-minute sync’",
-    icon: "📅",
-    description: "Block off the next 45 minutes. Bring snacks.",
-    date: "2026-05-15T09:00:00",
+    title: "Production bug successfully reproduced",
+    icon: "🐛",
+    description: "Fixing it is tomorrow's problem. Tonight, we celebrate evidence.",
+    date: "2026-05-10T17:02:00",
     hasCTA: true,
-    cta: "Decline with prejudice",
+    cta: "Open debugger",
+    toRead: false,
+    type: "myPost"
+  },
+
+  {
+    title: "New skill unlocked: Translating 'simple change' into engineering hours",
+    icon: "⏳",
+    description: "You may now attend stakeholder meetings without supervision.",
+    date: "2026-05-09T10:25:00",
+    hasCTA: false,
+    cta: "",
     toRead: false,
     type: "mention"
   }

@@ -23,7 +23,7 @@ const ChatBar = ({
   const cardStyle = useMemo(
     () => ({
       height: isOpen ? (isMobile ? 'calc(100vh - 50px)' : '500px') : '67px',
-      bottom: isOpen ? 0 : '-5px',
+      bottom: 0,
       boxShadow: isMobile ? 'none' : '0 12px 30px rgba(0, 0, 0, 0.12)',
     }),
     [isOpen, isMobile],
@@ -37,14 +37,14 @@ const ChatBar = ({
     <div className="relative">
       <Card
         className={cn(
-          'relative z-10 rounded-xl border-border bg-card p-0 shadow-none',
+          'relative z-10 rounded-xl border-border bg-card p-0 m-0 shadow-none',
           className,
         )}
         style={cardStyle}
       >
         {!isMobile && (
           <CardHeader className="gap-2 px-5 py-4 pb-0 ">
-            <CardTitle className="flex items-center justify-between gap-4">
+            <CardTitle className="flex items-center justify-between gap-4 ">
               <div className="flex min-w-0 items-center gap-3">
                 <div className="relative shrink-0">
                   <AvatarIcon name="Manuel La Porta" size={40} />
@@ -85,8 +85,8 @@ const ChatBar = ({
           </CardHeader>
         )}
         {isOpen && (
-          <>
-            {!isMobile && <Separator className="py-0" />}
+          <div className='overflow-y-auto'>
+            {!isMobile && <Separator className="py-0 my-0" />}
             <CardContent className="flex min-h-0 w-full flex-1 flex-col p-0">
               <div className="min-h-0 flex-1 overflow-y-auto pb-3">
                 {chatData.map((chat, i) => (
@@ -99,7 +99,7 @@ const ChatBar = ({
                 ))}
               </div>
             </CardContent>
-          </>
+          </div>
         )}
       </Card>
     </div>

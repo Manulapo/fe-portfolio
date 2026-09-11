@@ -5,11 +5,7 @@ import { ChatData } from '@/types';
 import {
   ChevronDown,
   ChevronUp,
-  Image,
-  ImagePlay,
-  Paperclip,
-  Smile,
-  X,
+  X
 } from 'lucide-react';
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import AvatarIcon from './shared/Avatar-icon';
@@ -130,18 +126,8 @@ const ChatFull = ({
         <>
           <Separator className="py-0" />
           <CardContent className="flex min-h-0 flex-1 flex-col p-0">
-            <div className="flex min-h-0 flex-1 flex-col overflow-y-auto px-5 py-4">
-              <div className="flex items-center gap-3 pb-2">
-                <AvatarIcon name={user} image={userAvatar} size={48} />
-                <div className="min-w-0">
-                  <p className="truncate text-sm font-semibold text-foreground">
-                    {user}
-                  </p>
-                  <p className="truncate text-xs text-muted-foreground">
-                    {userClaim}
-                  </p>
-                </div>
-              </div>
+            <div className="flex min-h-0 flex-1 flex-col overflow-y-auto px-5 pb-4">
+          
 
               <div className="my-3 flex items-center gap-3">
                 <Separator className="flex-1" />
@@ -169,6 +155,7 @@ const ChatFull = ({
               </div>
             </div>
 
+          </CardContent>
             <div className="border-t border-border bg-card px-4 py-3">
               <div className="flex items-center gap-2">
                 <Input
@@ -189,27 +176,7 @@ const ChatFull = ({
                   Send
                 </Button>
               </div>
-              <div className="mt-2 flex items-center gap-1">
-                {[
-                  { icon: Image, label: 'Add image' },
-                  { icon: Paperclip, label: 'Attach file' },
-                  { icon: ImagePlay, label: 'Add GIF' },
-                  { icon: Smile, label: 'Add emoji' },
-                ].map(({ icon: Icon, label }) => (
-                  <Button
-                    aria-label={label}
-                    className="rounded-full text-muted-foreground shadow-none hover:bg-muted hover:text-foreground"
-                    key={label}
-                    size="icon"
-                    type="button"
-                    variant="ghost"
-                  >
-                    <Icon size={18} />
-                  </Button>
-                ))}
-              </div>
             </div>
-          </CardContent>
         </>
       )}
     </Card>

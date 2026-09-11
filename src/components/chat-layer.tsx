@@ -34,7 +34,6 @@ const ChatLayer = ({ className }: { className: string }) => {
 
   return (
     <div className={className} style={{ bottom: '0px', right: '3em' }}>
-      <div className="relative">
       {activeChats.map((chat) => (
         <ChatFull
         className="flex w-[380px] flex-col transition-all duration-200"
@@ -52,7 +51,6 @@ const ChatLayer = ({ className }: { className: string }) => {
         onChatRowSelect={(chat: ChatData) => handleChatRowSelected(chat)}
         />
         </div>
-    </div>
   );
 };
 

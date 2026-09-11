@@ -60,7 +60,8 @@ export type skillsType =
   | 'language'
   | 'design'
   | 'database'
-  | 'backend';
+  | 'backend'
+  | 'tooling';
 
 export type CertificationData = {
   title: string;
