@@ -15,8 +15,8 @@ const CertificationRow = ({ data }: { data: CertificationData }) => {
     logoUrl,
   } = data;
   return (
-    <div className="flex flex-col gap-2 md:p-4 p-1 my-4">
-      <div className="flex items-center gap-4">
+    <div className="flex flex-col gap-2 md:p-4 p-1 my-4 justify-center">
+      <div className="flex items-start gap-4">
         {logoUrl && (
           <Suspense
             fallback={<Loader className="animate-spin text-gray-500" />}
@@ -28,11 +28,25 @@ const CertificationRow = ({ data }: { data: CertificationData }) => {
             />
           </Suspense>
         )}
-        <div className="flex flex-col">
-          <h3 className="text-lg font-semibold">{title}</h3>
-          <p className="text-sm text-gray-500">{organization}</p>
-          <p className="text-sm text-gray-500">{issueDate}</p>
-        </div>
+        <div className="flex items-start justify-between w-full">
+          <div className="flex flex-col mb-4 w-full">
+            <h3 className="text-lg font-semibold">{title}</h3>
+            <p className="text-sm text-gray-500">{organization} - <span className="text-sm text-gray-500">{issueDate}</span></p>
+          </div>
+          <div className='hidden md:block'>
+            {credentialUrl && (
+              <Button
+                variant={'outline'}
+                className="bg-transparent w-max rounded-full text-blue-400 dark:bg-blue-900/30 dark:border-blue-800 dark:text-blue-primary border-blue-400 hover:text-gray-600 hover:border-gray-600 transition-all ease-in-out hover:bg-transparent hover:shadow-none shadow-none"
+                asChild
+              >
+                <Link to={credentialUrl} target="_blank" rel="noopener noreferrer">
+                  View Credentials
+                </Link>
+              </Button>
+            )}
+            </div>
+          </div>
       </div>
       {description && <p className="text-sm text-muted-foreground">{description}</p>}
       <div className="flex gap-2 mt-4 w-full justify-between items-center md:flex-nowrap flex-wrap">
@@ -49,7 +63,7 @@ const CertificationRow = ({ data }: { data: CertificationData }) => {
           </div>
         )}
       </div>
-      <div className="flex justify-end items-center w-full">
+      <div className="flex justify-end items-center w-full block md:hidden">
         {credentialUrl && (
           <Button
             variant={'outline'}

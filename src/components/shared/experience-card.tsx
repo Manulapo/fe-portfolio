@@ -16,25 +16,25 @@ const ExperienceCard = () => {
           <div key={index} className="flex flex-col gap-2 mb-4">
             <Separator className="mt-1" />
 
-            <div className="flex items-center gap-2 my-2">
+            <div className="flex items-center gap-2 my-2 overflow-hidden">
               <Suspense
                 fallback={<Loader className="animate-spin text-gray-500" />}
               >
-                <img src={item.icon} alt={item.title} className="w-15 h-15 " />
+                <img src={item.icon} alt={item.title} className="w-15 h-15 rounded-lg" />
               </Suspense>
               <div className="flex justify-between items-start w-full">
               <div className="flex flex-col">
+                <p className="text-sm text-muted-foreground">
+                {item.duration}
+                </p>
                 <h2 className="text-lg font-semibold">{item.title}</h2>
-                <p className="text-sm text-muted-foreground font-semibold">
+                <p className="text-sm text-muted-foreground">
                   {item.company}
                 </p>
               </div>
-                <p className="text-sm text-muted-foreground font-semibold">
-                  {item.duration}
-                </p>
               </div>
             </div>
-            <p className="text-sm text-muted-foreground break-words whitespace-pre-line">{item.description}</p>
+            <p className="text-muted-foreground break-words whitespace-pre-line">{item.description}</p>
             <div className="flex flex-wrap gap-2 mt-2">
               {item.skills.map((skill, index) => (
                 <span
