@@ -14,6 +14,13 @@ import AvatarIcon from './Avatar-icon';
 import ContactinfoDialogContent from './contact-info-dialog';
 
 const cv = window.location.origin + '/assets/PDF/Manuel_la_Porta_CV.pdf';
+
+const AnimatedTitle = memo(function AnimatedTitle() {
+  const title = useTypewriter(userInfo.title, 100);
+
+  return <>{title}</>;
+});
+
 const ProfileCard = ({
   isProfilePage = false,
 }: {
@@ -26,8 +33,11 @@ const ProfileCard = ({
     [isProfilePage, isMobile],
   );
 
-  const userTitle = useTypewriter(userInfo.title, 100);
-
+  const copyProfileLink = async () => {
+    const profileUrl = `${window.location.origin}/#/profile`;
+    await navigator.clipboard.writeText(profileUrl);
+  };
+ 
   return (
     <Card className="p-0 h-auto">
       <CardHeader
@@ -80,7 +90,7 @@ const ProfileCard = ({
                 isProfilePage && 'text-lg',
               )}
             >
-              {userTitle}
+              {isProfilePage ? userInfo.title : <AnimatedTitle />}
             </p>
             <p
               className={cn(
@@ -131,18 +141,18 @@ const ProfileCard = ({
               </p>
             )}
             <div className="flex md:items-center md:justify-start justify-end gap-2 mt-6 w-full">
-              <Button
-                className="rounded-full bg-blue-600 hover:bg-blue-900"
-                asChild
-              >
-                <Link
-                  target="_blank"
-                  to="https://www.linkedin.com/in/manulaporta/"
-                  className="text-white flex items-center gap-2 px-4 py-2"
+              <Button className='rounded-full bg-blue-600 hover:bg-blue-900 text-white'>
+                <a
+                  href={cv}
+                  download="Manuel_La_Porta_CV.pdf"
+                  className="w-full flex flex items-center"
                 >
-                  <Send /> Message
-                </Link>
-              </Button>
+                  <span className="flex items-center gap-2 py-2 opacity-100 font-semibold">
+                    <FileUser  />
+                    Download CV
+                  </span>
+                </a>
+                </Button>
               <Popover open={isClicked} onOpenChange={setIsClicked}>
                 <PopoverTrigger
                   onClick={() => setIsClicked((prev) => !prev)}
@@ -157,6 +167,15 @@ const ProfileCard = ({
                   <Card className="w-full h-max p-0 border-0">
                     <CardContent className="h-auto w-full p-0 py-2 flex flex-col items-start justify-center">
                       <Link
+                        target="_blank"
+                        to="https://www.linkedin.com/in/manulaporta/"
+                        className="w-full flex items-center justify-start gap-2 py-3 px-5 pl-3 group rounded-none"
+                      >
+                        <span className="text-xs md:text-sm font-semibold opacity-70 group-hover:opacity-100 w-full flex items-center gap-2">
+                         <Send className="w-4 h-4" /> Message
+                        </span>
+                      </Link>
+                      <Link
                         to="https://www.linkedin.com/in/manulaporta/"
                         className="w-full flex items-center justify-start gap-2 py-3 px-5 pl-3 group rounded-none"
                       >
@@ -165,8 +184,8 @@ const ProfileCard = ({
                         </span>
                       </Link>
                       <Button
-                        onClick={() => {}}
-                        className="w-full flex items-center justify-start gap-2 py-3 px-5 group rounded-none"
+                        onClick={copyProfileLink}
+                        className="w-full flex items-center justify-start gap-2 py-3 px-5 group rounded-none cursor-pointer"
                         variant="ghost"
                         asChild
                       >
@@ -175,15 +194,6 @@ const ProfileCard = ({
                           a link
                         </span>
                       </Button>
-                      <a
-                        download
-                        href={cv}
-                        className="w-full flex items-center justify-start gap-2 py-3 px-5 pl-3 group rounded-none"
-                      >
-                        <span className="text-xs md:text-sm font-semibold opacity-70 group-hover:opacity-100 w-full flex items-center gap-2">
-                          <FileUser className="w-4 h-4" /> Download CV
-                        </span>
-                      </a>
                     </CardContent>
                   </Card>
                 </PopoverContent>

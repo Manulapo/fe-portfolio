@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from 'react';
 
-export const useTypewriter = (text: string, speed = 20) => {
+export const useTypewriter = (text: string, speed = 20, cursor = false) => {
   const [index, setIndex] = useState(0);
   const [showCursor, setShowCursor] = useState(true);
 
@@ -19,6 +19,7 @@ export const useTypewriter = (text: string, speed = 20) => {
   }, [index, text, speed]);
 
   useEffect(() => {
+    if (!cursor) return
     const cursorInterval = setInterval(() => {
       setShowCursor((prev) => !prev);
     }, 500); // Cursor blinks every 500ms

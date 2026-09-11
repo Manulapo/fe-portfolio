@@ -5,7 +5,7 @@ import ProfileCard from './shared/profile-card';
 const LeftSidebar = () => {
   return (
     <>
-      <ProfileCard />
+      <ProfileCard isProfilePage={false}/>
       <AboutCard isTruncated={true} />
       <InfoCard />
     </>
