@@ -18,7 +18,7 @@ const ChatBar = ({
   onChatRowSelect?: (chat: ChatData) => void;
 }) => {
   const isMobile = useIsMobile();
-  const [isOpen, setIsOpen] = useState(true);
+  const [isOpen, setIsOpen] = useState(false); 
 
   const cardStyle = useMemo(
     () => ({
