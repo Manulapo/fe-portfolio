@@ -1,4 +1,4 @@
-name: Build and deploy portfolio
+name: Deploy portfolio
 
 on:
   push:
@@ -6,54 +6,32 @@ on:
       - main
   workflow_dispatch:
 
-permissions:
-  contents: read
-  pages: write
-  id-token: write
-
 concurrency:
-  group: pages
-  cancel-in-progress: true
+  group: portfolio-production
+  cancel-in-progress: false
 
 jobs:
-  build:
+  deploy:
     runs-on: self-hosted
 
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
+      - name: Update production checkout
+        working-directory: /home/manuserver/repo/fe-portfolio
+        run: git pull --ff-only origin main
 
       - name: Set up Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v5
         with:
           node-version: 20
-          cache: npm
 
       - name: Install dependencies
+        working-directory: /home/manuserver/repo/fe-portfolio
         run: npm ci
 
       - name: Lint
+        working-directory: /home/manuserver/repo/fe-portfolio
         run: npm run lint
 
-      - name: Build Vite app
+      - name: Build production site
+        working-directory: /home/manuserver/repo/fe-portfolio
         run: npm run build
-
-      - name: Configure GitHub Pages
-        uses: actions/configure-pages@v5
-
-      - name: Upload site artifact
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: ./dist
-
-  deploy:
-    needs: build
-    runs-on: self-hosted
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-
-    steps:
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
