@@ -18,7 +18,8 @@ const ChatBar = ({
   onChatRowSelect?: (chat: ChatData) => void;
 }) => {
   const isMobile = useIsMobile();
-  const [isOpen, setIsOpen] = useState(false); 
+  // The mobile chat page hides the header, so it must start open there.
+  const [isOpen, setIsOpen] = useState(isMobile);
 
   const cardStyle = useMemo(
     () => ({
