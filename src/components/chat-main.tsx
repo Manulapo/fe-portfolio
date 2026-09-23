@@ -37,14 +37,14 @@ const ChatBar = ({
     <div className="relative">
       <Card
         className={cn(
-          'relative z-10 rounded-xl border-border bg-card p-0 m-0 shadow-none',
+          'relative z-10 m-0 gap-1 overflow-hidden rounded-xl border-border bg-card p-0 shadow-none transition-[height] duration-300 ease-in-out',
           className,
         )}
         style={cardStyle}
       >
         {!isMobile && (
-          <CardHeader className="gap-2 px-5 py-4 pb-0 ">
-            <CardTitle className="flex items-center justify-between gap-4 ">
+          <CardHeader className="gap-2 px-5 pt-2 pb-0">
+            <CardTitle className="flex items-center justify-between gap-4">
               <div className="flex min-w-0 items-center gap-3">
                 <div className="relative shrink-0">
                   <AvatarIcon name="Manuel La Porta" size={40} />
@@ -57,9 +57,6 @@ const ChatBar = ({
                   <h3 className="truncate text-base font-semibold leading-tight">
                     Messaging
                   </h3>
-                  <p className="mt-1 truncate text-xs font-normal text-muted-foreground">
-                    Keep in touch with your network
-                  </p>
                 </div>
               </div>
               <div className="flex shrink-0 items-center gap-1">
@@ -84,23 +81,29 @@ const ChatBar = ({
             </CardTitle>
           </CardHeader>
         )}
-        {isOpen && (
-          <div className='overflow-y-auto'>
-            {!isMobile && <Separator className="py-0 my-0" />}
-            <CardContent className="flex min-h-0 w-full flex-1 flex-col p-0">
-              <div className="min-h-0 flex-1 overflow-y-auto pb-3">
-                {chatData.map((chat, i) => (
-                  <div onClick={() => handleChatRowClick(chat)} key={chat.user}>
-                    <ChatRow chatData={chat} />
-                    {i < chatData.length - 1 && (
-                      <Separator className="my-1 p-0" />
-                    )}
-                  </div>
-                ))}
-              </div>
-            </CardContent>
-          </div>
-        )}
+        <div
+          aria-hidden={!isOpen}
+          className={cn(
+            'overflow-hidden transition-opacity duration-200 ease-in-out',
+            isOpen
+              ? 'pointer-events-auto opacity-100'
+              : 'pointer-events-none opacity-0',
+          )}
+        >
+          {!isMobile && <Separator className="my-0 py-0" />}
+          <CardContent className="flex min-h-0 w-full flex-1 flex-col p-0">
+            <div className="min-h-0 flex-1 overflow-y-auto pb-3">
+              {chatData.map((chat, i) => (
+                <div onClick={() => handleChatRowClick(chat)} key={chat.user}>
+                  <ChatRow chatData={chat} />
+                  {i < chatData.length - 1 && (
+                    <Separator className="my-1 p-0" />
+                  )}
+                </div>
+              ))}
+            </div>
+          </CardContent>
+        </div>
       </Card>
     </div>
   );

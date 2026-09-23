@@ -4,7 +4,7 @@ export const chatData: ChatData[] = [
   {
     user: 'Client X',
     userClaim: 'Responsive Design Expert',
-    date: '2026-06-01',
+    date: '2026-09-01',
     userAvatar:
       'https://i.pinimg.com/564x/36/ae/5a/36ae5aadd62b9ba1767b5dedd50c099c.jpg',
     isOnline: true,
@@ -37,7 +37,7 @@ export const chatData: ChatData[] = [
   {
     user: 'HR Recruiter',
     userClaim: 'Culture Enforcer',
-    date: '2026-05-28',
+    date: '2026-01-28',
     userAvatar:
       'https://lede-admin.dailydot.com/wp-content/uploads/sites/69/2025/01/anne-hathaway-zoom-4.jpg?w=710',
     isOnline: true,
@@ -101,7 +101,7 @@ export const chatData: ChatData[] = [
   {
     user: 'Friday Deployment',
     userClaim: 'Nothing Can Go Wrong',
-    date: '2026-05-08',
+    date: '2026-03-08',
     userAvatar:
       'https://media.npr.org/assets/img/2023/01/14/this-is-fine-7e5a97c2aa08a27b7b6c2ed91cd730086afb2b9c.jpg?s=1000',
     isOnline: true,
@@ -173,7 +173,7 @@ export const chatData: ChatData[] = [
   {
     user: 'Open Source Maintainer',
     userClaim: 'Unpaid Load-Bearer',
-    date: '2026-05-15',
+    date: '2026-02-15',
     userAvatar: 'https://clasebcn.com/wp-content/uploads/2020/04/harold-03.jpg',
     isOnline: false,
     preview: 'Most users become mainta',

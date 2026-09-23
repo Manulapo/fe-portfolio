@@ -9,7 +9,7 @@ const ChatRow = ({ chatData }: { chatData: ChatData }) => {
   return (
     <Button
       variant="ghost"
-      className="group block h-auto w-full cursor-pointer rounded-none px-5 py-3.5 text-left hover:bg-muted/60"
+      className="group block h-auto w-full cursor-pointer rounded-none px-5 text-left hover:bg-muted/60"
     >
       <div className="flex w-full items-center gap-3">
         <div className="relative shrink-0">

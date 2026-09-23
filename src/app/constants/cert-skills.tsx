@@ -175,6 +175,10 @@ export const skills: Record<skillsType, Record<string, string>[]> = {
       icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg',
     },
     {
+      name: 'Next.js',
+      icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg', 
+    },
+    {
       name: 'Tailwind CSS',
       icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg',
     },
@@ -182,13 +186,17 @@ export const skills: Record<skillsType, Record<string, string>[]> = {
 
   backend: [
     {
-      name: 'Laravel',
-      icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/laravel/laravel-original.svg',
-    },
-    {
       name: 'Node.js',
       icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg',
     },
+    {
+      name: 'Express.js',
+      icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg',
+    },
+    {
+      name: 'Laravel',
+      icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/laravel/laravel-original.svg',
+    }
   ],
 
   database: [

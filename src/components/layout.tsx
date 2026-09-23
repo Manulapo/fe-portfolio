@@ -15,7 +15,7 @@ const MainLayout = () => {
   }, []);
 
   return (
-    <main className="grid grid-cols-12">
+    <main className="grid grid-cols-12 max-w-[1400px] mx-auto">
       {/* Left Sidebar */}
       <div className="col-span-3 space-y-4 h-max m-0 hidden md:block sticky top-20">
         <LeftSidebar />

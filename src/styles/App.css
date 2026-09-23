@@ -229,7 +229,7 @@
 .minifig-hang {
   animation: minifig-hang-swing 14s ease-in-out forwards;
   transform-origin: 47% 0;
-  filter: drop-shadow(7px 23px 2px rgba(0,0,0,0.10));
+  filter: drop-shadow(7px 23px 2px rgba(0,0,0,0.10)), drop-shadow(-3px 0px 1px rgba(0,0,0,0.10));
 }
 
 .minifig-peek {
@@ -237,7 +237,6 @@
     infinite;
   transition: transform 1s cubic-bezier(0.22, 1, 0.36, 1);
   transform-origin: center;
-  filter: drop-shadow(-3px 0px 1px rgba(0,0,0,0.10));
 }
 
 .minifig-peek-variant {
@@ -245,6 +244,7 @@
     infinite;
   transition: transform 1s cubic-bezier(0.22, 1, 0.36, 1);
   transform-origin: center;
+  filter: drop-shadow(7px 23px 2px rgba(0,0,0,0.10)), drop-shadow(-3px 0px 1px rgba(0,0,0,0.10));
 }
 
 @media (prefers-reduced-motion: reduce) {

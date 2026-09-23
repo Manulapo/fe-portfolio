@@ -20,11 +20,11 @@ const ExperienceCard = () => {
               <Suspense
                 fallback={<Loader className="animate-spin text-gray-500" />}
               >
-                <img src={item.icon} alt={item.title} className="w-15 h-15 rounded-lg" />
+                <img src={item.icon} alt={item.title} className="w-15 h-15 rounded-lg p-1" />
               </Suspense>
               <div className="flex justify-between items-start w-full">
               <div className="flex flex-col">
-                <p className="text-sm text-muted-foreground">
+                <p className="text-xs text-gray-500">
                 {item.duration}
                 </p>
                 <h2 className="text-lg font-semibold">{item.title}</h2>
@@ -34,7 +34,7 @@ const ExperienceCard = () => {
               </div>
               </div>
             </div>
-            <p className="text-muted-foreground break-words whitespace-pre-line">{item.description}</p>
+            <p className="text-muted-foreground break-words whitespace-pre-line pl-4 py-4">{item.description}</p>
             <div className="flex flex-wrap gap-2 mt-2">
               {item.skills.map((skill, index) => (
                 <span

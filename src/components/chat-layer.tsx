@@ -33,7 +33,7 @@ const ChatLayer = ({ className }: { className: string }) => {
   };
 
   return (
-    <div className={className} style={{ bottom: '0px', right: '3em' }}>
+    <div className={className} style={{ bottom: '-10px', right: '3em' }}>
       {activeChats.map((chat) => (
         <ChatFull
         className="flex w-[380px] flex-col transition-all duration-200"

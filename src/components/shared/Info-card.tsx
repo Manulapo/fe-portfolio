@@ -11,7 +11,7 @@ const InfoCard = () => {
   return (
     <div className="info-card relative">
       {pathname !== '/network' && (
-        <Minifig1 className="minifig-peek-variant absolute -top-20 left-2/6 z-0 hidden w-30 md:block" />
+        <Minifig1 className="minifig-peek-variant absolute -top-20 left-2/6 z-0 hidden w-25 md:block" />
       )}
       <Card className="relative z-10">
         <Heading title="Contact Info" className="pt-0" />

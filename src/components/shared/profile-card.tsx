@@ -16,7 +16,7 @@ import ContactinfoDialogContent from './contact-info-dialog';
 const cv = window.location.origin + '/assets/PDF/Manuel_la_Porta_CV.pdf';
 
 const AnimatedTitle = memo(function AnimatedTitle() {
-  const title = useTypewriter(userInfo.title, 100);
+  const title = useTypewriter(userInfo.title, 100, true);
 
   return <>{title}</>;
 });
@@ -64,12 +64,22 @@ const ProfileCard = ({
             isProfilePage ? 'bottom-[-35px]' : 'bottom-[-20px]',
           )}
         >
-          <AvatarIcon
-            name={userInfo.name}
-            link="/profile"
-            size={avatarSize}
-            
-          />
+          <Suspense
+            fallback={
+              <div
+                className="flex aspect-square items-center justify-center rounded-full"
+                style={{ width: avatarSize, height: avatarSize }}
+              >
+                <Loader className="animate-spin text-gray-500" />
+              </div>
+            }
+          >
+            <AvatarIcon
+              name={userInfo.name}
+              link="/profile"
+              size={avatarSize}
+            />
+          </Suspense>
         </div>
       </CardHeader>
       <CardContent className="h-auto pb-5">
