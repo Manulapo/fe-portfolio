@@ -1,7 +1,7 @@
 import { forwardRef } from 'react';
 import SkillsCard from './shared/skills-card';
 
-const RightSidebar = forwardRef<HTMLDivElement, Record<string, never>>(
+const RightSidebar = forwardRef<HTMLDivElement, object>(
   (_props, ref) => {
     return (
       <div ref={ref}>
