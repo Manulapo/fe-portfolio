@@ -5,7 +5,7 @@ export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
 
-interface PreventHoverEvent extends React.PointerEvent<HTMLElement> {}
+type PreventHoverEvent = React.PointerEvent<HTMLElement>;
 
 export const preventHover = (event: PreventHoverEvent): void =>
   event.preventDefault();

@@ -88,7 +88,11 @@ const Post = memo(
             {postData?.description && (
               <div
                 className="mb-8"
-                onClick={() => {descWords > maxWord && setIsReadMoreOpen((prev) => !prev)}}
+                onClick={() => {
+                  if (descWords > maxWord) {
+                    setIsReadMoreOpen((prev) => !prev);
+                  }
+                }}
               >
                 <MarkDownLayout>
                   {descWords > maxWord

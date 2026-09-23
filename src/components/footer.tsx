@@ -13,6 +13,8 @@ const navLinks = [
 ];
 
 const Footer = ({ className }: { className?: string }) => {
+  const isMobile = useIsMobile();
+
   return (
     <div
       className={cn(
@@ -22,7 +24,7 @@ const Footer = ({ className }: { className?: string }) => {
     >
       <div className="flex flex-wrap gap-x-4 gap-y-2">
         {navLinks.map((link) => {
-          if (link.label === 'Chat' && !useIsMobile()) return null; // Skip the Profile link
+          if (link.label === 'Chat' && !isMobile) return null; // Skip the Profile link
           return (
             <Link key={link.to} to={link.to} className="hover:underline">
               {link.label}
