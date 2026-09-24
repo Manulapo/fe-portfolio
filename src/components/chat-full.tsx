@@ -40,7 +40,7 @@ const ChatFull = ({
       position: isMobile ? ('absolute' as const) : ('relative' as const),
       top: isMobile ? '50px' : undefined,
       zIndex: isMobile ? 1000 : undefined,
-      bottom: isOpen ? 0 : '-5px',
+      bottom:  0,
       boxShadow: isMobile ? 'none' : '0 12px 30px rgba(0, 0, 0, 0.12)',
     }),
     [isOpen, isMobile],
@@ -73,7 +73,7 @@ const ChatFull = ({
       )}
       style={cardStyle}
     >
-      <CardHeader className="gap-2 px-5 py-4 pb-0">
+      <CardHeader className="gap-2 px-5 pt-3 pb-0">
         <CardTitle className="flex items-center justify-between gap-4">
           <div className="flex min-w-0 items-center gap-3">
             <div className="relative shrink-0">
@@ -156,7 +156,7 @@ const ChatFull = ({
             </div>
 
           </CardContent>
-            <div className="border-t border-border bg-card px-4 py-3">
+            <div className="border-t border-border bg-card px-4 pt-3 pb-5">
               <div className="flex items-center gap-2">
                 <Input
                   aria-label="Message"
